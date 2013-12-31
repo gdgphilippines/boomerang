@@ -23,7 +23,6 @@ boomerang.controller('AboutControl', function ($scope, $http, $location, Config)
     $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +
             '?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount&key=' + Config.google_api).
         success(function (data) {
-            console.log(data);
             $scope.desc = data.aboutMe;
             if (data.cover && data.cover.coverPhoto.url) {
                 $scope.cover.url = data.cover.coverPhoto.url;
@@ -88,7 +87,6 @@ boomerang.controller("NewsControl", function ($scope, $http, $timeout, Config) {
                             html.push('</div>');
                             break;
                         case 'event':
-                            console.log(attachment);
                             html.push('<b>' + attachment.displayName + '</b>');
                             html.push('<p>' + attachment.content.replace(new RegExp('\n', 'g'), '<br />') + '</p>');
                             break;
