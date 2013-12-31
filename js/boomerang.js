@@ -5,6 +5,8 @@ var boomerang = angular.module('gdgBoomerang', ['ngSanitize', 'ui.bootstrap'])
             when("/news", {templateUrl: 'views/news.html', controller: "NewsControl"}).
             when("/events", {templateUrl: 'views/events.html', controller: "EventsControl"}).
             when("/photos", {templateUrl: 'views/photos.html', controller: "PhotosControl"}).
+            when("/links", {templateUrl: 'views/links.html'}).
+            when("/videos", {templateUrl: 'views/videos.html'}).
             otherwise({ redirectTo: '/about' });
     });
 
