@@ -5,12 +5,6 @@ boomerang.factory('Config', function () {
         'google_api'    : 'AIzaSyDhJlz9bfEcfzcSrq4FfxQrF6rf7k2SVtM',
 //        'pwa_id'        : '5915725140705884785', //picasa web album id, must belong to google+ id above
         'cover' : {
-            title : ''
-//            subtitle : '',
-//            button : {
-//                text : '',
-//                url : ''
-//            }
         }
     };
 });
