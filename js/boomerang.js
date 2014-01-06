@@ -5,8 +5,8 @@ var boomerang = angular.module('gdgBoomerang', ['ngSanitize', 'ui.bootstrap'])
             when("/news", {templateUrl: 'views/news.html', controller: "NewsControl"}).
             when("/events", {templateUrl: 'views/events.html', controller: "EventsControl"}).
             when("/photos", {templateUrl: 'views/photos.html', controller: "PhotosControl"}).
-            when("/links", {templateUrl: 'views/links.html'}).
-            when("/videos", {templateUrl: 'views/videos.html'}).
+            when("/links", {templateUrl: 'views/links.html', controller: "LinksControl"}).
+            when("/videos", {templateUrl: 'views/videos.html', controller: "VideosControl"}).
             otherwise({ redirectTo: '/about' });
     });
 
@@ -172,6 +172,16 @@ boomerang.controller("PhotosControl", function ($scope, $http, Config) {
             }
             $scope.loading = false;
         });
+});
+
+boomerang.controller('LinksControl', function ($scope, Config) {
+	$scope.loading = false;
+	$scope.$parent.activeTab = "links";
+});
+
+boomerang.controller('VideosControl', function ($scope, Config) {
+	$scope.loading = false;
+	$scope.$parent.activeTab = "videos";
 });
 
 // HTML-ified linky from http://plnkr.co/edit/IEpLfZ8gO2B9mJcTKuWY?p=preview
