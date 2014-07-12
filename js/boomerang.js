@@ -146,27 +146,52 @@ boomerang.controller("NewsControl", function ($scope, $http, $timeout, $filter, 
         });
 });
 
-boomerang.controller("EventsControl", function ($scope, $http, Config) {
+//boomerang.controller("EventsControl", function ($scope, $http, Config) {
+//    $scope.loading = true;
+//    $scope.$parent.activeTab = "events";
+//
+//    $scope.events = {past:[] ,future:[]};
+//    var url = "http://hub.gdgx.io/api/v1/chapters/"+Config.id+"/events?callback=JSON_CALLBACK";
+//    var httpConfig = { 'headers': {'Accept': 'application/json;'}, 'timeout': 2000 };
+//    $http.jsonp(url, httpConfig).
+//        success(function(data){
+//            var now = new Date();
+//            var items = data.items;
+//            for(var i=items.length-1;i>=0;i--){
+//                var start = new Date(items[i].start);
+//
+//                items[i].start = start;
+//                items[i].end = new Date(items[i].end);
+//                if (start < now){
+//                    $scope.events.past.push(items[i]);
+//
+//                } else {
+//                    $scope.events.future.push(items[i]);
+//                }
+//            }
+//            $scope.loading = false;
+//        });
+//
+//});
+
+boomerang.controller("EventsControl", function( $scope, $http, Config ) {
     $scope.loading = true;
     $scope.$parent.activeTab = "events";
 
     $scope.events = {past:[] ,future:[]};
-    var url = "http://hub.gdgx.io/api/v1/chapters/"+Config.id+"/events?callback=JSON_CALLBACK";
-    var httpConfig = { 'headers': {'Accept': 'application/json;'}, 'timeout': 2000 };
-    $http.jsonp(url, httpConfig).
+    $http.get("http://gdgfresno.com/gdgfeed.php?id="+Config.id).
         success(function(data){
             var now = new Date();
-            var items = data.items;
-            for(var i=items.length-1;i>=0;i--){
-                var start = new Date(items[i].start);
+            for(var i=data.length-1;i>=0;i--){
+                var start = new Date(data[i].start);
 
-                items[i].start = start;
-                items[i].end = new Date(items[i].end);
+                data[i].start = start;
+                data[i].end = new Date(data[i].end);
+
                 if (start < now){
-                    $scope.events.past.push(items[i]);
-
+                    $scope.events.past.push(data[i]);
                 } else {
-                    $scope.events.future.push(items[i]);
+                    $scope.events.future.push(data[i]);
                 }
             }
             $scope.loading = false;
