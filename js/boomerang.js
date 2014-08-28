@@ -165,11 +165,15 @@ boomerang.controller("EventsControl", function ($scope, $http, Config) {
     url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/past?callback=JSON_CALLBACK';
     $http.jsonp(url, headers)
         .success(function (data) {
-            for (var i = data.items.length - 1; i >= 0; i--) {
-                $scope.events.past.push(data.items[i]);
-            }
-            $scope.loading = false;
-            $scope.status = 'ready';
+            url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/past?page=' + data.pages + '&callback=JSON_CALLBACK';
+            $http.jsonp(url, headers)
+            .success(function (data) {
+                for (var i = data.items.length - 1; i >= 0; i--) {
+                    $scope.events.past.push(data.items[i]);
+                }
+                $scope.loading = false;
+                $scope.status = 'ready';
+            });
         });
 });
 
