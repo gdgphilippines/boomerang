@@ -7,6 +7,17 @@
 *.o
 *.so
 
+# Polymer #
+
+*.gitignore
+*.bower.json
+*bower.json
+*/test/*
+*demo.html
+*/components/*index.html
+*/components/*metadata.html
+*README.md
+
 # Packages #
 ############
 # it's better to unpack these files and commit the raw source

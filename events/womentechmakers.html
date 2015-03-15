@@ -17,24 +17,37 @@
 		<link rel="import" href="components/core-header-panel/core-header-panel.html">
 		<link rel="import" href="components/core-toolbar/core-toolbar.html">
 		<link rel="import" href="components/paper-tabs/paper-tabs.html">
+		<link rel="import" href="components/core-animated-pages/core-animated-pages.html">
+		<link rel="import" href="components/flatiron-director/flatiron-director.html">
+		<link rel="import" href="components/paper-shadow/paper-shadow.html">
 
 		<link rel="import" href="components/page.html"/>
         
 		<link rel="stylesheet" href="components/wtm.css"/>
 
+		<link rel="import" href="components/font-roboto/roboto.html">
+
 	</head>
 
-	<body>
+	<body fullbleed>
         <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <paper-shadow class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</paper-shadow>
         <![endif]-->
 
-	<core-header-panel>
+    
+	<core-header-panel mode="waterfall">
+		<template is="auto-binding" id="t">
+
+			<flatiron-director route="{{route}}" autoHash></flatiron-director>
+
 				<core-toolbar>
-					<paper-tabs self-end>
+				 	<div flex>Women Techmakers Manila</div>
+					<paper-tabs valueattr="name" selected="{{route}}" self-end>
 						<paper-tab name="home">Home</paper-tab>
+<!--
 						<paper-tab name="googleplus">G+ Events Page</paper-tab>
-						<paper-tab name="registration">Registration</paper-tab>
+-->
+						<paper-tab name="registration">Register</paper-tab>
 						<paper-tab name="venue">Venue</paper-tab>
 						<paper-tab name="agenda">Agenda</paper-tab>
 						<paper-tab name="speakers">Speakers</paper-tab>
@@ -45,94 +58,86 @@
 
 		
 		<div class="container">
-			<div class="page-header" id="banner">
-				<div class="row">
+			<core-animated-pages valueattr="id" selected="{{route}}" transitions="slide-from-right">
+			<page-section id="home" class="page-header">
+				<div style="max-width:860px; width:100%; margin-left:auto; margin-right:auto; margin-top:40px; margin-bottom:40px">
+					<img src="wtm/wtm-main.jpg" style="float:left; width:32.56%"/>
+					<img src="wtm/box-theme.jpg" style="float:left; width:65.11%; margin-left:1.16%; margin-bottom:1.16%"/>
+					<img src="wtm/box1.jpg" style="float:left; margin-left:1.16%; width:20.93%"/>
+					<img src="wtm/box2.jpg" style="float:left; margin-left:1.16%; width:20.93%"/>
+					<img src="wtm/box3.jpg" style="float:left; margin-left:1.16%; width:20.93%"/>
+					<div style="clear:both"></div>
+				</div>
+				<div class="row" id="banner" style="display:none">
 					<div class="col-lg-6">
 						<h1>Women Techmakers Manila 2015</h1>
-						<p class="lead">Connect. Create. Celebrate.<br />
-						March 28, 2015
-						</p>
+						<h2>Connect. Create. Celebrate.</h2>
+						<h2>March 28, 2015</h2>
 					</div>
 				</div>
-			</div>
-		</div>
-		
-		<div class="container">
-			<page-section>
-				<p style="text-align:justify">
+				<paper-shadow class="card" z="1">
 					Google believes diversity and inclusion is important for thriving vibrant communities. Focusing on women-inclusion is the first step in a larger effort to diversify the global Google developer community. The GDG Philippines community has shown great interest in this initiative, starting with <a href="http://devfestw.gdgph.org/2013/03/devfestw-philippines-only-beginning.html">GDG DevFest Women 2013</a> and  <a href="http://www.gdgph.org/events/womentechmakers-2014.html">Women Techmakers 2014</a> last year.
-				</p>
-				<p style="text-align:justify">
+				</paper-shadow>
+				<paper-shadow style="text-align:justify">
 				This year, <a href="http://gdgph.org">GDG Philippines</a> is organizing another Women Techmakers event on March 28, 2015. The goal of the event is to empower women to pursue their dreams and build tools that will change the world. There will be invited talks from different women speakers, code labs, and breakout sessions. 
-				<p>
-				</p>
+				</paper-shadow>
+				<paper-shadow>
 					Let's show more visibility to our Women Techmakers and inspire our next generation of women leaders and Techmakers. Join us as we celebrate also International Women's Month. Please sign up early and save the date. We'll be sending confirmation emails with the details of the venue and how to get there.
-				</p>
+				</paper-shadow>
 			</page-section>
 
-			<page-section>
-				<h3><a id="registration">Registration</a></h3>
-				<p>
+			<page-section id="registration">
+				<h3>Registration</h3>
+				<paper-shadow>
 					Slots are limited so you need to register. Fill-up the form below to register for this event:
-					<br />
+				</paper-shadow>
+
 					<iframe src="https://docs.google.com/forms/d/1Qv6okvgND4mPFpAN9Hlmq8wSEsYXVXivZVb7KapTZOg/viewform?embedded=true#start=embed" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-				</p>
 			</page-section>
 
-			<page-section>
-				<h3><a id="venue">Venue</a></h3>
-				<p>
+			<page-section id="venue">
+				<h3>Venue</h3>
+				<h4>
 					The event will be held at iAcademy (iACADEMY Plaza, 324 Senator Gil J. Puyat Ave. Bel-air, Makati City)
-					<br />
+				</h4>
 					<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1930.8296503920897!2d121.01942309919737!3d14.561465381130068!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x93456dd48e7e08ee!2siAcademy!5e0!3m2!1sen!2sus!4v1425772761083" width="100%" height="450" frameborder="0" style="border:0"></iframe>
-				</p>
 			</page-section>
 
-			<page-section>
-				<h3><a id="agenda">Agenda</a></h3>
-				<p style="text-align:center">The following agenda may still be subject to change:<br />
-					<iframe src="https://docs.google.com/spreadsheets/d/1OpsN3s1KG5Qqafsu_urwouTCJTH3kgPPNDCZLpaT_Zg/pubhtml?gid=1542043696&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="600"></iframe>
-				</p>
+			<page-section id="agenda">
+				<h3>Agenda</h3>
+				<paper-shadow style="text-align:center">The following agenda may is still subject change:
+				</paper-shadow>
+				<iframe src="https://docs.google.com/spreadsheets/d/1OpsN3s1KG5Qqafsu_urwouTCJTH3kgPPNDCZLpaT_Zg/pubhtml?gid=1542043696&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="600"></iframe>
 			</page-section>
 
-			<page-section>
-				<h3><a id="speakers">Speakers</a></h3>
-				<p>We are still finalizing the list of speakers.</p>
+			<page-section id="speakers">
+				<h3>Speakers</h3>
+				<paper-shadow>We are still finalizing the list of speakers.</paper-shadow>
 			</page-section>
 
-			<page-section>
-				<h3><a id="sponsors">Sponsors</a></h3>
+			<page-section id="sponsors">
+				<h3>Sponsors</h3>
 				<div style="text-align:center">
 					To be announced
 				</div>
 				
 			</page-section>
 
-			<page-section>
-				<p style="text-align:justify;">
+			<page-section id="socialmedia">
+				<paper-shadow style="text-align:justify;">
 					Add <a href="https://plus.google.com/u/0/105750470224587854845">GDG Philippines</a> in your Google+ circles<br />
 					<div class="g-follow" data-annotation="vertical-bubble" data-height="24" data-href="//plus.google.com/u/0/105750470224587854845" data-rel="publisher"></div>
-				</p>			
+				</paper-shadow>			
 			</page-section>
+
+		</core-animated-pages>
 		</div>
-		
-		
-		<script type="text/javascript">
-		  (function() {
-		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-		    po.src = 'https://apis.google.com/js/plusone.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-		  })();
-		</script>
-		<script type="text/javascript">
-		  (function() {
-		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-		    po.src = 'https://apis.google.com/js/platform.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-		  })();
-		</script>
+
+	</template>
 		
 	</core-header-panel>
+
+	<script type="text/javascript" src="components/wtm.js"></script>
 
     </body>
 </html>
