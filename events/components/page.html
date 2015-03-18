@@ -1,10 +1,13 @@
 <link rel="import" href="../components/polymer/polymer.html">
 
-<polymer-element name="page-section">
+<polymer-element name="page-section" attributes="id backgroundColor color">
 <template>
 <style>
+.wrapper {
+	overflow:auto;
+}
 </style>
-<content></content>
+<div class="wrapper" style="background-color: {{backgroundColor}}; color: {{color}}" class="white" id="{{id}}"><content></content></div>
 </template>
 <script>
 Polymer();
