@@ -23,4 +23,12 @@
 		// Use URL hash for initial route. Otherwise, use the first page.
 		this.route = this.route || DEFAULT_ROUTE;
 	});
+
+	template.onTransition = function(e,d,Sender) {
+		// reload iframes. problem with Google Maps
+		var selected = Sender.selected;
+		var iframe = document.querySelector('#'+selected+' iframe');
+		iframe.src = iframe.src;
+	}
+
 })();

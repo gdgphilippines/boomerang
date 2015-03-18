@@ -28,7 +28,7 @@ paper-tab {
 h3 {
   text-align:center;
   font-weight:normal;
-  border: 1px solid #000;
+  border: 2px solid #ffffff;
   padding:10px 20px;
   max-width:200px;
   font-size:30px;
@@ -61,6 +61,7 @@ paper-shadow, .card {
   background-color: white;
   font-size:18px;
   text-align:center;
+  color:#000000;
 }
 
 paper-section {
