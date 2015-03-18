@@ -59,7 +59,7 @@
 
 		
 		<div class="container">
-			<core-animated-pages valueattr="id" selected="{{route}}" transitions="slide-from-right">
+			<core-animated-pages valueattr="id" selected="{{route}}" transitions="slide-from-right" on-core-animated-pages-transition-end="{{onTransition}}">
 			<page-section id="home" class="page-header">
 				<div style="max-width:860px; width:100%; margin-left:auto; margin-right:auto; margin-top:40px; margin-bottom:40px">
 					<img src="wtm/wtm-main.jpg" style="float:left; width:32.56%"/>
