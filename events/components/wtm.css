@@ -37,7 +37,8 @@ h3 {
 }
 
 iframe {
-  max-width:80%;
+  max-width:860px;
+  width:100%;
   margin-left:auto;
   margin-right:auto;
   border:0;
@@ -54,7 +55,7 @@ h4 {
 
 paper-shadow, .card { 
   margin:16px;
-  max-width:640px;
+  max-width:840px;
   margin-left:auto;
   margin-right:auto;
   padding:10px;
@@ -66,4 +67,28 @@ paper-shadow, .card {
 
 paper-section {
   background-color: #4fc2f8
+}
+
+.header {
+  max-width:860px; 
+  width:100%; 
+  margin-left:auto; 
+  margin-right:auto; 
+  margin-top:40px; 
+  margin-bottom:40px
+}
+.header .col-3 {
+  float:left;
+  width:32.92%;
+}
+.header .col-2 {
+  float:left;
+  margin-left:1.18%;
+  width:21.18%;
+}
+.header .col-6 {
+  float:left;
+  margin-left:1.18%;
+  margin-bottom:1.18%;
+  width:65.90%;
 }

@@ -18,6 +18,7 @@
 		<link rel="import" href="components/core-toolbar/core-toolbar.html">
 		<link rel="import" href="components/paper-tabs/paper-tabs.html">
 		<link rel="import" href="components/core-animated-pages/core-animated-pages.html">
+		<link rel="import" href="components/core-pages/core-pages.html">
 		<link rel="import" href="components/core-animated-pages/transitions/slide-from-right.html">
 		<link rel="import" href="components/flatiron-director/flatiron-director.html">
 		<link rel="import" href="components/paper-shadow/paper-shadow.html">
@@ -61,12 +62,12 @@
 		<div class="container">
 			<core-animated-pages valueattr="id" selected="{{route}}" transitions="slide-from-right" on-core-animated-pages-transition-end="{{onTransition}}">
 			<page-section id="home" class="page-header">
-				<div style="max-width:860px; width:100%; margin-left:auto; margin-right:auto; margin-top:40px; margin-bottom:40px">
-					<img src="wtm/wtm-main.jpg" style="float:left; width:32.56%"/>
-					<img src="wtm/box-theme.jpg" style="float:left; width:65.11%; margin-left:1.16%; margin-bottom:1.16%"/>
-					<img src="wtm/box1.jpg" style="float:left; margin-left:1.16%; width:20.93%"/>
-					<img src="wtm/box2.jpg" style="float:left; margin-left:1.16%; width:20.93%"/>
-					<img src="wtm/box3.jpg" style="float:left; margin-left:1.16%; width:20.93%"/>
+				<div class="header">
+					<img src="wtm/wtm-main.jpg" class="col-3"/>
+					<img src="wtm/box-theme.jpg" class="col-6"/>
+					<img src="wtm/box1.jpg" class="col-2"/>
+					<img src="wtm/box2.jpg" class="col-2"/>
+					<img src="wtm/box3.jpg" class="col-2"/>
 					<div style="clear:both"></div>
 				</div>
 				<div class="row" id="banner" style="display:none">
@@ -222,7 +223,7 @@
 				</paper-shadow>			
 			</page-section>
 
-		</core-animated-pages>
+		</core-pages>
 		</div>
 
 	</template>
