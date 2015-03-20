@@ -20,6 +20,7 @@
 		<link rel="import" href="components/core-animated-pages/core-animated-pages.html">
 		<link rel="import" href="components/core-pages/core-pages.html">
 		<link rel="import" href="components/core-animated-pages/transitions/slide-from-right.html">
+		<link rel="import" href="components/core-media-query/core-media-query.html">
 		<link rel="import" href="components/flatiron-director/flatiron-director.html">
 		<link rel="import" href="components/paper-shadow/paper-shadow.html">
 
@@ -40,11 +41,12 @@
 	<core-header-panel mode="waterfall">
 		<template is="auto-binding" id="t">
 
+			<core-media-query query="max-width: 640px" queryMatches="{{phoneScreen}}"></core-media-query>
 			<flatiron-director route="{{route}}" autoHash></flatiron-director>
 
 				<core-toolbar>
 				 	<div flex>Women Techmakers Manila</div>
-					<paper-tabs valueattr="name" selected="{{route}}" self-end>
+					<paper-tabs valueattr="name" selected="{{route}}" self-end hidden?="{{phoneScreen}}">
 						<paper-tab name="home">Home</paper-tab>
 <!--
 						<paper-tab name="googleplus">G+ Events Page</paper-tab>
@@ -60,7 +62,7 @@
 
 		
 		<div class="container">
-			<core-animated-pages valueattr="id" selected="{{route}}" transitions="slide-from-right" on-core-animated-pages-transition-end="{{onTransition}}">
+			<core-pages valueattr="id" selected="{{route}}" transitions="slide-from-right" on-core-animated-pages-transition-end="{{onTransition}}">
 			<page-section id="home" class="page-header">
 				<div class="header">
 					<img src="wtm/wtm-main.jpg" class="col-3"/>
