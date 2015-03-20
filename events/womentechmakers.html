@@ -18,7 +18,9 @@
 		<link rel="import" href="components/core-toolbar/core-toolbar.html">
 		<link rel="import" href="components/paper-tabs/paper-tabs.html">
 		<link rel="import" href="components/core-animated-pages/core-animated-pages.html">
+		<link rel="import" href="components/core-pages/core-pages.html">
 		<link rel="import" href="components/core-animated-pages/transitions/slide-from-right.html">
+		<link rel="import" href="components/core-media-query/core-media-query.html">
 		<link rel="import" href="components/flatiron-director/flatiron-director.html">
 		<link rel="import" href="components/paper-shadow/paper-shadow.html">
 
@@ -39,11 +41,12 @@
 	<core-header-panel mode="waterfall">
 		<template is="auto-binding" id="t">
 
+			<core-media-query query="max-width: 640px" queryMatches="{{phoneScreen}}"></core-media-query>
 			<flatiron-director route="{{route}}" autoHash></flatiron-director>
 
 				<core-toolbar>
 				 	<div flex>Women Techmakers Manila</div>
-					<paper-tabs valueattr="name" selected="{{route}}" self-end>
+					<paper-tabs valueattr="name" selected="{{route}}" self-end hidden?="{{phoneScreen}}">
 						<paper-tab name="home">Home</paper-tab>
 <!--
 						<paper-tab name="googleplus">G+ Events Page</paper-tab>
@@ -59,14 +62,14 @@
 
 		
 		<div class="container">
-			<core-animated-pages valueattr="id" selected="{{route}}" transitions="slide-from-right" on-core-animated-pages-transition-end="{{onTransition}}">
+			<core-pages valueattr="id" selected="{{route}}" transitions="slide-from-right" on-core-animated-pages-transition-end="{{onTransition}}">
 			<page-section id="home" class="page-header">
-				<div style="max-width:860px; width:100%; margin-left:auto; margin-right:auto; margin-top:40px; margin-bottom:40px">
-					<img src="wtm/wtm-main.jpg" style="float:left; width:32.56%"/>
-					<img src="wtm/box-theme.jpg" style="float:left; width:65.11%; margin-left:1.16%; margin-bottom:1.16%"/>
-					<img src="wtm/box1.jpg" style="float:left; margin-left:1.16%; width:20.93%"/>
-					<img src="wtm/box2.jpg" style="float:left; margin-left:1.16%; width:20.93%"/>
-					<img src="wtm/box3.jpg" style="float:left; margin-left:1.16%; width:20.93%"/>
+				<div class="header">
+					<img src="wtm/wtm-main.jpg" class="col-3"/>
+					<img src="wtm/box-theme.jpg" class="col-6"/>
+					<img src="wtm/box1.jpg" class="col-2"/>
+					<img src="wtm/box2.jpg" class="col-2"/>
+					<img src="wtm/box3.jpg" class="col-2"/>
 					<div style="clear:both"></div>
 				</div>
 				<div class="row" id="banner" style="display:none">
@@ -76,10 +79,10 @@
 						<h2>March 28, 2015</h2>
 					</div>
 				</div>
-				<paper-shadow class="card" z="1">
+				<paper-shadow>
 					Google believes diversity and inclusion is important for thriving vibrant communities. Focusing on women-inclusion is the first step in a larger effort to diversify the global Google developer community. The GDG Philippines community has shown great interest in this initiative, starting with <a href="http://devfestw.gdgph.org/2013/03/devfestw-philippines-only-beginning.html">GDG DevFest Women 2013</a> and  <a href="http://www.gdgph.org/events/womentechmakers-2014.html">Women Techmakers 2014</a> last year.
 				</paper-shadow>
-				<paper-shadow style="text-align:justify">
+				<paper-shadow>
 				This year, <a href="http://gdgph.org">GDG Philippines</a> is organizing another Women Techmakers event on March 28, 2015. The goal of the event is to empower women to pursue their dreams and build tools that will change the world. There will be invited talks from different women speakers, code labs, and breakout sessions. 
 				</paper-shadow>
 				<paper-shadow>
@@ -108,7 +111,7 @@
 				<h3>Agenda</h3>
 				<paper-shadow>The following agenda is still subject to change:
 				</paper-shadow>
-				<iframe src="https://docs.google.com/spreadsheets/d/1OpsN3s1KG5Qqafsu_urwouTCJTH3kgPPNDCZLpaT_Zg/pubhtml?gid=1542043696&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="600"></iframe>
+				<iframe src="https://docs.google.com/spreadsheets/d/1OpsN3s1KG5Qqafsu_urwouTCJTH3kgPPNDCZLpaT_Zg/pubhtml?gid=1542043696&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="600" style="max-width:780px"></iframe>
 			</page-section>
 
 			<page-section id="speakers" backgroundColor="#3c4a64" color='#ffffff'>
@@ -208,21 +211,30 @@
 				</paper-shadow>
 				<paper-shadow>
 					<h4>Media Partners:</h4>
-					<img src="wtm/sponsors/media-partners3.png"/>
-					<img src="wtm/sponsors/media-partners2.png"/>
-					<img src="wtm/sponsors/media-partners1.png"/>
+					<a href="http://anc.yahoo.com" rel="nofollow"><img src="wtm/media/anc.png" alt="ANC"/></a>
+					<a href="http://boracaybeachradio.com" rel="nofollow"><img src="wtm/media/boracay.png" alt="Boracay Beach Radio"/></a>
+					<a rel="nofollow"><img src="wtm/media/circuit.png" alt="Circuit Magazine"/></a>
+					<a href="http://clickthecity.com" rel="nofollow"><img src="wtm/media/clickthecity.png" alt="ClickTheCity.com"/></a>
+					<a rel="nofollow"><img src="wtm/media/dziq.png" alt="DZIQ 990AM"/></a>
+					<a rel="nofollow"><img src="wtm/media/hwm.png" alt="HWM Magazine"/></a>
+					<a href="http://inquirer.net" rel="nofollow"><img src="wtm/media/inquirernet.png" alt="Inquirer.net"/></a>
+					<a rel="nofollow"><img src="wtm/media/philstar.png" alt="Philippine Star"/></a>
+					<a href="http://radiorakista.com" rel="nofollow"><img src="wtm/media/rakista.png" alt="Radio Rakista"/></a>
+					<a rel="nofollow"><img src="wtm/media/voc.png" alt="Voice Creative"/></a>
+					<a rel="nofollow"><img src="wtm/media/voty.png" alt="Voice of the Youth"/></a>
+					<a href="http://wheninmanila.com" rel="nofollow"><img src="wtm/media/wheninmanila.png" alt="WhenInManila.com"/></a>				</paper-shadow>
 				</paper-shadow>
 				
 			</page-section>
 
 			<page-section id="socialmedia">
-				<paper-shadow style="text-align:justify;">
+				<paper-shadow>
 					Add <a href="https://plus.google.com/u/0/105750470224587854845">GDG Philippines</a> in your Google+ circles<br />
 					<div class="g-follow" data-annotation="vertical-bubble" data-height="24" data-href="//plus.google.com/u/0/105750470224587854845" data-rel="publisher"></div>
 				</paper-shadow>			
 			</page-section>
 
-		</core-animated-pages>
+		</core-pages>
 		</div>
 
 	</template>
