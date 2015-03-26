@@ -14,8 +14,8 @@
 *bower.json
 */test/*
 *demo.html
-*/components/*index.html
-*/components/*metadata.html
+*/components/*/index.html
+*/components/*/metadata.html
 *README.md
 
 # Packages #

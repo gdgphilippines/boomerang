@@ -15,8 +15,9 @@ Polymer();
 </script>
 </polymer-element>
 
-
-<polymer-element name="speaker-tile" attributes="image">
+<link rel="import" href="../components/paper-dialog/paper-action-dialog.html">
+<link rel="import" href="../components/paper-button/paper-button.html">
+<polymer-element name="speaker-tile" attributes="image name desc toggleDialog">
 <template>
 <style>
 paper-shadow {
@@ -51,16 +52,32 @@ paper-shadow {
 	color:#000000;
 	height:30px;
 }
+p {
+	text-align:justify;
+}
+paper-action-dialog .profile_pic {
+	margin-left:20px;
+}
 </style>
-<paper-shadow>
+<paper-shadow on-tap="{{toggleDialog}}">
 	<div class="profile_pic"><img src="wtm/speakers/{{image}}.png"></div>
 	<div class="name"><content select="name"></content></div>
 	<div class="desc"><content select="desc"></content></div>
 </paper-shadow>
+<paper-action-dialog backdrop autoCloseDisabled layered="false">
+	<div class="profile_pic"><img src="wtm/speakers/{{image}}.png"></div>
+	<div class="header"></div>
+  	<p><content select="bio"></content></p>
+  <paper-button affirmative autofocus>Tap me to close</paper-button>
+</paper-action-dialog>
 </template>
 <script>
 Polymer('speaker-tile',{
-	'image' : 'default'
+	'image' : 'default',
+	'toggleDialog' : function(e,d,Sender) {
+		console.log(Sender.nextElementSibling);
+		Sender.nextElementSibling.toggle();
+	}
 });
 </script>
 </polymer-element>
