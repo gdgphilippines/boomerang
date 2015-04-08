@@ -15,38 +15,11 @@
         <link href="/app/css/gdg.css" rel="stylesheet" media="screen">
         <link rel="icon" sizes="16x16 32x32" href="/favicon.ico">
     </head>
-<<<<<<< HEAD
-    <body ng-controller="MainControl">
-        <!-- NAV -->
-        <div class="navbar navbar-static-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <button type="button" class="btn btn-navbar" ng-click="isNavCollapsed = !isNavCollapsed">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="brand" ng-cloak id="gdg_chapter_name" href="#!/about">{{ chapter_name }}</a>
-
-                    <div class="nav-collapse" collapse="isNavCollapsed" ng-click="isNavCollapsed = true">
-                        <ul class="nav">
-                            <li ng-class="{ 'active' : activeTab=='about' }"><a href="#!/about">About</a></li>
-                            <li><a href="http://blog.gdgph.org" target="_blank">Blog</a></li>
-                            <li ng-class="{ 'active' : activeTab=='news' }"><a href="#!/news">News</a></li>
-                            <li ng-class="{ 'active' : activeTab=='events' }"><a href="#!/events">Events</a></li>
-                            <!-- <li ng-class="{ 'active' : activeTab=='photos' }"><a href="#!/photos">Photos</a></li> -->
-                            <li ng-class="{ 'active' : activeTab=='videos' }"><a href="#!/videos">Videos</a></li>
-                            <li ng-class="{ 'active' : activeTab=='links' }"><a href="#!/links">Links</a></li>
-                            <li><a ng-href="{{ google_plus_link }}" rel="publisher" target="_blank">Google+</a></li>
-                        </ul>
-                    </div>
-                </div>
-=======
+  
     <body ng-controller="MainController as mc">
 
-        <!-- TODO Edit here to update your snippet for sharing. -->
-        <span itemprop="name" style="display: none;">GDG Space Coast - Brevard County, FL, USA.</span>
-        <span itemprop="description" style="display: none;">Google Developer Group (GDG) Space Coast is a technology user group that meets to discuss the latest Google Technologies, Tools, SDKs, and APIs.</span>
+        <span itemprop="name" style="display: none;">GDG Philippines</span>
+        <span itemprop="description" style="display: none;">Google Developer Group (GDG) Philippines is a group of enthusiastic Filipino developers interested to collaborate and learn more about new technologies.</span>
         <img itemprop="image" style="display: none;" src="app/images/GDG-X-Boomerang-snippet.png">
 
         <md-toolbar class="md-hue-2">
@@ -69,14 +42,14 @@
                 <a ng-if="mc.gdgLink" ng-href="{{ mc.gdgLink }}" target="_blank">
                     <img src="app/images/GDG_square_lg.png" alt="GDG" class="png-icon gdg-icon grayscale">
                 </a>
->>>>>>> upstream/master
             </div>
         </md-toolbar>
         <md-tabs md-selected="mc.navTab">
             <a href="#!/about"><md-tab label="About" id="about-tab"></md-tab></a>
             <a href="#!/news"><md-tab label="News" id="news-tab"></md-tab></a>
             <a href="#!/events"><md-tab label="Events" id="events-tab"></md-tab></a>
-            <a href="#!/photos"><md-tab label="Photos" id="photos-tab"></md-tab></a>
+            <!-- <a href="#!/photos"><md-tab label="Photos" id="photos-tab"></md-tab></a> -->
+            <a href="http://blog.gdgph.org" target="_blank"><md-tab label="Blog" id="blog-tab"></md-tab></a><
         </md-tabs>
         <div layout layout-margin layout-align="center start">
             <div ng-view flex-sm="100" flex-md="90" flex-lg="80" flex-gt-lg="75"></div>
