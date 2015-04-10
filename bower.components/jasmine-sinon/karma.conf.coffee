@@ -3,7 +3,7 @@ module.exports = (config) ->
     basePath: ''
     frameworks: ['jasmine']
     files: [
-      'bower_components/sinonjs/sinon.js'
+      'bower.components/sinonjs/sinon.js'
       'lib/jasmine-sinon.js'
       'spec/*.spec.js'
     ]

@@ -12,13 +12,13 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'bower_components/angular/angular.js',
-            'bower_components/angular-mocks/angular-mocks.js',
-            'bower_components/angular-route/angular-route.js',
-            'bower_components/angular-sanitize/angular-sanitize.js',
-            'bower_components/angular-aria/angular-aria.js',
-            'bower_components/angular-animate/angular-animate.js',
-            'bower_components/angular-material/angular-material.js',
+            'bower.components/angular/angular.js',
+            'bower.components/angular-mocks/angular-mocks.js',
+            'bower.components/angular-route/angular-route.js',
+            'bower.components/angular-sanitize/angular-sanitize.js',
+            'bower.components/angular-aria/angular-aria.js',
+            'bower.components/angular-animate/angular-animate.js',
+            'bower.components/angular-material/angular-material.js',
             'app/boomerang.module.js',
             'app/**/*.js',
             'test/unit/**/*.js'
