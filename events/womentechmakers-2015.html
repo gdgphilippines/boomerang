@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Women Techmakers Manila</title>
+        
+        <meta name="description" content="Women Techmakers Manila">
+        <meta name="viewport" content="width=device-width">
+
+		<script src="components/webcomponentsjs/webcomponents.min.js"></script>
+
+
+		<link rel="import" href="components/core-header-panel/core-header-panel.html">
+		<link rel="import" href="components/core-toolbar/core-toolbar.html">
+		<link rel="import" href="components/paper-tabs/paper-tabs.html">
+		<link rel="import" href="components/core-animated-pages/core-animated-pages.html">
+		<link rel="import" href="components/core-animated-pages/transitions/slide-from-right.html">
+		<link rel="import" href="components/core-media-query/core-media-query.html">
+		<link rel="import" href="components/flatiron-director/flatiron-director.html">
+		<link rel="import" href="components/paper-shadow/paper-shadow.html">
+
+		<link rel="import" href="components/page.html"/>
+        
+		<link rel="stylesheet" href="components/wtm.css"/>
+
+		<link rel="import" href="components/font-roboto/roboto.html">
+
+	</head>
+
+	<body fullbleed>
+        <!--[if lt IE 7]>
+            <paper-shadow class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</paper-shadow>
+        <![endif]-->
+
+    
+	<core-header-panel mode="waterfall">
+		<template is="auto-binding" id="t">
+
+			<core-media-query query="max-width: 640px" queryMatches="{{phoneScreen}}"></core-media-query>
+			<flatiron-director route="{{route}}" autoHash></flatiron-director>
+
+				<core-toolbar>
+				 	<div flex>Women Techmakers Manila</div>
+					<paper-tabs valueattr="name" selected="{{route}}" self-end hidden?="{{phoneScreen}}">
+						<paper-tab name="home">Home</paper-tab>
+<!--
+						<paper-tab name="googleplus">G+ Events Page</paper-tab>
+-->
+						<paper-tab name="registration">Register</paper-tab>
+						<paper-tab name="venue">Venue</paper-tab>
+						<paper-tab name="agenda">Agenda</paper-tab>
+						<paper-tab name="speakers">Speakers</paper-tab>
+						<paper-tab name="sponsors">Sponsors</paper-tab>
+					</paper-tabs>
+				</core-toolbar>
+
+
+		
+		<div class="container">
+			<core-pages valueattr="id" selected="{{route}}" transitions="slide-from-right" on-core-animated-pages-transition-end="{{onTransition}}">
+			<page-section id="home" class="page-header">
+				<div class="header">
+					<img src="wtm/wtm-main.jpg" class="col-3"/>
+					<img src="wtm/box-theme.jpg" class="col-6"/>
+					<img src="wtm/box1.jpg" class="col-2"/>
+					<img src="wtm/box2.jpg" class="col-2"/>
+					<img src="wtm/box3.jpg" class="col-2"/>
+					<div style="clear:both"></div>
+				</div>
+				<div class="row" id="banner" style="display:none">
+					<div class="col-lg-6">
+						<h1>Women Techmakers Manila 2015</h1>
+						<h2>Connect. Create. Celebrate.</h2>
+						<h2>March 28, 2015</h2>
+					</div>
+				</div>
+				<paper-shadow>
+					Google believes diversity and inclusion is important for thriving vibrant communities. Focusing on women-inclusion is the first step in a larger effort to diversify the global Google developer community. The GDG Philippines community has shown great interest in this initiative, starting with <a href="http://devfestw.gdgph.org/2013/03/devfestw-philippines-only-beginning.html">GDG DevFest Women 2013</a> and  <a href="http://www.gdgph.org/events/womentechmakers-2014.html">Women Techmakers 2014</a> last year.
+				</paper-shadow>
+				<paper-shadow>
+				This year, <a href="http://gdgph.org">GDG Philippines</a> is organizing another Women Techmakers event on March 28, 2015. The goal of the event is to empower women to pursue their dreams and build tools that will change the world. There will be invited talks from different women speakers, code labs, and breakout sessions. 
+				</paper-shadow>
+				<paper-shadow>
+					Let's show more visibility to our Women Techmakers and inspire our next generation of women leaders and Techmakers. Join us as we celebrate also International Women's Month. Please sign up early and save the date. We'll be sending confirmation emails with the details of the venue and how to get there.
+				</paper-shadow>
+			</page-section>
+
+			<page-section id="registration" backgroundColor="#17366c" color="#ffffff">
+				<h3>Registration</h3>
+				<paper-shadow>
+					Slots are limited so you need to register. Fill-up the form below to register for this event:
+				</paper-shadow>
+
+					<iframe src="https://docs.google.com/forms/d/1Qv6okvgND4mPFpAN9Hlmq8wSEsYXVXivZVb7KapTZOg/viewform?embedded=true#start=embed" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+			</page-section>
+
+			<page-section id="venue" backgroundColor="#536d7a" color="#ffffff">
+				<h3>Venue</h3>
+				<h4>
+					The event will be held at iAcademy <br/>(iACADEMY Plaza, 324 Senator Gil J. Puyat Ave. Bel-air, Makati City)
+				</h4>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1930.8296503920897!2d121.01942309919737!3d14.561465381130068!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x93456dd48e7e08ee!2siAcademy!5e0!3m2!1sen!2sus!4v1425772761083" width="100%" height="450" frameborder="0" style="border:0"></iframe>
+			</page-section>
+
+			<page-section id="agenda" backgroundColor="#3d3b3c" color="#ffffff">
+				<h3>Agenda</h3>
+				<paper-shadow>The following agenda is still subject to change:
+				</paper-shadow>
+				<paper-shadow>
+				<div style="line-height:0;">
+				<img class="sched"
+				src="wtm/sched1.png"><img class="sched"
+				src="wtm/sched2.png"><img class="sched"
+				src="wtm/sched3.png"><img class="sched"
+				src="wtm/sched4.png"><img class="sched"
+				src="wtm/sched5.png"><img class="sched"
+				src="wtm/sched6.png"><img class="sched"
+				src="wtm/sched7.png"><img class="sched"
+				src="wtm/sched8.png"><img class="sched"
+				src="wtm/sched9.png">
+			</div>
+				</paper-shadow>
+				<!--iframe src="https://docs.google.com/spreadsheets/d/1OpsN3s1KG5Qqafsu_urwouTCJTH3kgPPNDCZLpaT_Zg/pubhtml?gid=1542043696&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="600" style="max-width:780px"></iframe-->
+			</page-section>
+
+			<page-section id="speakers" backgroundColor="#3c4a64" color='#ffffff'>
+				<h3>Speakers</h3>
+				<div id="speaker-tiles" style="text-align:center;">
+				<speaker-tile image="vanessa_tanco">
+					<name>Vanessa Tanco</name>
+					<desc>President, iAcademy</desc>				
+					<bio>Vanessa holds a Bachelor's degree in Legal Management from the Ateneo De Manila University and a Masters degree in Business Administration from the University of Southern California. In 2007 she entered in iACADEMY as head of the Marketing department and doubled the enrolment for that year. Since then she has been at the forefront of expanding the college by offering new courses under the School of Design and steered iACADEMY’s partnership with Project Runway Philippines, WACOM and IBM, as well as having the college awarded as an IBM Center of Excellence. She also led the creation of iACADEMY School of Continuing Education. Vanessa is currently the President and CEO of iACADEMY and vows to make iACADEMY the top design and technology school in Asia.</bio>
+				</speaker-tile>
+				<speaker-tile image="rebecca_singson">
+					<name>Dr. Rebecca Singson</name>
+					<desc>Head of Gynecologic, Robotics Program,                                         St Lukes Hospital </desc>
+					<bio> Dr. Rebecca B. Singson, is an obstetrician gynecologist practicing at the Makati Medical Center, the Asian Hospital and Medical Center in Alabang, and the St. Luke's Global City Medical Center.  She took her B.S. Biology at the U.P. Diliman graduating magna cum laude then entered the U.P. PGH College of Medicine graduating top ten among the females her batch. She specialized on OBGYN at the Makati Medical Center and placed no.7 nationwide in the Diplomate Board Exam after which she left to do postgraduate training in England, the Netherlands and Italy. She trained in Celebration, Florida for Robotic Surgery and is an internationally certified Da Vince robotic surgeon, She organized the OB GYN dept of St Lukes Global as the first Chairman in 2009 and put up the first hospital-based Waterbirthing center in the country. She's the first Head of the Gynecologic Robotic Surgery Program of St Lukes Global City in 2010, she catapulted the program become the fastest growing private robotics program in Southeast Asia. She is a Fellow of the PSGE, PALES the PSCPC, the American College of Surgeons, and the American Assoc of Gynecologic Laparoscopists. </bio>
+				</speaker-tile>
+				<speaker-tile image="christine_balabat">
+					<name>Christine Balabat</name>
+					<desc>Co-founder of UX PH and Interaction Design Foundation, Country Manager of the Philippines </desc>
+					<bio>Christine is the UX Lead of UXMNL, one of the very first UX agencies in the Philippines. She is also the Co-Founder of UXPH and the Interaction Design Foundation Country Manager of the Philippines. Away from work, she enjoys going out on an adventure with her trusty Mini Velo.</bio>
+				</speaker-tile>
+				<speaker-tile image="stef_sy">
+					<name>Stef Sy</name>
+					<desc>Partner at Silicon Valley Insight, Xoogler</desc>
+					<bio>Stephanie is a Partner at Silicon Valley Insight, where she builds data solutions for companies around the world. She worked on data at Bay Area tech startup Wildfire Interactive and at Google HQ before returning to the Philippines. She graduated from Stanford University in 2011.</bio>
+				</speaker-tile>
+				<speaker-tile image="jen_alconis">
+					<name>Jen Alconis</name>
+					<desc>Chief Science Research Specialist, Project NOAH</desc>
+					<bio>Jen is the Chief Science Research Specialist (Chief SRS) under the Web-GIS component of Project NOAH. She has been affiliated with the DOST-led agency since 2012. Her field of expertise include geography, web development, and flood modeling. In her spare time, she collects graphic novels, binges on food trips, and kicks ass in mixed martial arts.</bio>
+				</speaker-tile>
+				<speaker-tile image="nellie_margaret_chua">
+					<name>Nellie Margaret Chua</name>
+					<desc>Graduate Student, DLSU</desc>
+					<bio>Nellie is currently a graduate student at De La Salle University. In 2010 she graduated Summa Cum Laude on BS Computer Science with specialization in Software Technology. She also got the Jose RIzal Honor's Society and was a Star Scholar.</bio>
+				</speaker-tile>
+				<speaker-tile image="aisa_mijeno">
+					<name>Aisa Mijeno</name>
+					<desc>CEO, SALT PH</desc>
+					<bio>Engr. Aisa Mijeno is currently a faculty member of Engineering at De La Salle University — Lipa. Being a member of Greenpeace Philippines, she has traveled many places promoting environmental campaigns. She also loves hiking which brought her to the majestic mountains of Kalinga where it all began. The product concept was formed after living with the natives of the Butbut tribe for days relying only on kerosene lamps and moonlight to do evening chores. Her interests vary from astronomy to classical music to embedded systems and electrochemistry. </bio>
+				</speaker-tile>
+				<speaker-tile image="val_balace">
+					<name>Valenice Balace</name>
+					<desc>CEO and Founder, Peekawoo</desc>
+					<bio>Val founded Peekawoo, a dating site created by girls to help girls. It is a social service aiming to make dating fun and interactive both online and offline. Her father is a programmer and she herself is a computer science graduate who has worked in the IT industry all her professional life.</bio>
+				</speaker-tile>
+				<speaker-tile image="reina_reyes">
+					<name>Reina Reyes</name>
+					<desc>Astrophysicist / Data Scientist at Voyager</desc>
+					<bio>Reina is data scientist at Smart Communications, Inc. and part-time faculty at the Department of Information Systems and Computer Science in Ateneo de Manila University. She got her Ph.D. in astrophysics from Princeton University in 2011.</bio>
+				</speaker-tile>
+				<speaker-tile image="mickey_reyes">
+					<name>Mickey Reyes</name>
+					<desc>PyLadies</desc>
+					<bio>Mickey is a Software Engineer at Freelancer.com and a Trustee at Python.PH. A lover of open source and all things Python. She believes Edmund Burke when he said "The only thing necessary for the triumph of evil is for goodmen to do nothing." It's cheesy but there's no point denying it. She's a strong advocate of women in tech and called to arms a rare group of idealistic women through PyLadies Manila. (Fun fact: They're mostly INTJs!). On her off days she enjoys hiking, plays board games, joins hackathons and hangs out with crazy cool friends over good food and coffee. </bio>
+				</speaker-tile>
+				<speaker-tile image="clau_yagyagan">
+					<name>Clau Yagyagan</name>
+					<desc>PyLadies</desc>
+					<bio>Clau is an Android Engineer at Silicon Valley Insight. She loves learning and building cool stuff for web and mobile and aspires to be a game developer. She has a knack for thinking on her feet, database design, troubleshooting and nails last minute fixes during hackathons. (Fun fact: She’s the youngest member of PyLadies Manila.)</bio>
+				</speaker-tile>
+				<speaker-tile image="paula_tanada">
+					<name>Paula Tanada</name>
+					<desc>PyLadies</desc>
+					<bio>Paula is a Software Developer at Eastvantage. She graduated with BA in Humanities and MA in Education from the University of Asia and Pacific.</bio>
+				</speaker-tile>
+				<speaker-tile image="nadine_jamilla">
+					<name>Nadine Jamilla</name>
+					<desc>PyLadies</desc>
+					<bio>Nadine creates web apps for consumers and businesses. She's currently a project manager and software developer with a freelance team from UP. She graduated with a BS in Management Engineering last 2013 from Ateneo de Manila University, and learned application development at University of the Philippines ITDC. When she's not in a meeting or in the zone with code, you'd catch Nadine watching action movies, traveling, or probably skindiving in our country's beautiful reefs.</bio>
+				</speaker-tile>
+				<speaker-tile image="grace_sojor">
+					<name>Grace Sojor</name>
+					<desc>Community Manager, GDG Zamboanga</desc>
+					<bio>Grace is Google Developers Group Co-Community Manager for Zamboanga City and has served as developer and IT consultant for the military and private groups. She earned her Associate in Computer Education and Diploma in Computer Technology at the age of 19; and holds two baccalaureate degrees in Computer Science and Computer Engineering, all four under a five-year ladderized program offered by Western Mindanao State University to Top 40 Computer Engineering Logic Test passers at that time. She has a knack for creative pursuits, a passion for life-long learning and community-building. Modesty aside, her community contributions have been first recognized by Sun Microsystems, Inc. – JEDI Awards, for her generous commitment to the vision of Java Education and Development Initiative (JEDI Philippines) as a JEDI Trainer-Awardee in 2010. She has been acknowledged as one of the 2011 Five Outstanding Zamboangueno Young Leaders (FOZYL Awards) by the City Government of Zamboanga and awarded back in 2010 for the Women of Achievement: Youth E-Care Award for IT Innovations for her work in the academe and humble contributions as former President of the Council of Deans for ICT Education in Region IX, Philippines. </bio>
+				</speaker-tile>
+				<speaker-tile image="celine_marie_barrozo">
+					<name>Celine Marie Barrozo</name>
+					<desc>Authorized Google for Education Trainer</desc>
+					<bio>Celine is an Authorized Google Apps for Education Trainer. She's been teaching GAFE since 2012 and have helped more than 20 universities with their Go Google journey. From a non-tech background, she's enjoying all the learnings in the IT industry. Lastly, she's a frustrated blogger, excited traveler, food explorer, and money collector.</bio>
+				</speaker-tile>
+				<speaker-tile image="gail_tan">
+					<name>Gail Tan</name>
+					<desc>Head of Communications, Google Philippines</desc>
+					<bio>Gail is the head of communications and public affairs at Google Philippines. She has over 15 years of experience in public relations and marketing communications. Before taking on her current role in Google, Gail was a TV producer, scriptwriter and communications strategists for two Philippine presidents. She also worked as the Social Media Manager for one of President Bill Clinton's former security adviser on terrorism. Gail finished her masters degree in Management at Harvard University. She also has a degree in Communication Arts and a masters in Public Management. </bio>
+				</speaker-tile>
+				<speaker-tile image="roma_mercado">
+					<name>Engr. Roma Mercado</name>
+					<desc>e-Gizmo</desc>
+					<bio>Roma is a Licensed Electronics Engineer who graduated from Adamson University in 2011. She is currently a Technical Engineer at e-Gizmo. Some of the PCB Boards she designed are e-Gizmo Heart Rate Monitor Kit, Soil Moisture sensor and MQ-x Gas Sensor kit. She's also a member of the Phil Robotics. She also loves to play table tennis, volleyball, basketball and playing piano during her freetime. </bio>
+				</speaker-tile>
+				<speaker-tile image="ria_lu">
+					<name>Ria Lu</name>
+					<desc>Girl+ of Unlock & Load</desc>
+					<bio>Ria Lu is the President/CEO of Komikasi Games and Entertainment, Inc., the development company responsible for some of the award-winning Advergames in the country. Ria graduated with a Bachelor’s degree in Computer Science at the De La Salle University, Manila; and has taken up Computer Graphics for Games at the Tokyo Technical College. She is also currently the President of the Soroptimist International Club of Paranaque, a socio-civic organization advocating the betterment of the lives of women and girls; and she is also a board member of the Game Developers’ Association of the Philippines. Ria Lu is also the creator of the Talecraft Story-Creation Card Game, and the Flirt Card Game.</bio>
+				</speaker-tile>
+				<speaker-tile>
+					<name>Elisha Gonzales</name>
+					<desc>Lokalista, DLSU Startup Engineering Course Winner</desc>
+				</speaker-tile>
+				<speaker-tile>
+					<name>Joyce Guiao</name>
+					<desc>Less Sugar, DOST-FNRI Unilab Competition Winner</desc>
+				</speaker-tile>
+				</div>
+			</page-section>
+
+			<page-section id="sponsors" backgroundColor="#6b6b6b" color="#ffffff">
+				<h3>Sponsors</h3>
+				<paper-shadow>
+					<h4>Powered by:</h4>
+					<img src="wtm/sponsors/gdgph.png"/>
+				</paper-shadow>
+				<paper-shadow>
+					<h4>Made possible by:</h4>
+					<img src="wtm/sponsors/smart.png"/>
+					<img src="wtm/sponsors/iacademy.png"/>
+				</paper-shadow>
+				<paper-shadow>
+					<h4>Co-presented by:</h4>
+					<img src="wtm/sponsors/schutzen.png"/>
+					<img src="wtm/sponsors/clinique.png"/>
+					<img src="wtm/sponsors/flawless.png"/>
+					<img src="wtm/sponsors/benefit.png"/>
+					<img src="wtm/sponsors/montalbo.png"/>
+				</paper-shadow>
+				<paper-shadow>
+					<h4>In cooperation with:</h4>
+					<img src="wtm/sponsors/dermcare.png"/>
+					<img src="wtm/sponsors/bio-oil.png"/>
+				</paper-shadow>
+				<paper-shadow>
+					<h4>Supported by:</h4>
+					<img src="wtm/sponsors/gbg.png"/>
+					<img src="wtm/sponsors/gsa.png"/>
+					<img src="wtm/sponsors/pyladies.png"/>
+					<img src="wtm/sponsors/pwdo.png"/>
+					<img src="wtm/sponsors/devcon.png"/>
+				</paper-shadow>
+				<paper-shadow>
+					<h4>Special thanks to:</h4>
+					<img src="wtm/sponsors/special-thanks1.png"/>
+					<img src="wtm/sponsors/special-thanks2.png"/>
+				</paper-shadow>
+				<paper-shadow>
+					<h4>Media Partners:</h4>
+					<a href="http://anc.yahoo.com" rel="nofollow"><img src="wtm/media/anc.png" alt="ANC"/></a>
+					<a href="http://boracaybeachradio.com" rel="nofollow"><img src="wtm/media/boracay.png" alt="Boracay Beach Radio"/></a>
+					<a rel="nofollow"><img src="wtm/media/circuit.png" alt="Circuit Magazine"/></a>
+					<a href="http://clickthecity.com" rel="nofollow"><img src="wtm/media/clickthecity.png" alt="ClickTheCity.com"/></a>
+					<a rel="nofollow"><img src="wtm/media/dziq.png" alt="DZIQ 990AM"/></a>
+					<a rel="nofollow"><img src="wtm/media/hwm.png" alt="HWM Magazine"/></a>
+					<a href="http://inquirer.net" rel="nofollow"><img src="wtm/media/inquirernet.png" alt="Inquirer.net"/></a>
+					<a rel="nofollow"><img src="wtm/media/philstar.png" alt="Philippine Star"/></a>
+					<a href="http://radiorakista.com" rel="nofollow"><img src="wtm/media/rakista.png" alt="Radio Rakista"/></a>
+					<a rel="nofollow"><img src="wtm/media/voc.png" alt="Voice Creative"/></a>
+					<a rel="nofollow"><img src="wtm/media/voty.png" alt="Voice of the Youth"/></a>
+					<a href="http://wheninmanila.com" rel="nofollow"><img src="wtm/media/wheninmanila.png" alt="WhenInManila.com"/></a>				</paper-shadow>
+				</paper-shadow>
+				
+			</page-section>
+
+			<page-section id="socialmedia">
+				<paper-shadow>
+					Add <a href="https://plus.google.com/u/0/105750470224587854845">GDG Philippines</a> in your Google+ circles<br />
+					<div class="g-follow" data-annotation="vertical-bubble" data-height="24" data-href="//plus.google.com/u/0/105750470224587854845" data-rel="publisher"></div>
+				</paper-shadow>			
+			</page-section>
+
+		</core-pages>
+		</div>
+
+	</template>
+		
+	</core-header-panel>
+
+	<script type="text/javascript" src="components/wtm.js"></script>
+
+    </body>
+</html>
