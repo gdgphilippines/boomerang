@@ -1,18 +1,3 @@
-<md-whiteframe class="md-whiteframe-z1" layout="column" style="margin: 8px">
-    <md-toolbar flex>
-        <h2 class="md-toolbar-tools">
-            Announcement: {{ vm.cover.title }}
-        </h2>
-    </md-toolbar>
-    <div layout="column" layout-padding layout-align="center center">
-        <p>{{ vm.cover.subtitle }}</p>
-        <a ng-href="{{ vm.cover.button.url }}" target="_blank">
-            <md-button class="md-raised md-accent">
-                {{ vm.cover.button.text }}
-            </md-button>
-        </a>
-    </div>
-</md-whiteframe>
 <div class="gdg_loading" ng-show="vm.loading"></div>
 <md-card ng-hide="vm.loading">
     <img ng-show="vm.cover.url" ng-src="{{ vm.cover.url }}" alt="Google+ Cover Image">
@@ -26,24 +11,57 @@
 <md-card layout="column">
     <md-toolbar flex>
         <h2 class="md-toolbar-tools">
-            Sponsors
+            Other GDGs in the Philippines
         </h2>
     </md-toolbar>
     <div layout layout-wrap>
-        <md-card>
-            <a href="https://developers.google.com/">
-                <img class="sponsor" src="/app/images/Google-Developers.png" alt="Google Developers"
-                     title="Google Developers">
+		<md-card>
+            <a href="https://plus.google.com/111881770223033262444/posts">
+                <img class="sponsor" src="/app/images/GDG_square_lg.png" alt="GDG Bacolod"
+                     title="GDG Bacolod">
+                 <div style="text-align:center">GDG Bacolod</div>
             </a>
         </md-card>
-        <md-card>
-            <a href="http://www.jetbrains.com/">
-                <img class="sponsor" src="/app/images/sponsor1.png" alt="Sponsor Image" title="Sponsor Image">
+		<md-card>
+            <a href="https://plus.google.com/111137079504396580440/posts">
+                <img class="sponsor" src="/app/images/GDG_square_lg.png" alt="GDG Baguio"
+                     title="GDG Baguio">
+                 <div style="text-align:center">GDG Baguio</div>
+            </a>
+        </md-card>          
+		<md-card>
+            <a href="https://plus.google.com/116488685812814512345/posts">
+                <img class="sponsor" src="/app/images/GDG_square_lg.png" alt="GDG Cebu"
+                     title="GDG Cebu">
+                 <div style="text-align:center">GDG Cebu</div>
+            </a>
+        </md-card>  
+		<md-card>
+            <a href="https://plus.google.com/109777245615877849664/posts">
+                <img class="sponsor" src="/app/images/GDG_square_lg.png" alt="GDG Cagayan de Oro"
+                     title="GDG Cagayan de Oro">
+                 <div style="text-align:center">GDG Cagayan de Oro</div>
             </a>
         </md-card>
-        <md-card>
-            <a href="http://www.oreilly.com/store/">
-                <img class="sponsor" src="/app/images/sponsor2.gif" alt="Sponsor Image" title="Sponsor Image">
+		<md-card>
+            <a href="https://plus.google.com/105456972621599447153/posts">
+                <img class="sponsor" src="/app/images/GDG_square_lg.png" alt="GDG Davao"
+                     title="GDG Davao">
+                 <div style="text-align:center">GDG Davao</div>
+            </a>
+        </md-card>
+		<md-card>
+            <a href="https://plus.google.com/111624169093759630469/posts">
+                <img class="sponsor" src="/app/images/GDG_square_lg.png" alt="GDG Halsema"
+                     title="GDG Halsema">
+                 <div style="text-align:center">GDG Halsema</div>
+            </a>
+        </md-card>
+		<md-card>
+            <a href="https://plus.google.com/102615103919428587748/posts">
+                <img class="sponsor" src="/app/images/GDG_square_lg.png" alt="GDG Zamboanga"
+                     title="GDG Zamboanga">
+                 <div style="text-align:center">GDG Zamboanga</div>
             </a>
         </md-card>
     </div>
