@@ -1,0 +1,75 @@
+<div class="gdg_loading" ng-show="vm.loading"></div>
+<md-card ng-hide="vm.loading">
+    <img ng-show="vm.cover.url" ng-src="{{ vm.cover.url }}" alt="Google+ Cover Image">
+    <div id="cover" ng-show="vm.cover.url">
+
+    </div>
+    <md-card-content>
+        <div ng-bind-html="vm.desc"></div>
+    </md-card-content>
+</md-card>
+<md-card layout="column">
+    <md-toolbar flex>
+        <h2 class="md-toolbar-tools">
+            Other GDGs in the Philippines
+        </h2>
+    </md-toolbar>
+    <div layout layout-wrap>
+		<md-card>
+				<a href="https://plus.google.com/111881770223033262444/posts">
+                <img src="/app/images/GDG_square_lg.png" alt="GDG Bacolod"
+                     title="GDG Bacolod" style="width:50%;padding:10px;"></a>
+                <md-card-content>
+                	<a href="https://plus.google.com/111881770223033262444/posts">GDG Bacolod</a>
+                </md-card-content>
+        </md-card>
+		<md-card>
+				<a href="https://plus.google.com/111137079504396580440/posts">
+                <img src="/app/images/GDG_square_lg.png" alt="GDG Baguio"
+                     title="GDG Baguio" style="width:50%;padding:10px;"></a>
+                <md-card-content>
+                	<a href="https://plus.google.com/111137079504396580440/posts">GDG Baguio</a>
+                </md-card-content>
+        </md-card>
+		<md-card>
+				<a href="https://plus.google.com/116488685812814512345/posts">
+                <img src="/app/images/GDG_square_lg.png" alt="GDG Cebu"
+                     title="GDG Cebu" style="width:50%;padding:10px;"></a>
+                <md-card-content>
+                	<a href="https://plus.google.com/116488685812814512345/posts">GDG Cebu</a>
+                </md-card-content>
+        </md-card>                
+		<md-card>
+				<a href="https://plus.google.com/109777245615877849664/posts">
+                <img src="/app/images/GDG_square_lg.png" alt="GDG Cagayan de Oro"
+                     title="GDG Cagayan de Oro" style="width:50%;padding:10px;"></a>
+                <md-card-content>
+                	<a href="https://plus.google.com/109777245615877849664/posts">GDG Cagayan de Oro</a>
+                </md-card-content>
+        </md-card>        
+		<md-card>
+				<a href="https://plus.google.com/105456972621599447153/posts">
+                <img src="/app/images/GDG_square_lg.png" alt="GDG Davao"
+                     title="GDG Davao" style="width:50%;padding:10px;"></a>
+                <md-card-content>
+                	<a href="https://plus.google.com/105456972621599447153/posts">GDG Davao</a>
+                </md-card-content>
+        </md-card>
+		<md-card>
+				<a href="https://plus.google.com/111624169093759630469/posts">
+                <img src="/app/images/GDG_square_lg.png" alt="GDG Halsema"
+                     title="GDG Halsema" style="width:50%;padding:10px;"></a>
+                <md-card-content>
+                	<a href="https://plus.google.com/111624169093759630469/posts">GDG Halsema</a>
+                </md-card-content>
+        </md-card>
+		<md-card>
+				<a href="https://plus.google.com/102615103919428587748/posts">
+                <img src="/app/images/GDG_square_lg.png" alt="GDG Zamboanga"
+                     title="GDG Zamboanga" style="width:50%;padding:10px;"></a>
+                <md-card-content>
+                	<a href="https://plus.google.com/102615103919428587748/posts">GDG Zamboanga</a>
+                </md-card-content>
+        </md-card>
+    </div>
+</md-card>
