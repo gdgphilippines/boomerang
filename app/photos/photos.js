@@ -2,7 +2,7 @@ angular.module('gdgXBoomerang')
 .controller('PhotosController', function ($http, Config, NavService) {
     var vm = this;
     vm.loading = true;
-    NavService.setNavTab(3);
+    NavService.setNavTab(5);
     vm.chapterName = Config.name;
     vm.photos = [];
 
@@ -18,7 +18,7 @@ angular.module('gdgXBoomerang')
                 // Use reverse ordering newest first
                 for (i = photoList.length - 1; i >= 0; i--) {
                     var photo = {
-                        link: photoList[i].link[1].href,
+                        link: photoList[i].link[2].href,
                         src: photoList[i].content.src,
                         alt: photoList[i].title.$t,
                         title: photoList[i].summary.$t
@@ -29,7 +29,7 @@ angular.module('gdgXBoomerang')
             vm.loading = false;
         })
         .error(function () {
-            vm.errorMsg = 'Sorry, we failed to retrieve the Photos from the Picasa Web Albums API. ' +
+            vm.errorMsg = 'Sorry, we failed to retrieve the photos from the Picasa Web Albums API. ' +
                 'Logging out of your Google Account and logging back in may resolve this issue.';
             vm.loading = false;
         });

@@ -7,13 +7,17 @@ angular.module('gdgXBoomerang')
     vm.dateFormat = Config.dateFormat;
     vm.events = { past:[], future:[] };
 
-    var url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/upcoming?callback=JSON_CALLBACK';
-    var headers = { 'headers': { 'Accept': 'application/json;' }, 'timeout': 2000 };
+    var url = Config.HUB_IP + '/api/v1/chapters/' + Config.id + '/events/upcoming?callback=JSON_CALLBACK';
+    var headers = { 'headers': { 'Accept': 'application/json;' }, 'timeout': 10000 };
     $http.jsonp(url, headers)
         .success(function (data) {
             for (var i = data.items.length - 1; i >= 0; i--) {
-                data.items[i].about =
-                    data.items[i].about.replace(/<br\s*\/?><br\s*\/?><br\s*\/?><br\s*\/?>/g, '<br><br>');
+                if (data.items[i].about) {
+                    data.items[i].about =
+                        data.items[i].about.replace(/<br\s*\/?><br\s*\/?><br\s*\/?><br\s*\/?>/g, '<br><br>');
+                } else {
+                    data.items[i].about = '';
+                }
                 vm.events.future.push(data.items[i]);
             }
             vm.events.future = $filter('orderBy')(vm.events.future, 'start', false);
@@ -28,16 +32,18 @@ angular.module('gdgXBoomerang')
         });
 
     var getPastEventsPage = function(page) {
-        var url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id +
+        var url = Config.HUB_IP + '/api/v1/chapters/' + Config.id +
             '/events/past?callback=JSON_CALLBACK&page=' + page;
-        var headers = { 'headers': {'Accept': 'application/json;'}, 'timeout': 2000 };
+        var headers = { 'headers': {'Accept': 'application/json;'}, 'timeout': 10000 };
         $http.jsonp(url, headers)
             .success(function (data) {
                 var i;
                 for (i = data.items.length - 1; i >= 0; i--) {
                     if (data.items[i].about) {
                         data.items[i].about =
-                        data.items[i].about.replace(/<br\s*\/?><br\s*\/?><br\s*\/?><br\s*\/?>/g, '<br><br>');
+                            data.items[i].about.replace(/<br\s*\/?><br\s*\/?><br\s*\/?><br\s*\/?>/g, '<br><br>');
+                    } else {
+                        data.items[i].about = '';
                     }
                     vm.events.past.push(data.items[i]);
                 }
