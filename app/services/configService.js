@@ -4,7 +4,7 @@ angular.module('gdgXBoomerang')
         // TODO Modify these to configure your app
         'name'          : 'GDG Philippines',
         'id'            : '105750470224587854845',
-        'googleApi'     : 'AIzaSyDhJlz9bfEcfzcSrq4FfxQrF6rf7k2SVtM',
+        'googleApi'     : 'AIzaSyD5UQqkkeOIpvh4QLFzawNRC1qYbR780vo',
         'pwaId'         : '5915725140705884785', // Picasa Web Album id, must belong to Google+ id above
         'domain'        : 'http://www.gdgph.org',
         'twitter'       : 'gdgphilippines',
