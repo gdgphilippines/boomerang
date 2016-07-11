@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>GDG Philippines</title>
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/config.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Product+Sans' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="styles/global.css">
+	<link rel="stylesheet" href="styles/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Google Developer Group Philippines" />
+	<meta property="og:url" content="http://www.gdgph.org"/>
+	<meta property="og:site_name" content="Google I/O 2016 Extended Roadshow" />
+	<meta property="og:image" content="images/og.jpg" />
+	<meta name="twitter:site" content="@gdgphilippines" />
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="theme-color" content="#afbdc4">
+</head>
+<body>
+	<div class="phmap"></div>
+	<div class="action-bar">
+		<div class="wrapper">
+			<a class="menu"><i class="material-icons">menu</i></a>
+			<a class="gdg-logo">
+				<div class="gdg-icon"></div>
+				<span class="gdg-text">GDG Philippines</span>
+			</a>
+			<ul class="nav">
+				<li><a href="#!/about" class="selected">About</a></li>
+				<li><a href="#!/events">Events</a></li>
+				<li><a href="#!/team">Team</a></li>
+				<li><a href="#!/contact">Contact</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="view" controller="">
+		
+	</div>
+	<div class="footer">
+		&copy; 2016 GDG Philippines<br>
+		<a href="https://developers.google.com/groups/chapter/105750470224587854845/" target="_blank"><img src="images/gdg-icon.png" alt="Google Developers Page"></a>
+		<a href="https://plus.google.com/105750470224587854845" target="_blank"><img src="images/gp.png" alt="Google Plus Page"></a>
+		<a href="https://www.facebook.com/gdgphilippines" target="_blank"><img src="images/fb.png" alt="Facebook Page"></a>
+		<a href="https://twitter.com/gdgphilippines" target="_blank"><img src="images/tw.png" alt="Twitter Page"></a>
+		<a href="https://www.youtube.com/channel/UCT9dkGk7ti1ok-JPUbXjTCg" target="_blank"><img src="images/yt.png" alt="YouTube Page"></a>
+		<a href="https://www.instagram.com/gdgphilippines/" target="_blank"><img src="images/ig.png" alt="Instagram Page"></a>
+	</div>
+	<div class="black-trans"></div>
+	<div class="loading"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="6" stroke-miterlimit="10"/></svg></div>
+	<div class="slider">
+		<a class="back"><i class="material-icons">arrow_back</i></a><b>Menu</b>
+		<ul class="nav">
+			<li><a href="#!/about" class="selected">About</a></li>
+			<li><a href="#!/events">Events</a></li>
+			<li><a href="#!/team">Team</a></li>
+			<li><a href="#!/contact">Contact</a></li>
+		</ul>
+	</div>
+	<script src="scripts/App.js"></script>
+	<script>
+	App.start(window.location.hash.substr(3));
+	</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+var DEFAULT_CONTROLLER = "about";

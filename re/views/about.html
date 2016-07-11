@@ -1,0 +1,50 @@
+<script>
+var images = [];
+images.push("1.jpg");
+images.push("2.jpg");
+images.push("3.jpg");
+images.push("4.jpg");
+images.push("5.jpg");
+<!--//--><![CDATA[//><!--
+	var imagesx = new Array()
+	function preload() {
+		for (var y = 0; y < preload.arguments.length; y++) {
+			imagesx[y] = new Image()
+			imagesx[y].src = preload.arguments[y]
+		}
+	}
+	for(var x = 0; x < images.length; x++) {
+		preload("images/slideshow/"+images[x])
+	}
+//--><!]]>
+var i = 0;
+function slideshow() {
+	if(i >= images.length) {
+		i = 0;
+	}
+	$(".cover").css({
+		"background-image": "url(images/slideshow/"+images[i]+")"
+	}, 500);
+	i++;
+	setTimeout(function() {
+		slideshow();
+	}, 5000);
+}
+slideshow();
+</script>
+<div class="cover">
+	
+</div>
+<div class="columns" style="padding-top: 48px;">
+	<div class="col-5">
+		<div class="wrapper">
+			<div class="gdg-icon"></div>
+		</div>
+	</div>
+	<div class="col-7">
+		<div class="wrapper">
+			<h2 class="m-center">About GDG Philippines</h2>
+			<p>Google Developer Group (GDG) Philippines is a group of enthusiastic Filipino developers interested to collaborate and learn more about new technologies. <br><br>GDG Philippines is an independent group; our activities and the opinions expressed on any of our official social media pages should in no way be linked to Google, the corporation.</p>
+		</div>
+	</div>
+</div>
