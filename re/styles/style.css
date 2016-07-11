@@ -210,6 +210,9 @@ h1,h2,h3,h4,h5,h6 {
 .columns [class^="col"] {
 	padding: 0px 12px;
 }
+.columns [class^="col"] .wrapper {
+	padding: 0px 24px;
+}
 .columns [class^="col"]:first-child {
 	padding-left: 0px;
 }
