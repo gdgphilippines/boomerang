@@ -1,24 +1,17 @@
 <h1>Core Team</h1>
-<div class="columns">
-	<div class="col-4 s900-col-6">
-		<div class="wrapper">
-			<img src="images/team/chelle-gray.jpg">
-			<b>Chelle Gray</b>
-			<small><i>Developer Relations Head, GDG Asia Pacific</i></small>
-		</div>
-	</div>
+<div class="columns team">
 	<div class="col-4 s900-col-6">
 		<div class="wrapper">
 		<img src="images/team/ralph-regalado.jpg">
 		<b>Ralph Regalado</b>
-		<small><i>Community Manager, GDG Philippines</i></small>
+		<small><i>Community Manager, GDG Philippines<br>Big Data & Machine Learning</i></small>
 		</div>
 	</div>
 	<div class="col-4 s900-col-6">
 		<div class="wrapper">
 		<img src="images/team/jomar-tigcal.jpg">
 		<b>Jomar Tigcal</b>
-		<small><i>Community Manager, GDG Philippines</i></small>
+		<small><i>Community Manager, GDG Philippines<br>Android Development</i></small>
 		</div>
 	</div>
 	<div class="col-4 s900-col-6">
@@ -46,7 +39,15 @@
 		<div class="wrapper">
 		<img src="images/team/juvar-abrera.jpg">
 		<b>Juvar Abrera</b>
-		<small><i>Creative Manager, GDG Philippines</i></small>
+		<small><i>Creative Manager, GDG Philippines<br>Polymer & Progressive Web App</i></small>
 		</div>
 	</div>
 </div>
+<script>
+	var maxHeight = 0;
+	$(".team .col-4").each(function() {
+		if($(this).outerHeight() >= maxHeight)
+			maxHeight = $(this).outerHeight();
+	})
+	$(".team .col-4").css('height', maxHeight+148);
+</script>
