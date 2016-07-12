@@ -1,0 +1,12 @@
+<script>
+	$.ajax({
+		cache: true,
+		url: "https://hub.gdgx.io/api/v1/chapters/105750470224587854845/events/upcoming?callback=JSON_CALLBACK",
+		dataType: 'json',
+		headers: { 'Accept': 'application/json;' },
+		timeout: 10000,
+		success: function(events) {
+			console.log(events);
+		}
+	})
+</script>

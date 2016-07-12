@@ -21,48 +21,91 @@
 	<meta name="theme-color" content="#afbdc4">
 </head>
 <body>
-	<div class="phmap"></div>
-	<div class="action-bar">
-		<div class="wrapper">
-			<a class="menu"><i class="material-icons">menu</i></a>
-			<a class="gdg-logo">
-				<div class="gdg-icon"></div>
-				<span class="gdg-text">GDG Philippines</span>
-			</a>
-			<ul class="nav">
-				<li><a href="#!/about" class="selected">About</a></li>
-				<li><a href="#!/events">Events</a></li>
-				<li><a href="#!/team">Team</a></li>
-				<li><a href="#!/contact">Contact</a></li>
-			</ul>
+	<div class="container">
+		<div class="phmap"></div>
+		<div class="action-bar">
+			<div class="wrapper">
+				<a class="menu"><i class="material-icons">menu</i></a>
+				<a class="gdg-logo">
+					<div class="gdg-icon"></div>
+					<span class="gdg-text">GDG Philippines</span>
+				</a>
+				<ul class="nav">
+					<li><a data-page="about" href="#/about" class="selected">About</a></li>
+					<li><a data-page="events" href="#/events">Events</a></li>
+					<li><a data-page="team" href="#/team">Team</a></li>
+				</ul>
+			</div>
 		</div>
-	</div>
-	<div class="view" controller="">
-		
-	</div>
-	<div class="footer">
-		&copy; 2016 GDG Philippines<br>
-		<a href="https://developers.google.com/groups/chapter/105750470224587854845/" target="_blank"><img src="images/gdg-icon.png" alt="Google Developers Page"></a>
-		<a href="https://plus.google.com/105750470224587854845" target="_blank"><img src="images/gp.png" alt="Google Plus Page"></a>
-		<a href="https://www.facebook.com/gdgphilippines" target="_blank"><img src="images/fb.png" alt="Facebook Page"></a>
-		<a href="https://twitter.com/gdgphilippines" target="_blank"><img src="images/tw.png" alt="Twitter Page"></a>
-		<a href="https://www.youtube.com/channel/UCT9dkGk7ti1ok-JPUbXjTCg" target="_blank"><img src="images/yt.png" alt="YouTube Page"></a>
-		<a href="https://www.instagram.com/gdgphilippines/" target="_blank"><img src="images/ig.png" alt="Instagram Page"></a>
+		<div class="view">
+			
+		</div>
+		<div class="footer">
+			<div class="wrapper">
+				<div class="columns">
+					<div class="col-3 s900-col-6">
+						<div class="wrapper">
+							<h3>For Visitors</h3>
+							<ul>
+								<li><a data-page="about" href="#/about">About</a></li>
+								<li><a data-page="team" href="#/team">Team</a></li>
+								<li><a data-page="code-of-conduct" href="#/code-of-conduct">Code of Conduct</a></li>
+								<li><a href="https://developers.google.com/groups/chapter/105750470224587854845/" target="_blank">Google Developer Page</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-3 s900-col-6">
+						<div class="wrapper">
+							<h3>For Sponsors</h3>
+							<ul>
+								<li><a href="https://drive.google.com/open?id=0BwmC-cFr5zqZWFVMSDZQeXZwWlU" target="_blank">Media Kit</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-3 s900-col-6">
+						<div class="wrapper">
+							<h3>Events</h3>
+							<ul>
+								<li><a data-page="events" href="#/events">Events List</a></li>
+								<li><a href="http://eventrequest.gdgph.org/" target="_blank">Event Request</a></li>
+							<ul>
+						</div>
+					</div>
+					<div class="col-3 s900-col-6">
+						<div class="wrapper">
+							<h3>Contact Us</h3>
+							<p>Email us at gdgphilippines@gmail.com<br><br>
+							<a href="https://plus.google.com/105750470224587854845" class="icon" target="_blank"><img src="images/gp.png" alt="Google Plus Page"></a>
+							<a href="https://www.facebook.com/gdgphilippines" class="icon" target="_blank"><img src="images/fb.png" alt="Facebook Page"></a>
+							<a href="https://twitter.com/gdgphilippines" class="icon" target="_blank"><img src="images/tw.png" alt="Twitter Page"></a>
+							<a href="https://www.youtube.com/channel/UCT9dkGk7ti1ok-JPUbXjTCg" class="icon" target="_blank"><img src="images/yt.png" alt="YouTube Page"></a>
+							<a href="https://www.instagram.com/gdgphilippines/" class="icon" target="_blank"><img src="images/ig.png" alt="Instagram Page"></a></p>
+						</div>
+					</div>
+				</div>
+				<div class="columns">
+					<div class="col-12">
+						<div class="wrapper">
+						&copy; 2016 Google Developer Group Philippines. 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="black-trans"></div>
 	<div class="loading"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="6" stroke-miterlimit="10"/></svg></div>
 	<div class="slider">
 		<a class="back"><i class="material-icons">arrow_back</i></a><b>Menu</b>
 		<ul class="nav">
-			<li><a href="#!/about" class="selected">About</a></li>
-			<li><a href="#!/events">Events</a></li>
-			<li><a href="#!/team">Team</a></li>
-			<li><a href="#!/contact">Contact</a></li>
+			<li><a data-page="about" href="#/about" class="selected">About</a></li>
+			<li><a data-page="events" href="#/events">Events</a></li>
+			<li><a data-page="team" href="#/team">Team</a></li>
 		</ul>
 	</div>
 	<script src="scripts/App.js"></script>
 	<script>
-	App.start(window.location.hash.substr(3));
+	App.start(window.location.hash.substr(2));
 	</script>
 </body>
 </html>

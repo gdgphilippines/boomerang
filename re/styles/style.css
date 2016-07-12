@@ -1,15 +1,19 @@
 body {
-	background-color: #f3f3f3;
+	background-color: #f8f8f8;
 	margin: 0px;
 	font-family: 'Roboto';
 }
+.container {
+	overflow: hidden;
+	position: relative;
+	background-color: #f3f3f3;
+}
 .phmap {
-	position: fixed;
+	position: absolute;
 	top: 0px;
 	left: 0px;
 	width: 100%;
 	height: 100%;
-	z-index: -1;
 	opacity: .05;
 	background-image: url(../images/phmap.png);
 	background-repeat: no-repeat;
@@ -182,9 +186,16 @@ body {
 .view {
 	max-width: 1080px;
 	min-width: 320px;
+	position: relative;
 	margin: 0px auto;
-	padding: 100px 24px;
+	padding: 50px 24px;
 	color: #666;
+}
+.view>h1 {
+	padding-left: 24px;
+}
+.view p {
+	line-height: 150%;
 }
 h1,h2,h3,h4,h5,h6 {
 	font-family: 'Product Sans';
@@ -205,19 +216,8 @@ h1,h2,h3,h4,h5,h6 {
 	box-shadow: 0px 3px 4px rgba(0,0,0,.2);
 }
 .columns {
+	overflow: visible;
 	padding-top: 24px;
-}
-.columns [class^="col"] {
-	padding: 0px 12px;
-}
-.columns [class^="col"] .wrapper {
-	padding: 0px 24px;
-}
-.columns [class^="col"]:first-child {
-	padding-left: 0px;
-}
-.columns [class^="col"]:last-child {
-	padding-right: 0px;
 }
 .card {
 	background: white;
@@ -240,7 +240,10 @@ h1,h2,h3,h4,h5,h6 {
 }
 [controller="team"] [class^="col-"] {
 	text-align: center;
-	padding-bottom: 24px;
+	padding: 24px 0px;
+}
+[controller="team"] [class^="col-"] .wrapper {
+	padding: 0px 12px;
 }
 [controller="team"] img {
 	border-radius: 100%;
@@ -299,17 +302,50 @@ h1,h2,h3,h4,h5,h6 {
 	border-left: 3px solid #4285f4;
 }
 .footer {
-	padding-top: 48px;
+	border-top: 1px solid #e9e9e9;
+	padding-top: 24px;
 	padding-bottom: 50px;
-	text-align: center;
 	width: 100%;
-	font-size: 13px;
-	color: #666;
+	font-size: 16px;
+	color: #888;
 	clear: both;
 	margin: 0px auto;
+	margin-top: 48px;
+	float: left;
+	background: #f8f8f8;
+	z-index: 10;
+	position: relative;
 }
-.footer a {
-	margin: 8px;
+.footer p {
+	line-height: 150%;
+}
+.footer>.wrapper {
+	min-width: 320px;
+	max-width: 1080px;
+	margin: 0px auto;
+}
+.footer .columns {
+	clear: both;
+}
+.footer [class^="col-"]>.wrapper {
+	padding: 0px 24px;
+}
+.footer ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.footer ul li {
+	margin: 8px 0px;
+}
+.footer ul a {
+	color: inherit;
+}
+.footer ul a:hover {
+	text-decoration: underline;
+}
+.footer a.icon {
+	margin: 0px 8px;
 	display: inline-block;
 }
 .footer img {
@@ -317,6 +353,11 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
+@media screen and (max-width: 900px) {
+	.s900-col-6 {
+		width: 50% !important;
+	}
+}
 @media screen and (max-width: 600px) {
   .view .columns [class^="col-"] {
     width: 100% !important;
@@ -325,6 +366,21 @@ h1,h2,h3,h4,h5,h6 {
     padding-right: 0px !important;}
 	.view .columns [class^="col-"] .m-center {
 		text-align: center;
+	}
+	.footer {
+		padding-top: 0px;
+	}
+	.footer [class^="col-"] {
+		width: 100% !important;
+	}
+	.footer [class^="col-"] .wrapper {
+		padding-left: 24px;
+	}
+	.footer ul {
+		padding-left: 24px;
+	}
+	.footer p {
+		padding-left: 24px;
 	}
 }
 @media screen and (max-width: 375px) {

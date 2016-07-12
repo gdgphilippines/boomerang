@@ -1,3 +1,4 @@
+var xhr, fl = true;
 var App = {
 	start: function(page) {
 		if(page == "")
@@ -7,9 +8,9 @@ var App = {
 		$(window).resize(function() {
 			App.responsive();
 		});
-		$("ul.nav a").click(function() {
+		$("[data-page]").click(function() {
 			if(!$(this).is(".selected")) {
-				App.loadController($(this).attr("href").substr(3));
+				App.loadController($(this).attr("data-page"));
 				App.slider("hide");
 			}
 		});
@@ -45,22 +46,32 @@ var App = {
 	},
 	loadController: function(controller) {
 		$("ul.nav a").removeClass("selected");
-		$("ul.nav a[href='#!/"+controller+"']").addClass("selected");
+		$("ul.nav a[data-page='"+controller+"']").addClass("selected");
 		$(".loading").animate({
 			"top": "150px"
 		}, 400);
-		$(".view").html("").attr("controller", controller).load("views/"+controller+".html", function(response, status, xhr) {
-			if(status == "error") {
-				$(this).html("").load("views/error.html", function() {
-					$(".loading").animate({
-						"top": "-70px"
-					}, 400);
-				}).css("padding", "150px 0px")
-			} else {
+		$(".view").html("").attr("controller", controller);
+		if(fl)
+			fl = false;
+		else
+			xhr.abort();
+		xhr = $.ajax({
+			url: "views/"+controller+".html",
+			cache: true,
+			success: function(html) {
+				$(".view").html(html).css("padding-top", "48px");
 				$(".loading").animate({
 					"top": "-70px"
 				}, 400);
-				$(this).css("padding-top", "48px");
+			},
+			error: function(xhrtemp, ajaxOptions, thrownError) {
+				if(xhrtemp.status == 404) {
+					$(".view").html("").load("views/error.html", function() {
+						$(".loading").animate({
+							"top": "-70px"
+						}, 400);
+					}).css("padding", "150px 0px")
+				}
 			}
 		})
 	}
