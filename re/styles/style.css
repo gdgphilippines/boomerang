@@ -108,13 +108,20 @@ body {
   border-radius: 100%;
   box-shadow: 0px 3px 3px rgba(0,0,0,.1);
 }
-  .loading .circular {
+.loading_icon {
+	position: relative;
+	width: 52px;
+	height: 52px;
+	margin: 0px auto;
+	display: block;
+}
+  .load_template .circular {
     animation: rotate 2s linear infinite;
     transform-origin: center center;
     width: 36px;
     height: 36px;
     margin: 8px; }
-  .loading .path {
+  .load_template .path {
     stroke-dasharray: 1,200;
     stroke-dashoffset: 0;
     animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
@@ -182,6 +189,15 @@ body {
   90% {
     stroke: #ffa700; } }
 
+.button_group a {
+	background: #bbb !important;
+}
+.button_group a.selected {
+	background: #005cb9 !important;
+}
+#containerEvents a {
+	color: #005cb9;
+}
 
 .view {
 	max-width: 1080px;
