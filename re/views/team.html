@@ -43,11 +43,3 @@
 		</div>
 	</div>
 </div>
-<script>
-	var maxHeight = 0;
-	$(".team .col-4").each(function() {
-		if($(this).outerHeight() >= maxHeight)
-			maxHeight = $(this).outerHeight();
-	})
-	$(".team .col-4").css('height', maxHeight+148);
-</script>

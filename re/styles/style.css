@@ -19,7 +19,7 @@ body {
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: fixed;
-	background-size: cover;
+	background-size: contain;
 }
 .action-bar {
 	position: relative;
@@ -257,6 +257,7 @@ h1,h2,h3,h4,h5,h6 {
 [controller="team"] [class^="col-"] {
 	text-align: center;
 	padding: 24px 0px;
+	height: 290px;
 }
 [controller="team"] [class^="col-"] .wrapper {
 	padding: 0px 12px;
