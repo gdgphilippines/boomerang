@@ -3,11 +3,17 @@
 	  return str.replace(new RegExp(find, 'g'), replace);
 	}
 
+	var xhr, fl = true;
+
 	$("#btnUpcoming").click(function() {
 		$(".button_group a").removeClass("selected");
 		$(this).addClass("selected");
 		$("#containerEvents").html('<div class="card"><br><br><div class="loading_icon load_template"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="6" stroke-miterlimit="10"/></svg></div><br><br></div>');
-		$.ajax({
+		if(fl)
+			fl = false;
+		else
+			xhr.abort();
+		xhr = $.ajax({
 			type: "get",
 			crossOrigin: true,
 			cache: true,
@@ -27,6 +33,22 @@
 			}
 		});
 	});
+	$("#btnInfo").click(function() {
+		$(".button_group a").removeClass("selected");
+		$(this).addClass("selected");
+		$("#containerEvents").html('<div class="card"><br><br><div class="loading_icon load_template"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="6" stroke-miterlimit="10"/></svg></div><br><br></div>');
+		if(fl)
+			fl = false;
+		else
+			xhr.abort();
+		xhr = $.ajax({
+			cache: true,
+			url: "views/event_info.html",
+			success: function(events) {
+				$("#containerEvents").html(events);
+			}
+		});
+	});
 
 	function compare(a,b) {
     	return new Date(a.start) - new Date(b.start);
@@ -35,7 +57,11 @@
 		$(".button_group a").removeClass("selected");
 		$(this).addClass("selected");
 		$("#containerEvents").html('<div class="card"><br><br><div class="loading_icon load_template"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="6" stroke-miterlimit="10"/></svg></div><br><br></div>');
-		$.ajax({
+		if(fl)
+			fl = false;
+		else
+			xhr.abort();
+		xhr = $.ajax({
 			type: "get",
 			cache: true,
 			crossOrigin: true,
@@ -67,6 +93,7 @@
 <div class="button_group">
 	<a id="btnUpcoming" class="raised_button">Upcoming</a>
 	<a id="btnPast" class="raised_button">Past</a>
+	<a id="btnInfo" class="raised_button">Info</a>
 </div>
 <div id="containerEvents">
 
