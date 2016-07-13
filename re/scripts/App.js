@@ -70,7 +70,7 @@ var App = {
 						$(".loading").animate({
 							"top": "-70px"
 						}, 400);
-					}).css("padding", "150px 0px")
+					}).css("padding", "120px 0px")
 				}
 			}
 		})
