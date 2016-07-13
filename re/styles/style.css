@@ -410,6 +410,9 @@ table.mileage img {
 	.view .columns [class^="col-"] .m-center {
 		text-align: center;
 	}
+	.cover {
+		height: 250px;
+	}
 	.footer {
 		padding-top: 0px;
 	}
