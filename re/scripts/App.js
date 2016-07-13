@@ -48,7 +48,7 @@ var App = {
 		$("ul.nav a").removeClass("selected");
 		$("ul.nav a[data-page='"+controller+"']").addClass("selected");
 		$(".loading").animate({
-			"top": "150px"
+			"top": "120px"
 		}, 400);
 		$(".view").html("").attr("controller", controller);
 		if(fl)
