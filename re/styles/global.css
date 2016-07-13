@@ -90,7 +90,7 @@ a {
   -o-box-sizing: border-box;
   box-sizing: border-box; }
 .columns {
-  overflow: visible;
+  overflow: hidden;
   clear: both;
   width: 100%; }
   .columns [class^="col-"] {
