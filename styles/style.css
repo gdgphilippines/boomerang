@@ -1,5 +1,5 @@
 body {
-	background-color: #f8f8f8;
+	background-color: #e5e5e5;
 	margin: 0px;
 	font-family: 'Roboto';
 }
@@ -331,9 +331,14 @@ h1,h2,h3,h4,h5,h6 {
 	margin: 0px auto;
 	margin-top: 48px;
 	float: left;
-	background: #f8f8f8;
 	z-index: 10;
 	position: relative;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f8f8f8+0,e5e5e5+100 */
+	background: #e5e5e5; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f8f8f8 0%, #e5e5e5 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #f8f8f8 0%,#e5e5e5 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #f8f8f8 0%,#e5e5e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
 }
 .footer p {
 	line-height: 150%;
@@ -370,6 +375,9 @@ h1,h2,h3,h4,h5,h6 {
 .footer img {
 	height: 20px;
 }
+.footer h3 {
+	margin-bottom: 12px;
+}
 table.mileage {
 	width: 100%;
 	border-collapse: collapse;
@@ -394,6 +402,30 @@ table.mileage td:not(:first-child) {
 }
 table.mileage img {
 	width: 24px;
+}
+
+.hr {
+	width: 100%;
+	display: block;
+	position: relative;
+	height: 2px;
+	overflow: hidden;
+	background: #0f9d58;
+	margin-bottom: 12px;
+}
+.hr .b {
+	width: 25%;
+	height: 100%;
+	float: left;
+}
+.hr .b:first-child {
+	background: #4285f4;
+}
+.hr .b:nth-child(2) {
+	background: #db4437;
+}
+.hr .b:last-child {
+	background: #ffc107;
 }
 
 @media screen and (max-width: 900px) {
