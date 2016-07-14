@@ -50,6 +50,73 @@ slideshow();
 	</div>
 </div>
 <div class="columns">
+	<div class="col-6">
+		<div class="wrapper">
+			<h2>Upcoming Events</h2>
+			<div id="upcoming"></div>
+			<script>
+				$("#upcoming, #blogposts").html('<div class="card"><br><br><div class="loading_icon load_template"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="6" stroke-miterlimit="10"/></svg></div><br><br></div>');
+				$.ajax({
+					type: "get",
+					crossOrigin: true,
+					cache: true,
+					url: "https://hub.gdgx.io/api/v1/chapters/105750470224587854845/events/upcoming?callback=?",
+					dataType: 'jsonp',
+					data: { 'headers': { 'Accept': 'application/json;' }, 'timeout': 10000 },
+					success: function(events) {
+						$("#upcoming").html("");
+						var count = 0, max = 2;
+						console.log(events);
+						$.each(events.items, function(index, event) {
+							if(count < max) {
+								count++;
+								var datex = new Date(event.start.substring(0,19));
+								var tmp = document.createElement("DIV");
+								tmp.innerHTML = event.about;
+								$("#upcoming").append('<div class="card"><h3>'+event.title+'</h3><small>'+dateFormat(datex, "dddd, mmmm dS, yyyy, h:MM TT")+'</small><p>'+tmp.textContent.split(/\s+/).slice(0,20).join(" ")+"..."+'</p><a href="https://developers.google.com/events/'+event._id+'/" target="_blank" class="raised_button">Read more</a></div>');
+							}
+						})
+					}
+				});
+			</script>
+		</div>
+	</div>
+	<div class="col-6">
+		<div class="wrapper">
+			<h2>Latest Blog Post</h2>
+			<div id="blogposts"></div>
+			<script>
+				$.ajax({
+					type: "get",
+					crossOrigin: true,
+					cache: true,
+					url: "http://blog.gdgph.org/feeds/posts/default?alt=json-in-script&callback=?",
+					dataType: 'jsonp',
+					data: { 'headers': { 'Accept': 'application/json;' }, 'timeout': 10000 },
+					success: function(posts) {
+						$("#blogposts").html("");
+						var count = 0, max = 2;
+						console.log(posts);
+						$.each(posts.feed.entry, function(index, post) {
+							if(count < max) {
+								count++;
+								var title = post.title.$t;
+								var link = post.link[4].href;
+								var date = post.published.$t.substring(0,19);
+								var content = post.content.$t;
+								var tmp = document.createElement("DIV");
+								tmp.innerHTML = content;
+								content = tmp.textContent.split(/\s+/).slice(0,20).join(" ")+"...";
+								$("#blogposts").append('<div class="card"><h3>'+title+'</h3><small>'+dateFormat(date, "dddd, mmmm dS, yyyy, h:MM TT")+'</small><p>'+content+'</p><a href="'+link+'" target="_blank" class="raised_button">Read more</a></div>');
+							}
+						})
+					}
+				});
+			</script>
+		</div>
+	</div>
+</div>
+<div class="columns">
 	<div class="col-12">
 		<div class="wrapper">
 			<div class="card">

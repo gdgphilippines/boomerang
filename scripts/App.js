@@ -2,7 +2,7 @@ var xhr, fl = true;
 var App = {
 	start: function(page) {
 		if(page == "")
-			page = DEFAULT_CONTROLLER;
+			page = Config.DEFAULT_CONTROLLER;
 		this.loadController(page);
 		App.responsive();
 		$(window).resize(function() {
@@ -55,6 +55,7 @@ var App = {
 			fl = false;
 		else
 			xhr.abort();
+		$("body").scrollTop(0);
 		xhr = $.ajax({
 			url: "views/"+controller+".html",
 			cache: true,
@@ -63,7 +64,6 @@ var App = {
 				$(".loading").animate({
 					"top": "-70px"
 				}, 400);
-				$("body").scrollTop(0);
 			},
 			error: function(xhrtemp, ajaxOptions, thrownError) {
 				if(xhrtemp.status == 404) {
@@ -72,7 +72,6 @@ var App = {
 							"top": "-70px"
 						}, 400);
 					}).css("padding", "120px 0px")
-					$("body").scrollTop(0);
 				}
 			}
 		})

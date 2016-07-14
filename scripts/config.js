@@ -1,1 +1,3 @@
-var DEFAULT_CONTROLLER = "about";
+var Config = {
+	DEFAULT_CONTROLLER: "about",
+};

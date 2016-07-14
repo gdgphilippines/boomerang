@@ -215,6 +215,7 @@ body {
 }
 h1,h2,h3,h4,h5,h6 {
 	font-family: 'Product Sans';
+	color: #666;
 }
 .cover {
 	-webkit-transition: .2s all ease-in-out;
@@ -244,6 +245,9 @@ h1,h2,h3,h4,h5,h6 {
 }
 .card.nopad {
 	padding: 0;
+}
+[class^="col-"] .wrapper {
+	padding: 12px;
 }
 [controller="about"] .gdg-icon {
 	width: 200px;
@@ -427,6 +431,9 @@ table.mileage img {
 .hr .b:last-child {
 	background: #ffc107;
 }
+#upcoming p, #blogposts p {
+	font-size: 14px;
+}
 
 @media screen and (max-width: 900px) {
 	.s900-col-6 {
@@ -434,6 +441,9 @@ table.mileage img {
 	}
 }
 @media screen and (max-width: 600px) {
+	[class^="col-"] .wrapper {
+		padding: 0;
+	}
   .view .columns [class^="col-"] {
     width: 100% !important;
     margin-left: 0 !important;

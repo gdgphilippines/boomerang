@@ -28,7 +28,7 @@
 					event.about = replaceAll(event.about, '<br />', '');
 					event.about = replaceAll(event.about, '<br>', '');
 
-					$("#containerEvents").append('<div class="card"><h3>'+event.title+'</h3><small>'+event.location+'<br>'+dateFormat(datex, "dddd, mmmm dS, yyyy, h:MM:ss TT")+'</small><br><br>'+event.about+'</div>');
+					$("#containerEvents").append('<div class="card"><h3>'+event.title+'</h3><small>'+event.location+'<br>'+dateFormat(datex, "dddd, mmmm dS, yyyy, h:MM TT")+'</small><br><br>'+event.about+'</div>');
 				})
 			}
 		});
@@ -82,7 +82,7 @@
 					event.about = replaceAll(event.about, '<br />', '');
 					event.about = replaceAll(event.about, '<br>', '');
 
-					$("#containerEvents").append('<div class="card"><h3>'+event.title+'</h3><small>'+event.location+'<br>'+dateFormat(datex, "dddd, mmmm dS, yyyy, h:MM:ss TT")+'</small><br><br><p>'+event.about+'</p></div>');
+					$("#containerEvents").append('<div class="card"><h3>'+event.title+'</h3><small>'+event.location+'<br>'+dateFormat(datex, "dddd, mmmm dS, yyyy, h:MM TT")+'</small><br><br><p>'+event.about+'</p></div>');
 				}
 			}
 		});
