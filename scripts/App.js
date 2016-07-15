@@ -1,5 +1,6 @@
-var xhr, fl = true;
 var App = {
+	xhr: null,
+	fl: true,
 	start: function(page) {
 		if(page == "")
 			page = Config.DEFAULT_CONTROLLER;
@@ -51,12 +52,12 @@ var App = {
 			"top": "120px"
 		}, 400);
 		$(".view").html("").attr("controller", controller);
-		if(fl)
-			fl = false;
+		if(App.fl)
+			App.fl = false;
 		else
-			xhr.abort();
+			App.xhr.abort();
 		$("body").scrollTop(0);
-		xhr = $.ajax({
+		App.xhr = $.ajax({
 			url: "views/"+controller+".html",
 			cache: true,
 			success: function(html) {

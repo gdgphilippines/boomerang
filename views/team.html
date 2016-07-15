@@ -2,44 +2,121 @@
 <div class="columns team">
 	<div class="col-4 s900-col-6">
 		<div class="wrapper">
-		<img src="images/team/ralph-regalado.jpg">
-		<b>Ralph Vincent Regalado</b>
-		<small><i>Community Manager, GDG Philippines<br>Big Data & Machine Learning</i></small>
+			<img src="images/team/ralph-regalado.jpg">
+			<b>Ralph Vincent Regalado</b>
+			<small><i>Community Manager, GDG Philippines<br>Big Data & Machine Learning</i></small><br>
+			<img src="images/fb.png" class="sm">
 		</div>
 	</div>
 	<div class="col-4 s900-col-6">
 		<div class="wrapper">
-		<img src="images/team/jomar-tigcal.jpg">
-		<b>Jomar Tigcal</b>
-		<small><i>Community Manager, GDG Philippines<br>Android Development</i></small>
+			<img src="images/team/jomar-tigcal.jpg">
+			<b>Jomar Tigcal</b>
+			<small><i>Community Manager, GDG Philippines<br>Android Development</i></small>
 		</div>
 	</div>
 	<div class="col-4 s900-col-6">
 		<div class="wrapper">
-		<img src="images/team/adam-baguyo.jpg">
-		<b>Adam Ray Baguyo</b>
-		<small><i>Corporate Relations Manager, GDG Philippines</i></small>
+			<img src="images/team/adam-baguyo.jpg">
+			<b>Adam Ray Baguyo</b>
+			<small><i>Corporate Relations Manager, GDG Philippines</i></small>
 		</div>
 	</div>
 	<div class="col-4 s900-col-6">
 		<div class="wrapper">
-		<img src="images/team/cristine-chen.jpg">
-		<b>Cristine Chen</b>
-		<small><i>Communications Manager, GDG Philippines</i></small>
+			<img src="images/team/cristine-chen.jpg">
+			<b>Cristine Chen</b>
+			<small><i>Communications Manager, GDG Philippines</i></small>
 		</div>
 	</div>
 	<div class="col-4 s900-col-6">
 		<div class="wrapper">
-		<img src="images/team/jonah-mananghaya.jpg">
-		<b>Jonah Micah Mananghaya</b>
-		<small><i>Logistics Manager, GDG Philippines</i></small>
-		</div>
-	</div>
-	<div class="col-4 s900-col-6">
-		<div class="wrapper">
-		<img src="images/team/juvar-abrera.jpg">
-		<b>Juvar Abrera</b>
-		<small><i>Creative Manager, GDG Philippines<br>Polymer & Progressive Web App</i></small>
+			<img src="images/team/jonah-mananghaya.jpg">
+			<b>Jonah Micah Mananghaya</b>
+			<small><i>Logistics Manager, GDG Philippines</i></small>
 		</div>
 	</div>
 </div>
+<script>
+	var team = [
+		{
+			name: "Ralph Vincent Regalado",
+			title: "Community Manager, GDG Philippines<br>Big Data & Machine Learning",
+			img: "ralph-regalado",
+			socialmedia: {
+				gp: "https://plus.google.com/+RalphVincentRegalado",
+				tw: "https://twitter.com/regalandroid",
+				li: "https://www.linkedin.com/in/rvregalado",
+				wb: "http://ralphregalado.com/"
+			}
+		},
+		{
+			name: "Jomar Tigcal",
+			title: "Community Manager, GDG Philippines<br>Android Development",
+			img: "jomar-tigcal",
+			socialmedia: {
+				gp: "https://plus.google.com/+JomarTigcal",
+				tw: "https://twitter.com/jomartigcal",
+				li: "https://ph.linkedin.com/in/jomartigcal",
+				wb: "http://jomar.tigcal.com/"
+			}
+		},
+		{
+			name: "Adam Ray Baguyo",
+			title: "Corporate Relations Manager, GDG Philippines",
+			img: "adam-baguyo",
+			socialmedia: {
+				gp: "https://plus.google.com/102716654558206712999/posts",
+				tw: "https://twitter.com/awesomeadamray",
+				li: "https://ph.linkedin.com/in/adam-ray-villaruel-baguyo-a8b81379",
+				wb: ""
+			}
+		},
+		{
+			name: "Cristine Chen",
+			title: "Communications Manager, GDG Philippines",
+			img: "cristine-chen",
+			socialmedia: {
+				gp: "https://plus.google.com/+CristineChenChen",
+				tw: "https://twitter.com/CristineChen",
+				li: "https://tw.linkedin.com/in/cristinechen/en",
+				wb: ""
+			}
+		},
+		{
+			name: "Jonah Micah Mananghaya",
+			title: "Logistics Manager, GDG Philippines",
+			img: "jonah-mananghaya",
+			socialmedia: {
+				gp: "https://plus.google.com/+JonahMicahMananghaya",
+				tw: "",
+				li: "https://ph.linkedin.com/in/jonah-mananghaya-276072a1",
+				wb: ""
+			}
+		},
+		{
+			name: "Juvar Abrera",
+			title: "Creative Manager, GDG Philippines<br>Polymer & Progressive Web App",
+			img: "juvar-abrera",
+			socialmedia: {
+				gp: "https://plus.google.com/u/0/+JuvarAbrera",
+				tw: "https://twitter.com/juvar_a",
+				li: "https://www.linkedin.com/in/juvar-abrera-4ba003b2",
+				wb: "http://juvarabrera.com/"
+			}
+		}
+	];
+	$(".columns.team").html("");
+	$.each(team, function(index, member) {
+		$(".columns.team").append('<div class="col-4 s900-col-6"> <div class="wrapper"> <img src="images/team/'+member.img+'.jpg"> <b>'+member.name+'</b> <small><i>'+member.title+'</i></small><br>'+((member.socialmedia.gp != "") ? '<a href="'+member.socialmedia.gp+'" target="_blank"><img src="images/gp.png" class="sm" /></a>' : '')+((member.socialmedia.tw != "") ? '<a href="'+member.socialmedia.tw+'" target="_blank"><img src="images/tw.png" class="sm" /></a>' : '')+((member.socialmedia.li != "") ? '<a href="'+member.socialmedia.li+'" target="_blank"><img src="images/linkedin.png" class="sm" /></a>' : '')+((member.socialmedia.wb != "") ? '<a href="'+member.socialmedia.wb+'" target="_blank"><img src="images/web.png" class="sm" /></a>' : '')+'</div></div>');
+	});
+	function isMobile() {
+		return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+	}
+	if(isMobile()) {
+		$("img.sm").css({
+			"top": "0px",
+			"opacity": "1"
+		})
+	}
+</script>

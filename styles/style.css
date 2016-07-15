@@ -263,7 +263,7 @@ h1,h2,h3,h4,h5,h6 {
 [controller="team"] [class^="col-"] {
 	text-align: center;
 	padding: 24px 0px;
-	height: 290px;
+	height: 314px;
 }
 [controller="team"] [class^="col-"] .wrapper {
 	padding: 0px 12px;
@@ -272,6 +272,25 @@ h1,h2,h3,h4,h5,h6 {
 	border-radius: 100%;
 	width: 150px;
 	box-shadow: 0px 3px 4px rgba(0,0,0,.2);
+}
+[controller="team"] img.sm {
+	border-radius: 0px;
+	width: 24px;
+	height: 24px;
+	box-shadow: 0px 0px 0px black;
+	margin: 8px;
+	position: relative;
+	top: 10px;
+	opacity: 0;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+[controller="team"] .col-4:hover img.sm {
+	top: 0px;
+	opacity: 1;
 }
 [controller="team"] b {
 	display: block;
