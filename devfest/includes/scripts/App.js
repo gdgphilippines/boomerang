@@ -160,9 +160,6 @@ var App = {
 		$(".menu").click(function() {
 			App.slider("show");
 		})
-		App.loadMultiple();
-	},
-	loadMultiple: function() {
 		$("[data-page]").click(function() {
 			if(!$(this).is(".selected")) {
 				App.loadController($(this).attr("data-page"));
@@ -196,6 +193,7 @@ var App = {
 	loadSpeaker: function(si) {
 		$("body").css("overflow", "hidden");
 		$(".black-trans").show();
+		$(".speaker-container").scrollTop(0);
 		$(".speaker-container").css("bottom", "0px");
 		var ss = App.speakerInfo[si];
 		$(".speaker-container .cover").css("background-image", "url(includes/images/speakers/"+ss.img+".jpg)")
@@ -216,25 +214,20 @@ var App = {
 	},
 	loadController: function(controller) {
 		App.currentPage = controller;
+		$(".loading").css("top", "80px");
 		$("ul.nav a").removeClass("selected");
 		$("ul.nav a[data-page='"+controller+"']").addClass("selected");
-
-		if(controller != "home") {
-			$(".action-bar img.logo").css("opacity", "1")
-		} else {
-			$(".action-bar img.logo").css("opacity", "0")
-		}
-
 		if(App.fl)
 			App.fl = false;
 		else
 			App.xhr.abort();
-		$("body").scrollTop(0);
+		$("body").animate({
+			scrollTop: 0
+		}, 500, 'swing');
 		App.xhr = $.ajax({
 			url: "views/"+controller+".html",
 			cache: true,
 			success: function(html) {
-				App.loadMultiple();
 				$(".view").html("").attr("controller", controller).css("height", "400px").animate({
 					"top": "200px",
 					"opacity": "0"
@@ -243,6 +236,11 @@ var App = {
 					"top": "500px"
 				}, 500);
 				setTimeout(function() {
+					if(controller != "home") {
+						$(".action-bar img.logo").css("opacity", "1")
+					} else {
+						$(".action-bar img.logo").css("opacity", "0")
+					}
 					$(".view").html($(html).filter("#view")).animate({
 						"top": "0px",
 						"opacity": "1"
@@ -250,7 +248,9 @@ var App = {
 					$(".header .col-6").html($(html).filter("#header"));
 					$(".header .wrapper").animate({
 						"top": "0px"
-					}, 1500);
+					}, 1500, function() {
+						$(".loading").css("top", "-80px");
+					});
 				}, 750);
 			},
 			error: function(xhrtemp, ajaxOptions, thrownError) {
