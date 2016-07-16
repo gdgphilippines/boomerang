@@ -1,0 +1,52 @@
+<div id="header">
+	<img src="includes/images/logo.png"><br>
+	<span>January 1-2, 2016</span>
+	<p>Lorem ipsum keme keme keme 48 years keme keme bakit thunder sa katol. Pak ganern!</p>
+	<a href="#"><i class="material-icons">play_circle_filled</i>See what happened in 2015</a><br><br><br>
+	<a href="#" class="raised_button">Register</a>
+</div>
+<div id="view">
+	<div class="content color">
+		<div class="wrapper">
+			<div class="columns center">
+				<div class="col-3 t-col-6 m-col-12">
+					<span class="bignum">100</span>
+					Attendees
+				</div>
+				<div class="col-3 t-col-6 m-col-12">
+					<span class="bignum">2</span>
+					Days
+				</div>
+				<div class="col-3 t-col-6 m-col-12">
+					<span class="bignum">20</span>
+					Sessions
+				</div>
+				<div class="col-3 t-col-6 m-col-12">
+					<span class="bignum">4</span>
+					Parallel tracks
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content speakers">
+		<div class="wrapper">
+			<h1 class="center">Speakers</h1>
+			<div class="columns center" id="speakerRender">
+			</div>
+			<div class="columns center">
+				<div class="col-12">
+					<a onclick="App.loadController('speakers')" href="#speakers" class="raised_button">View All</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$.each(App.getRandom(App.speakerInfo, (App.speakerInfo.length < 4) ? App.speakerInfo.length : 4), function(index, speaker) {
+			$("#speakerRender").append('<div class="col-3 t-col-6 m-col-12">'+
+					'<img src="includes/images/speakers/'+speaker.img+'.jpg">'+
+					'<span>'+speaker.name+'</span>'+
+					'<small>'+speaker.company+'</small>'+
+				'</div>');
+		})
+	</script>
+</div>
