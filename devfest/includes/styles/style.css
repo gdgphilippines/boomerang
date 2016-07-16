@@ -197,6 +197,7 @@ a.raised_button {
   .content.speakers [class^="col-"] {
     padding: 18px 12px; }
   .content.speakers img {
+    width: 150px;
     border-radius: 100%;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2); }
   .content.speakers span {

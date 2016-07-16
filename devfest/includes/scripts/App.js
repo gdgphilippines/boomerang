@@ -12,18 +12,108 @@ var App = {
 	],
 	speakerInfo: [
 		{
-			name: "Ralph Vincent Regalado1",
-			title: "Lorem ipsum dolor sit amet.",
+			name: "Ralph Vincent Regalado",
+			title: "Community Manager, GDG Philippines",
 			img: "ralph-regalado",
-			bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem accusamus, corporis soluta voluptas voluptates veniam vero quasi ex repudiandae fuga. Velit error quod voluptatum, rerum beatae consequuntur reprehenderit laborum neque maiores a perferendis molestias assumenda aliquid, nulla nam quo ut, vitae repellat ab repudiandae officiis porro quidem dolor! Repudiandae quibusdam, molestiae culpa. Quae minima sed id eaque, reprehenderit ea totam molestiae nobis iste quidem nesciunt corporis iure eveniet facere error aperiam velit repellendus odio laudantium. Autem assumenda esse ipsam architecto dignissimos nesciunt magni, eum quos similique voluptate, rerum hic doloremque inventore harum voluptatem labore non et minima possimus, a quas.",
+			bio: "Ralph Vincent Regalado is one of the Community Managers of GDG Philippines. He is also the CEO and Founder of SENTi, a tech startup that analyzes sentiments and conversations in social media. He is a professor, and a Natural Language Processing researcher at De La Salle University, Manila. His research works were presented not only in local but also in international conferences hosted in China, Japan, Vietnam, Indonesia and the United States. When he is not at work, he spends his time travelling and hiking mountains.",
 			skills: [0],
-			company: "Google",
+			company: "GDG Philippines",
 			sm: {
-				fb: "1",
-				tw: "",
-				gp: "3",
-				li: "2",
-				wb: "1",
+				fb: "https://www.facebook.com/regalandroid",
+				tw: "https://twitter.com/regalandroid",
+				gp: "https://plus.google.com/+RalphVincentRegalado/posts",
+				li: "https://www.linkedin.com/in/rvregalado",
+				wb: "http://ralphregalado.com/",
+			}
+		},
+		{
+			name: "Ralph Vincent Regalado",
+			title: "Community Manager, GDG Philippines",
+			img: "ralph-regalado",
+			bio: "Ralph Vincent Regalado is one of the Community Managers of GDG Philippines. He is also the CEO and Founder of SENTi, a tech startup that analyzes sentiments and conversations in social media. He is a professor, and a Natural Language Processing researcher at De La Salle University, Manila. His research works were presented not only in local but also in international conferences hosted in China, Japan, Vietnam, Indonesia and the United States. When he is not at work, he spends his time travelling and hiking mountains.",
+			skills: [0],
+			company: "GDG Philippines",
+			sm: {
+				fb: "https://www.facebook.com/regalandroid",
+				tw: "https://twitter.com/regalandroid",
+				gp: "https://plus.google.com/+RalphVincentRegalado/posts",
+				li: "https://www.linkedin.com/in/rvregalado",
+				wb: "http://ralphregalado.com/",
+			}
+		},
+		{
+			name: "Ralph Vincent Regalado",
+			title: "Community Manager, GDG Philippines",
+			img: "ralph-regalado",
+			bio: "Ralph Vincent Regalado is one of the Community Managers of GDG Philippines. He is also the CEO and Founder of SENTi, a tech startup that analyzes sentiments and conversations in social media. He is a professor, and a Natural Language Processing researcher at De La Salle University, Manila. His research works were presented not only in local but also in international conferences hosted in China, Japan, Vietnam, Indonesia and the United States. When he is not at work, he spends his time travelling and hiking mountains.",
+			skills: [0],
+			company: "GDG Philippines",
+			sm: {
+				fb: "https://www.facebook.com/regalandroid",
+				tw: "https://twitter.com/regalandroid",
+				gp: "https://plus.google.com/+RalphVincentRegalado/posts",
+				li: "https://www.linkedin.com/in/rvregalado",
+				wb: "http://ralphregalado.com/",
+			}
+		},
+		{
+			name: "Ralph Vincent Regalado",
+			title: "Community Manager, GDG Philippines",
+			img: "ralph-regalado",
+			bio: "Ralph Vincent Regalado is one of the Community Managers of GDG Philippines. He is also the CEO and Founder of SENTi, a tech startup that analyzes sentiments and conversations in social media. He is a professor, and a Natural Language Processing researcher at De La Salle University, Manila. His research works were presented not only in local but also in international conferences hosted in China, Japan, Vietnam, Indonesia and the United States. When he is not at work, he spends his time travelling and hiking mountains.",
+			skills: [0],
+			company: "GDG Philippines",
+			sm: {
+				fb: "https://www.facebook.com/regalandroid",
+				tw: "https://twitter.com/regalandroid",
+				gp: "https://plus.google.com/+RalphVincentRegalado/posts",
+				li: "https://www.linkedin.com/in/rvregalado",
+				wb: "http://ralphregalado.com/",
+			}
+		},
+		{
+			name: "Ralph Vincent Regalado",
+			title: "Community Manager, GDG Philippines",
+			img: "ralph-regalado",
+			bio: "Ralph Vincent Regalado is one of the Community Managers of GDG Philippines. He is also the CEO and Founder of SENTi, a tech startup that analyzes sentiments and conversations in social media. He is a professor, and a Natural Language Processing researcher at De La Salle University, Manila. His research works were presented not only in local but also in international conferences hosted in China, Japan, Vietnam, Indonesia and the United States. When he is not at work, he spends his time travelling and hiking mountains.",
+			skills: [0],
+			company: "GDG Philippines",
+			sm: {
+				fb: "https://www.facebook.com/regalandroid",
+				tw: "https://twitter.com/regalandroid",
+				gp: "https://plus.google.com/+RalphVincentRegalado/posts",
+				li: "https://www.linkedin.com/in/rvregalado",
+				wb: "http://ralphregalado.com/",
+			}
+		},
+		{
+			name: "Ralph Vincent Regalado",
+			title: "Community Manager, GDG Philippines",
+			img: "ralph-regalado",
+			bio: "Ralph Vincent Regalado is one of the Community Managers of GDG Philippines. He is also the CEO and Founder of SENTi, a tech startup that analyzes sentiments and conversations in social media. He is a professor, and a Natural Language Processing researcher at De La Salle University, Manila. His research works were presented not only in local but also in international conferences hosted in China, Japan, Vietnam, Indonesia and the United States. When he is not at work, he spends his time travelling and hiking mountains.",
+			skills: [0],
+			company: "GDG Philippines",
+			sm: {
+				fb: "https://www.facebook.com/regalandroid",
+				tw: "https://twitter.com/regalandroid",
+				gp: "https://plus.google.com/+RalphVincentRegalado/posts",
+				li: "https://www.linkedin.com/in/rvregalado",
+				wb: "http://ralphregalado.com/",
+			}
+		},
+		{
+			name: "Ralph Vincent Regalado",
+			title: "Community Manager, GDG Philippines",
+			img: "ralph-regalado",
+			bio: "Ralph Vincent Regalado is one of the Community Managers of GDG Philippines. He is also the CEO and Founder of SENTi, a tech startup that analyzes sentiments and conversations in social media. He is a professor, and a Natural Language Processing researcher at De La Salle University, Manila. His research works were presented not only in local but also in international conferences hosted in China, Japan, Vietnam, Indonesia and the United States. When he is not at work, he spends his time travelling and hiking mountains.",
+			skills: [0],
+			company: "GDG Philippines",
+			sm: {
+				fb: "https://www.facebook.com/regalandroid",
+				tw: "https://twitter.com/regalandroid",
+				gp: "https://plus.google.com/+RalphVincentRegalado/posts",
+				li: "https://www.linkedin.com/in/rvregalado",
+				wb: "http://ralphregalado.com/",
 			}
 		}
 	],
@@ -112,6 +202,7 @@ var App = {
 		$(".speaker-container .name").html(ss.name);
 		$(".speaker-container small").html(ss.title);
 		var skillhtml = "";
+		$(".speaker-container p").html(ss.bio);
 		$(".speaker-container .chips").html("");
 		for(var i = 0; i < ss.skills.length; i++) {
 			skillhtml += '<div class="chip '+App.skills[ss.skills[i]].color+'"><span>'+App.skills[ss.skills[i]].name+'</span></div>';
