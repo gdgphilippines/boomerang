@@ -207,9 +207,6 @@ body {
 	padding: 50px 24px;
 	color: #666;
 }
-.view>h1 {
-	padding-left: 24px;
-}
 .view p {
 	line-height: 150%;
 }
@@ -497,12 +494,16 @@ table.mileage img {
 	}
 }
 @media screen and (max-width: 375px) {
+	.view>h1 {
+		padding-left: 24px;
+	}
 	.view {
 		padding-left: 0px;
 		padding-right: 0px;
 	}
-  .view .columns [class^="col-"] {
-    padding-left: 0 !important} 
+	.view .columns [class^="col-"] {
+    	padding-left: 0 !important
+    } 
 	[controller="about"] .wrapper>p {
 		padding: 0px 24px;
 	}
