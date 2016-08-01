@@ -76,6 +76,8 @@ slideshow();
 								$("#upcoming").append('<div class="card"><h3>'+event.title+'</h3><small>'+dateFormat(datex, "dddd, mmmm dS, yyyy, h:MM TT")+'</small><p>'+tmp.textContent.split(/\s+/).slice(0,20).join(" ")+"..."+'</p><a href="https://developers.google.com/events/'+event._id+'/" target="_blank" class="raised_button">Read more</a></div>');
 							}
 						})
+						if(count == 0)
+							$("#upcoming").html('<div class="card"><h3>Message</h3><p>No incoming events for now. Add, like, and follow our social media pages to get the latest updates for our upcoming events!</p></div>');
 					}
 				});
 			</script>
