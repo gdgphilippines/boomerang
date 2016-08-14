@@ -22,7 +22,9 @@
 			data: { 'headers': { 'Accept': 'application/json;' }, 'timeout': 10000 },
 			success: function(events) {
 				$("#containerEvents").html("");
+				var count = 0;
 				$.each(events.items, function(index, event) {
+					count++;
 					var datex = new Date(event.start.substring(0,19));
 					event.about = replaceAll(event.about, '<p style="text-align: justify;">', '<p>');
 					event.about = replaceAll(event.about, '<br />', '');
@@ -30,6 +32,8 @@
 
 					$("#containerEvents").append('<div class="card"><h3>'+event.title+'</h3><small>'+event.location+'<br>'+dateFormat(datex, "dddd, mmmm dS, yyyy, h:MM TT")+'</small><br><br>'+event.about+'</div>');
 				})
+				if(count == 0)
+					$("#containerEvents").html('<div class="card"><h3>Message</h3><p>No incoming events for now. Add, like, and follow our social media pages to get the latest updates for our upcoming events!</p></div>');
 			}
 		});
 	});
