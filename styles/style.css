@@ -51,11 +51,10 @@ body {
 }
 .action-bar span.gdg-text {
 	font-family: 'Product Sans';
-	padding: 16px 0px 0px 16px;
+	padding: 12px 0px 0px 12px;
 	float: left;
-	font-size: 26px;
+	font-size: 32px;
 	opacity: .65;
-	font-weight: bold;
 }
 .action-bar a.menu {
 	display: inline-block;
