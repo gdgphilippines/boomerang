@@ -1,6 +1,8 @@
 <h1>Core Team</h1>
 <div class="columns team">
 </div>
+<h1>Apprentices</h1>
+<div class="columns apprentice"></div>
 <script>
 	var team = [
 		{
@@ -81,9 +83,37 @@
 			}
 		}
 	];
+	var apprentice = [
+		{
+			name: "Jielynn Diroy",
+			title: "Apprentice<br>Firebase",
+			img: "jielynn-diroy",
+			socialmedia: {
+				gp: "https://plus.google.com/+JielynnDiroy",
+				tw: "https://twitter.com/jielynnd",
+				li: "https://www.linkedin.com/in/jielynn-diroy-319448105",
+				wb: ""
+			}
+		},
+		{
+			name: "Jarrell Maverick Remulla",
+			title: "Creatives Team<br>Android Development",
+			img: "jarrell-remulla",
+			socialmedia: {
+				gp: "https://plus.google.com/+JarrellMaverickRemulla",
+				tw: "https://twitter.com/extrememaverick",
+				li: "https://www.linkedin.com/in/jarrell-maverick-remulla-005332122",
+				wb: ""
+			}
+		}
+	];
 	$(".columns.team").html("");
 	$.each(team, function(index, member) {
 		$(".columns.team").append('<div class="col-4 s900-col-6"> <div class="wrapper"> <img src="images/team/'+member.img+'.jpg"> <b>'+member.name+'</b> <small><i>'+member.title+'</i></small><br>'+((member.socialmedia.gp != "") ? '<a href="'+member.socialmedia.gp+'" target="_blank"><img src="images/gp.png" class="sm" /></a>' : '')+((member.socialmedia.tw != "") ? '<a href="'+member.socialmedia.tw+'" target="_blank"><img src="images/tw.png" class="sm" /></a>' : '')+((member.socialmedia.li != "") ? '<a href="'+member.socialmedia.li+'" target="_blank"><img src="images/linkedin.png" class="sm" /></a>' : '')+((member.socialmedia.wb != "") ? '<a href="'+member.socialmedia.wb+'" target="_blank"><img src="images/web.png" class="sm" /></a>' : '')+'</div></div>');
+	});
+	$(".columns.apprentice").html("");
+	$.each(apprentice, function(index, member) {
+		$(".columns.apprentice").append('<div class="col-4 s900-col-6"> <div class="wrapper"> <img src="images/team/'+member.img+'.jpg"> <b>'+member.name+'</b> <small><i>'+member.title+'</i></small><br>'+((member.socialmedia.gp != "") ? '<a href="'+member.socialmedia.gp+'" target="_blank"><img src="images/gp.png" class="sm" /></a>' : '')+((member.socialmedia.tw != "") ? '<a href="'+member.socialmedia.tw+'" target="_blank"><img src="images/tw.png" class="sm" /></a>' : '')+((member.socialmedia.li != "") ? '<a href="'+member.socialmedia.li+'" target="_blank"><img src="images/linkedin.png" class="sm" /></a>' : '')+((member.socialmedia.wb != "") ? '<a href="'+member.socialmedia.wb+'" target="_blank"><img src="images/web.png" class="sm" /></a>' : '')+'</div></div>');
 	});
 	function isMobile() {
 		return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
