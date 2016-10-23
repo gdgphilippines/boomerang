@@ -96,10 +96,6 @@
 	$.each(team, function(index, member) {
 		$(".columns.team").append('<div class="col-4 s900-col-6"> <div class="wrapper"> <img src="images/team/'+member.img+'.jpg"> <b>'+member.name+'</b> <small><i>'+member.title+'</i></small><br>'+((member.socialmedia.gp != "") ? '<a href="'+member.socialmedia.gp+'" target="_blank"><img src="images/gp.png" class="sm" /></a>' : '')+((member.socialmedia.tw != "") ? '<a href="'+member.socialmedia.tw+'" target="_blank"><img src="images/tw.png" class="sm" /></a>' : '')+((member.socialmedia.li != "") ? '<a href="'+member.socialmedia.li+'" target="_blank"><img src="images/linkedin.png" class="sm" /></a>' : '')+((member.socialmedia.wb != "") ? '<a href="'+member.socialmedia.wb+'" target="_blank"><img src="images/web.png" class="sm" /></a>' : '')+'</div></div>');
 	});
-	$(".columns.apprentice").html("");
-	$.each(apprentice, function(index, member) {
-		$(".columns.apprentice").append('<div class="col-4 s900-col-6"> <div class="wrapper"> <img src="images/team/'+member.img+'.jpg"> <b>'+member.name+'</b> <small><i>'+member.title+'</i></small><br>'+((member.socialmedia.gp != "") ? '<a href="'+member.socialmedia.gp+'" target="_blank"><img src="images/gp.png" class="sm" /></a>' : '')+((member.socialmedia.tw != "") ? '<a href="'+member.socialmedia.tw+'" target="_blank"><img src="images/tw.png" class="sm" /></a>' : '')+((member.socialmedia.li != "") ? '<a href="'+member.socialmedia.li+'" target="_blank"><img src="images/linkedin.png" class="sm" /></a>' : '')+((member.socialmedia.wb != "") ? '<a href="'+member.socialmedia.wb+'" target="_blank"><img src="images/web.png" class="sm" /></a>' : '')+'</div></div>');
-	});
 	function isMobile() {
 		return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 	}
