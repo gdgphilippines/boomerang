@@ -55,6 +55,7 @@ body {
 	float: left;
 	font-size: 32px;
 	opacity: .65;
+	color: #333;
 }
 .action-bar a.menu {
 	display: inline-block;
@@ -63,6 +64,7 @@ body {
 	margin: 0px;
 	float: left;
 	display: none;
+	color: #333;
 }
 .action-bar a.menu i {
 	padding-top: 16px;
@@ -90,6 +92,7 @@ body {
 	font-size: 14px;
 	font-family: 'Product Sans';
 	opacity: .75;
+	color: #333;
 }
 .action-bar ul.nav li a.selected {
 	color: #4285f4;
@@ -321,6 +324,7 @@ h1,h2,h3,h4,h5,h6 {
 	height: 48px;
 	display: inline-block;
 	vertical-align: middle;
+	color: #333;
 }
 .slider a.back i {
 	padding: 10px 0px 0px 10px;
@@ -333,6 +337,7 @@ h1,h2,h3,h4,h5,h6 {
 .slider ul.nav a {
 	display: block;
 	width: 100%;
+	color: #333;
 	padding: 12px 24px;
 	border-left: 3px solid transparent;
 }

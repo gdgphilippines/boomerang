@@ -5,6 +5,9 @@ var App = {
 		if(page == "")
 			page = Config.DEFAULT_CONTROLLER;
 		this.loadController(page);
+		this.static();
+	},
+	static: function() {
 		App.responsive();
 		$(window).resize(function() {
 			App.responsive();
@@ -21,6 +24,8 @@ var App = {
 		$(".menu").click(function() {
 			App.slider("show");
 		})
+		Input.ready();
+		Form.ready();
 	},
 	slider: function(action) {
 		if(action == "show") {
