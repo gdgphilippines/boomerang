@@ -24,8 +24,8 @@ var App = {
 		$(".menu").click(function() {
 			App.slider("show");
 		})
-		Input.ready();
-		Form.ready();
+		// Input.ready();
+		// Form.ready();
 	},
 	slider: function(action) {
 		if(action == "show") {

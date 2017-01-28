@@ -349,20 +349,21 @@ h1,h2,h3,h4,h5,h6 {
 	padding-top: 24px;
 	padding-bottom: 50px;
 	width: 100%;
-	font-size: 16px;
-	color: #888;
+	font-size: 15px;
+	color: #cfd8dc;
 	clear: both;
 	margin: 0px auto;
 	margin-top: 48px;
 	float: left;
 	z-index: 10;
 	position: relative;
+	background: #303c42;
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f8f8f8+0,e5e5e5+100 */
-	background: #e5e5e5; /* Old browsers */
-	background: -moz-linear-gradient(top,  #f8f8f8 0%, #e5e5e5 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  #f8f8f8 0%,#e5e5e5 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  #f8f8f8 0%,#e5e5e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+	/*background: #e5e5e5; 
+	background: -moz-linear-gradient(top,  #f8f8f8 0%, #e5e5e5 100%); 
+	background: -webkit-linear-gradient(top,  #f8f8f8 0%,#e5e5e5 100%);
+	background: linear-gradient(to bottom,  #f8f8f8 0%,#e5e5e5 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#e5e5e5',GradientType=0 );*/
 }
 .footer p {
 	line-height: 150%;
@@ -374,6 +375,20 @@ h1,h2,h3,h4,h5,h6 {
 }
 .footer .columns {
 	clear: both;
+	padding: 0px;
+}
+.footer .hr {
+	position: absolute;
+	top: 0px;
+	height: 8px;
+	right: 0px;
+	width: 240px;
+	margin-bottom: 0px;
+}
+@media screen and (max-width: 600px) {
+	.footer .columns {
+		padding-top: 24px;
+	}
 }
 .footer [class^="col-"]>.wrapper {
 	padding: 0px 24px;
@@ -399,8 +414,48 @@ h1,h2,h3,h4,h5,h6 {
 .footer img {
 	height: 20px;
 }
-.footer h3 {
+.footer i.mdi {
+	font-size: 24px;
+	color: #cfd8dc;
+}
+.footer h4 {
+	color: #cfd8dc;
 	margin-bottom: 12px;
+}
+.footer2 {
+	background-color: #37424b;
+	width: 100%;
+	font-size: 16px;
+	color: #cfd8dc;
+	clear: both;
+	float: left;
+	z-index: 10;
+	position: relative;
+}
+.footer2 .columns {
+	padding: 0px;
+}
+.footer2 .wrapper {
+	padding: 0px;
+}
+.footer2 > .wrapper {
+	padding: 24px;
+	min-width: 320px;
+	max-width: 1080px;
+	margin: 0px auto;
+}
+.footer2 .gdg-icon {
+	width: 25px;
+	height: 24px;
+	position: relative;
+	top: -3px;
+	vertical-align: middle;
+	display: inline-block;
+}
+.footer2 .gdg-text {
+	color: #cfd8dc;
+	font-family: 'Product Sans';
+	font-size: 20px;
 }
 table.mileage {
 	width: 100%;
