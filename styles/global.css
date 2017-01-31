@@ -1,4 +1,4 @@
-select, textarea, input[type="text"], input[type="password"], input[type="date"], input[type="time"] {
+select, textarea, input[type="text"], input[type="password"], input[type="date"], input[type="time"], input[type="email"], input[type="number"] { 
   background: transparent;
   width: 100%;
   border: 0;
@@ -48,7 +48,7 @@ a {
     color: #005cb9; }
   a.flat_button[id] {
     color: #005cb9; }
-  a.raised_button {
+  .raised_button {
     background: rgba(0, 0, 0, 0.12);
     font-weight: bold;
     color: rgba(0, 0, 0, 0.26);
@@ -2562,8 +2562,9 @@ label {
   display: block;
   width: 100%;
   position: relative;
-  padding-top: 12px;
-  padding-bottom: 8px; }
+  /*padding-top: 12px;
+  margin-top: 12px;
+  padding-bottom: 8px;*/ }
   label.inline {
     display: inline;
     margin-right: 12px; }
@@ -2582,8 +2583,9 @@ label {
   label:not(.switch) span:not(.validate-message) {
     cursor: text;
     color: rgba(0, 0, 0, 0.25);
-    position: relative;
-    top: 28px;
+    position: absolute;
+    top: 30px;
+    left: 0px;
     font-size: 16px;
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
@@ -2594,9 +2596,30 @@ label {
       top: 0;
       color: #005CB9;
       font-size: 12px; }
-  label input[type="checkbox"], label input[type="radio"] {
+  label:not(.switch) input[type="checkbox"], label:not(.switch) input[type="radio"] {
     display: none; }
-  label:not(.switch) input[type="checkbox"] + span {
+    label:not(.switch) input[type="checkbox"] + i:before, label:not(.switch) input[type="radio"] + i:before {
+      display: inline-block;
+      font: normal normal normal 24px/1 "Material Design Icons";
+      font-size: 20px;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      margin: 8px 8px 8px 0px; }
+  label:not(.switch) input[type="checkbox"] + i:before {
+    content: "\F131";
+    color: #666; }
+  label:not(.switch) input[type="checkbox"]:checked + i:before {
+    content: "\F132";
+    color: #2196f3; }
+  label:not(.switch) input[type="radio"] + i:before {
+    content: "\F43D";
+    color: #666; }
+  label:not(.switch) input[type="radio"]:checked + i:before {
+    content: "\F43E";
+    color: #2196f3; }
+ /* label:not(.switch) input[type="checkbox"] + span {
     display: inline-block;
     width: 18px;
     height: 18px;
@@ -2617,7 +2640,7 @@ label {
     -ms-transition: all 0s ease-in-out;
     -o-transition: all 0s ease-in-out;
     transition: all 0s ease-in-out; }
-    label:not(.switch) input[type="checkbox"] + span i.md-icon {
+    label:not(.switch) input[type="checkbox"] + span i {
       font-size: 18px !important;
       position: relative;
       top: -3px;
@@ -2629,8 +2652,8 @@ label {
   label:not(.switch) input[type="checkbox"]:checked + span {
     border: 2px solid #FFBB12;
     background-color: #FFBB12; }
-    label:not(.switch) input[type="checkbox"]:checked + span i.md-icon {
-      display: block; }
+    label:not(.switch) input[type="checkbox"]:checked + span i {
+      display: block; }*/
   label.switch {
     margin: 5px;
     display: inline-block; }
@@ -2688,17 +2711,19 @@ label {
 
 input {
   font-family: 'Roboto';
-  font-size: 16px; }
+  font-size: 16px;
+  margin-top: 24px;
+  margin-bottom: 8px; }
   input.error {
     border-bottom: 1px solid #f44336; }
   input:active {
     outline: none; }
-    input:active + border {
+    input:active + border, textarea:active + border {
       left: 0%;
       right: 0%; }
   input:focus {
     outline: none; }
-    input:focus + border {
+    input:focus + border, textarea:focus + border {
       left: 0%;
       right: 0%; }
 
@@ -2716,7 +2741,9 @@ textarea {
   font-family: 'Roboto';
   font-size: 16px;
   max-height: 300px;
-  resize: vertical; }
+  resize: vertical;
+  margin-top: 24px;
+  margin-bottom: 4px; }
   textarea:active {
     outline: none;
     border-bottom: 1px solid #005cb9; }
@@ -2731,7 +2758,7 @@ input[type="text"]:active, input[type="password"]:active, input[type="date"]:act
 
 input[type="submit"] {
   margin: 0;
-  margin-top: -28px;
+  margin-top: 12px;
   padding: 0;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -2739,14 +2766,35 @@ input[type="submit"] {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   border: 0;
-  cursor: pointer; }
+  cursor: pointer; 
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.26);
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  -o-border-radius: 1px;
+  border-radius: 1px;
+  min-width: 64px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  -ms-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  padding: 0 8px;
+  font-size: 14px; }
+}
   input[type="submit"][disabled] {
     cursor: not-allowed; }
   input[type="submit"].raised_button {
-    background: #FFBB12;
+    background: #005cb9;
     color: white; }
   input[type="submit"].flat_button {
-    color: #FFBB12; }
+    color: #005cb9; }
 
 .cover {
   width: 100%;

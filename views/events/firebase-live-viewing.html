@@ -1,0 +1,79 @@
+<div class="columns">
+	<div class="col-12">
+		<div class="wrapper">
+			<div class="cover" style="background-image: url(images/events/firebase-live-viewing/cover.jpg)"></div>
+		</div>
+	</div>
+</div>
+<div class="columns">
+	<div class="col-6">
+		<div class="wrapper">
+			<div class="card" id="cardAbout">
+				<h3>About the Event</h3>
+				<p>The <a target="_blank" href="https://events.withgoogle.com/firebase-dev-summit/">Firebase Dev Summit</a> is full day event for app developers that will focus on how to use Firebase with your apps. </p>
+				<table cellpadding="8px">
+					<tr valign="top">
+						<td width="1px"><i class="material-icons">location_on</i></td>
+						<td>
+							Mozilla Community Space Manila
+							<br><small>Roof Deck, Molave Building, 2231 Chino Roces Avenue, Makati City</small>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td><i class="material-icons">today</i></td>
+						<td>
+							November 7, 2016
+							<br><small>3:00PM - 9:00PM</small>
+						</td>
+					</tr>
+				</table>
+				<p align="right"><a href="#register" class="raised_button">Register</a></p>
+			</div>
+		</div>
+	</div>
+	<div class="col-6">
+		<div class="wrapper">
+			<div class="card nopad" id="eventMap">
+				
+			</div>
+		</div>
+	</div>
+	<script>
+		$("#eventMap").height($("#cardAbout").outerHeight());
+		var map;
+		function initMap() {
+			map = new google.maps.Map(document.getElementById("eventMap"), {
+				center: {lat: 14.5467261, lng: 121.0157295},
+				zoom: 15,
+				panControl:true,
+				zoomControl:true,
+				mapTypeControl:true,
+				scaleControl:true,
+				streetViewControl:true,
+				overviewMapControl:true,
+				rotateControl:true,
+				scrollwheel: false,
+				navigationControl: false,
+				draggable: true,
+				mapTypeId:google.maps.MapTypeId.ROADMAP
+			});
+			var marker = new google.maps.Marker({
+				position: {lat: 14.5467261, lng: 121.0157295},
+				animation: google.maps.Animation.BOUNCE
+			})
+			marker.setMap(map);
+		}
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfJwp5z6XbU6tYFHKY-J55Vc89jJCBJ2A&callback=initMap" async defer></script>
+	<div class="col-12">
+		<div class="wrapper">
+			<div class="card nopad" name="register">
+			<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfGmSLFf37Cj7UfLGbfqxJ1sTLlBMD_7ZR1yS0bzAuEMtnLFQ/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+			</div>
+		</div>
+	</div>
+	<div class="col-12" style="text-align: center">
+		<b>Venue Partner</b><br><br>
+		<a href="http://www.mozillaphilippines.org/" target="_blank"><img src="images/events/firebase-live-viewing/mozilla.png" width="120px"></a>
+	</div>
+</div>

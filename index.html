@@ -6,6 +6,10 @@
 	<script src="scripts/jquery.min.js"></script>
 	<script src="scripts/config.js"></script>
 	<script src="scripts/date.format.js"></script>
+	<script src="scripts/smooth_scroll.js"></script>
+	<script src="scripts/Input.js"></script>
+	<script src="scripts/Form.js"></script>
+	<script src="scripts/autosize.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="styles/mdi.css" rel="stylesheet">
@@ -34,10 +38,10 @@
 					<span class="gdg-text">GDG Philippines</span>
 				</a>
 				<ul class="nav">
-					<li><a data-page="about" href="#/about" class="selected">About</a></li>
+					<li><a href="#/about" class="selected">About</a></li>
 					<li><a href="http://blog.gdgph.org/" target="_blank">Blog</a></li>
-					<li><a data-page="events" href="#/events">Events</a></li>
-					<li><a data-page="team" href="#/team">Team</a></li>
+					<li><a href="#/events">Events</a></li>
+					<li><a href="#/team">Team</a></li>
 				</ul>
 			</div>
 		</div>
@@ -56,11 +60,11 @@
 						<div class="wrapper">
 							<h4>About GDG</h4>
 							<ul>
-								<li><a data-page="about" href="#/about">About</a></li>
+								<li><a href="#/about">About</a></li>
 								<li><a href="http://blog.gdgph.org/" target="_blank">Blog</a></li>
-								<li><a data-page="events" href="#/events">Events</a></li>
-								<li><a data-page="team" href="#/team">Team</a></li>
-								<li><a data-page="code-of-conduct" href="#/code-of-conduct">Code of Conduct</a></li>
+								<li><a href="#/events">Events</a></li>
+								<li><a href="#/team">Team</a></li>
+								<li><a href="#/community/guidelines">Code of Conduct</a></li>
 								<li><a href="https://developers.google.com/groups/chapter/105750470224587854845/" target="_blank">Google Developers Page</a></li>
 							</ul>
 						</div>
@@ -69,8 +73,8 @@
 						<div class="wrapper">
 							<h4>Get Involved</h4>
 							<ul>
-								<li><a data-page="be-a-sponsor" href="#/be-a-sponsor">Become a Sponsor</a></li>
-								<li><a data-page="be-a-volunteer" href="#/be-a-volunteer">Become a Volunteer</a></li>
+								<li><a href="#/be/a-sponsor">Become a Sponsor</a></li>
+								<li><a href="#/be/a-volunteer">Become a Volunteer</a></li>
 								<li><a href="http://eventrequest.gdgph.org/" target="_blank">Speaker Request</a></li>
 							</ul>
 						</div>
@@ -118,15 +122,18 @@
 	<div class="slider">
 		<a class="back"><i class="material-icons">arrow_back</i></a><b>Menu</b>
 		<ul class="nav">
-			<li><a data-page="about" href="#/about" class="selected">About</a></li>
+			<li><a href="#/about" class="selected">About</a></li>
 			<li><a href="http://blog.gdgph.org/" target="_blank">Blog</a></li>
-			<li><a data-page="events" href="#/events">Events</a></li>
-			<li><a data-page="team" href="#/team">Team</a></li>
+			<li><a href="#/events">Events</a></li>
+			<li><a href="#/team">Team</a></li>
 		</ul>
 	</div>
 	<script src="scripts/App.js"></script>
 	<script>
-	App.start(window.location.hash.substr(2));
+	App.start(window.location.hash.substring(1));
+	$(window).bind("hashchange", function(event) {
+		App.Route.call(window.location.hash.substring(1));
+	});
 	</script>
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
