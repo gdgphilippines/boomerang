@@ -59,6 +59,14 @@ var App = {
 					else
 						$(".view .columns[name=register]").hide();
 				})
+			},
+			"next17": function(parameters) {
+				return App.View.render(function() {
+					if(parameters[0] == "register")
+						$(".view .columns[name=event-info]").hide();
+					else
+						$(".view .columns[name=register]").hide();
+				})
 			}
 		}, 
 		"team": {
