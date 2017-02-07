@@ -1,62 +1,114 @@
 <div class="columns">
 	<div class="col-12">
 		<div class="wrapper">
-			<a href="#/events/tensorflow-dev-summit/" class="cover" style="background-image: url(images/events/tensorflow-dev-summit/cover.jpg)"></a>
+			<a href="#/events/next17/" class="cover" style="background-image: url(images/events/next17/cover.jpg)"></a>
 		</div>
 	</div>
 </div>
 <div class="columns" name="register">
-	<div class="col-12">
+	<!-- <div class="col-12">
 		<div class="wrapper">
 			<div class="card nopad" name="register">
 			<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeHy9suioIaDNDutELixo9v5bC8gSiCWvx9eueHLsNEFxltiA/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 			</div>
 		</div>
-	</div>
-	<!-- <div class="col-12">
-		<div class="wrapper">
+	</div> -->
+
+	<div class="col-12">
+		<div class="wrapper"> 
+
+
 			<div class="card">
 				<h1>Apply</h1>
-				<form action="" class="validate">
+				<form class="validate" novalidate>
 					<h3>Full Name</h3>
 					<p>Please provide your full and real name. This will be submitted to the venue security and you might be denied entry if it doesn't match with your IDs</p>
-					<label><span>Full Name</span><input type="text" required></label>
+					<label><span>Full Name</span><input type="text" name="fullname" required></label>
+
 					<h3>Email</h3>
 					<p>Please provide a VALID email address that you have access to. Confirmation and other updates will be sent here.</p>
-					<label><span>Email</span><input type="email" required></label>
+					<label><span>Email</span><input type="email" name="email" required></label>
+
 					<h3>Mobile Number</h3>
-					<label><span>Mobile Number</span><input type="number" required></label>
+					<label><span>Mobile Number</span><input type="number" name="mnum" required></label>
+
 					<h3>Gender</h3>
-					<label><input type="radio" name="gender" required><i></i>Male</label>
-					<label><input type="radio" name="gender" required><i></i>Female</label>
+					<label><input type="radio" name="gender"><i></i>Male</label>
+					<label><input type="radio" name="gender"><i></i>Female</label>
+
 					<h3>You are a</h3>
-					<check-group>
-						<label><input type="checkbox" required><i></i>Mobile Developer</label>
-						<label><input type="checkbox" required><i></i></span>Web Developer</label>
-						<label><input type="checkbox" required><i></i>Teacher</label>
-						<label><input type="checkbox" required><i></i>Student</label>
-						<label><input type="checkbox" required data-show-if-checked><i></i>Other</label>
-						<label style="display: none;"><span>Other</span><input type="text"></label>
-					</check-group>
+					<label><input type="checkbox" name="yourea"><i></i>Mobile Developer</label>
+					<label><input type="checkbox" name="yourea"><i></i></span>Web Developer</label>
+					<label><input type="checkbox" name="yourea"><i></i>Teacher</label>
+					<label><input type="checkbox" name="yourea"><i></i>Student</label>
+					<label><input type="checkbox" name="yourea" data-show-if-checked><i></i>Other</label>
+					<label style="display: none;"><span>Other</span><input type="text"></label>
+
 					<h3>Have you tried using TensorFlow in a project?</h3>
 					<label><input type="radio" name="tried"><i></i>Yes</label>
 					<label><input type="radio" name="tried"><i></i>No</label>
+
 					<h3>If yes, what is/are the link to your project/s using TensorFlow?</h3>
-					<label><span>Link to your project/s</span><textarea></textarea></label>
+					<label><span>Link to your project/s</span><textarea name="link"></textarea></label>
+
 					<h3>Where do you plan to use TensorFlow?</h3>
-					<label><span>Your Answer</span><input type="text"></label>
+					<label><span>Your Answer</span><input type="text" name="plan"></label>
 					<label><input type="submit" class="raised_button" value="Apply"></label>
 				</form>
+				<script>
+					$(document).on("submit", "form", function(e) {
+						var formValues = {};
+						var inputName = ["fullname", "email", "mnum", "gender", "yourea", "tried", "link", "plan"];
+						for(var i in inputName) {
+							var el = $(this).find("[name="+inputName[i]+"]");
+							if(el.length > 0) {
+								if(el.is("input[type=text], input[type=number], input[type=email], select, textarea"))
+									formValues[inputName[i]] = el.val();
+								else if(el.is("input[type=radio]"))
+									formValues[inputName[i]] = $(this).find("input[type=radio][name="+inputName[i]+"]:checked").parent().text();
+								else if(el.is("input[type=checkbox]")) {
+									var checkboxes = [];
+									$(this).find("input[type=checkbox][name="+inputName[i]+"]:checked").each(function() {
+										if($(this).parent().text() == "Other") {
+											console.log($(this).parent().next().find("input").val());
+											checkboxes.push($(this).parent().next().find("input").val())
+										}
+										else
+											checkboxes.push($(this).parent().text());
+
+									})
+									formValues[inputName[i]] = checkboxes.join(", ");
+								}
+							}
+						}
+						$.ajax({
+							type: "get",
+							cache: true,
+							crossOrigin: true,
+							url: "https://script.google.com/macros/s/AKfycbyVzOL9tDkUDRp5zMXFlhw7VA25yLXmXJK-aqtsiUH1thbI4P6R/exec?callback=?",
+							dataType: 'jsop',
+							data: {
+								sheetID: "1vMbWuAoytVdpcPby05xp2QyrVeL4Cx8F2p8ekbeithQ",
+								formValues: formValues,
+								callback: "afterSubmit"
+							}
+						})
+						e.preventDefault();
+					});
+					function afterSubmit(result) {
+						console.log(result);
+					}
+				</script>
 			</div>
 		</div>
-	</div> -->
+	</div>
 </div>
 <div class="columns" name="event-info">
 	<div class="col-12">
 		<div class="wrapper">
 			<div class="card" id="cardAbout">
 				<h3>About the Event</h3>
-				<p><a href="https://events.withgoogle.com/tensorflow-dev-summit/" target="_blank">TensorFlow Dev Summit</a> will be held on February 15, 2017 in Mountain View, California. It is a full day of technical talks, demos, and conversations with the TensorFlow team and machine learning experts from around the world.<br><br>GDG Philippines is organizing a TensorFlow Dev Summit Extended. The event will be in BGC (exact venue TBA).</p>
+				<p><a href="https://cloudnext.withgoogle.com/" target="_blank">Google Cloud Next 17</a> will be held on March 8-10, 2017 in San Francisco, California. It is a three day immersive event that brings together executives, customers, partners, developers, IT decision makers, and Google Engineers to build the future of the cloud.<br><br>GDG Philippines is organizing a Google Next 17 Extended Manila!</p>
 				<table cellpadding="8px">
 					<tr valign="top">
 						<td width="1px"><i class="material-icons">location_on</i></td>
@@ -68,12 +120,11 @@
 					<tr valign="top">
 						<td><i class="material-icons">today</i></td>
 						<td>
-							February 18, 2017
-							<br><small>12:30AM - 5:00PM</small>
+							<i>TBA</i>
 						</td>
 					</tr>
 				</table>
-				<p align="right"><a href="#/events/tensorflow-dev-summit/register" class="raised_button">Register</a></p>
+				<p align="right"><a href="#/events/next17/register" class="raised_button">Register</a></p>
 			</div>
 		</div>
 	</div>
