@@ -52,7 +52,7 @@
 	</div> -->
 </div>
 <div class="columns" name="event-info">
-	<div class="col-12">
+	<div class="col-6">
 		<div class="wrapper">
 			<div class="card" id="cardAbout">
 				<h3>About the Event</h3>
@@ -61,8 +61,8 @@
 					<tr valign="top">
 						<td width="1px"><i class="material-icons">location_on</i></td>
 						<td>
-							<i>TBA</i>
-							<!-- <br><small></small> -->
+							<i>Google Philippines</i>
+							<br><small>Bonifacio Global City, Taguig City</small>
 						</td>
 					</tr>
 					<tr valign="top">
@@ -77,31 +77,110 @@
 			</div>
 		</div>
 	</div>
+	<div class="col-6">
+		<div class="wrapper">
+			<div class="card nopad" id="eventMap">
+				
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<div class="wrapepr">
+			<div class="card">
+				<h3>Agenda</h3>
+				<table class="schedule">
+					<tr>
+						<td><span>12.30</span>p</td>
+						<td>
+							<span>Check-in</span>
+							<span>30 minutes</span>
+						</td>
+					</tr>
+					<tr>
+						<td><span>1</span>p</td>
+						<td>
+							<span>Opening Remarks</span>
+							<span>15 minutes | Jomar Tigcal, Community Manager, GDG Philippines</span>
+						</td>
+					</tr>
+					<tr>
+						<td><span>1.15</span>p</td>
+						<td>
+							<span>Ice Breaker</span>
+							<span>30 minutes | Adam Ray Baguyo, Corporate Relations Head, GDG Philippines</span>
+						</td>
+					</tr>
+					<tr>
+						<td><span>1.45</span>p</td>
+						<td>
+							<span>Keynote</span>
+							<span>45 minutes</span>
+						</td>
+					</tr>
+					<tr>
+						<td><span>2.30</span>p</td>
+						<td>
+							<span>Subjectivity Analysis using TensorFlow</span>
+							<span>30 minutes | Ralph Vincent Regalado, Community Manager, GDG Philippines</span>
+						</td>
+					</tr>
+					<tr>
+						<td><span>3</span>p</td>
+						<td>
+							<span>TensorFlow for Machine Translation</span>
+							<span>30 minutes | Kristine Mae Adlaon, Faculty, University of the Immaculate Conception - Davao</span>
+						</td>
+					</tr>
+					<tr>
+						<td><span>3.30</span>p</td>
+						<td>
+							<span>Building a chatbot with TensorFlow model: Syntaxnet and Inception</span>
+							<span>30 minutes | Mark Anthony Panizales, Lead Software Engineer, Loud Panda Interactive</span>
+						</td>
+					</tr>
+					<tr>
+						<td><span>4</span>p</td>
+						<td>
+							<span>Codelabs: TensorFlow</span>
+							<span>1 hour | Albert Padin, Google Developer Expert for Cloud</span>
+						</td>
+					</tr>
+					<tr>
+						<td><span>5</span>p</td>
+						<td>
+							<span>Closing Remarks</span>
+							<span>30 minutes | Chelle Obligacion-Gray, Developer Relations APAC, Google</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
 	<script>
-		// $("#eventMap").height($("#cardAbout").outerHeight());
-		// var map;
-		// function initMap() {
-		// 	map = new google.maps.Map(document.getElementById("eventMap"), {
-		// 		center: {lat: 14.5499998, lng: 121.0463612},
-		// 		zoom: 15,
-		// 		panControl:true,
-		// 		zoomControl:true,
-		// 		mapTypeControl:true,
-		// 		scaleControl:true,
-		// 		streetViewControl:true,
-		// 		overviewMapControl:true,
-		// 		rotateControl:true,
-		// 		scrollwheel: false,
-		// 		navigationControl: false,
-		// 		draggable: true,
-		// 		mapTypeId:google.maps.MapTypeId.ROADMAP
-		// 	});
-		// 	var marker = new google.maps.Marker({
-		// 		position: {lat: 14.5499998, lng: 121.0463612},
-		// 		animation: google.maps.Animation.BOUNCE
-		// 	})
-		// 	marker.setMap(map);
-		// }
+		$("#eventMap").height($("#cardAbout").outerHeight());
+		var map;
+		function initMap() {
+			map = new google.maps.Map(document.getElementById("eventMap"), {
+				center: {lat: 14.5499998, lng: 121.0463612},
+				zoom: 15,
+				panControl:true,
+				zoomControl:true,
+				mapTypeControl:true,
+				scaleControl:true,
+				streetViewControl:true,
+				overviewMapControl:true,
+				rotateControl:true,
+				scrollwheel: false,
+				navigationControl: false,
+				draggable: true,
+				mapTypeId:google.maps.MapTypeId.ROADMAP
+			});
+			var marker = new google.maps.Marker({
+				position: {lat: 14.5499998, lng: 121.0463612},
+				animation: google.maps.Animation.BOUNCE
+			})
+			marker.setMap(map);
+		}
 	</script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfJwp5z6XbU6tYFHKY-J55Vc89jJCBJ2A&callback=initMap" async defer></script>
 	<div class="col-12" style="text-align: center">

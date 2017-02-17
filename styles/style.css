@@ -509,7 +509,33 @@ table.mileage img {
 #upcoming p, #blogposts p {
 	font-size: 14px;
 }
-
+table.schedule {
+  width: 100%;
+  border-collapse: collapse; }
+  table.schedule tr[data-talk], table.schedule tr[onclick] {
+    cursor: pointer; }
+  table.schedule tr:hover td {
+    background: #f6f6f6; }
+  table.schedule td {
+    padding: 36px 24px; }
+    table.schedule td:first-child {
+      text-transform: uppercase;
+      color: #445963;
+      width: 25%; }
+      table.schedule td:first-child span {
+        font-size: 40px;
+        margin-right: 10px;
+        letter-spacing: -2px; }
+    table.schedule td:last-child a {
+      display: block; }
+    table.schedule td:last-child span {
+      display: block; }
+      table.schedule td:last-child span:first-child {
+        font-size: 22px;
+        color: #445963;
+        margin-bottom: 4px; }
+      table.schedule td:last-child span:last-child {
+        color: #b0bec5; }
 @media screen and (max-width: 900px) {
 	.s900-col-6 {
 		width: 50% !important;
@@ -550,6 +576,12 @@ table.mileage img {
 	}
 	table.mileage img {
 		width: 16px;
+	}
+	table.schedule td:first-child span {
+		font-size: 25px;
+	}
+	table.schedule td:last-child span:first-child {
+		font-size: 20px;
 	}
 }
 @media screen and (max-width: 375px) {
