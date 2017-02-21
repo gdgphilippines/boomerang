@@ -509,6 +509,18 @@ table.mileage img {
 #upcoming p, #blogposts p {
 	font-size: 14px;
 }
+.tag {
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: white;
+	border-radius: 2px;
+	font-style: normal;
+	box-sizing: border-box;
+	padding: 4px;
+	margin-top: 4px;
+	display: inline-block;
+}
 table.schedule {
   width: 100%;
   border-collapse: collapse; }
