@@ -129,5 +129,78 @@
 				resizeCards();
 			}
 		});
+	},
+	displaySpeakers: function() {
+		var speakers = [
+			"johnny-benitez",
+			"gail-tan",
+			"jonathan-joson",
+			"sami-kizilbash",
+			"mete-atamel",
+			"takuo-suzuki",
+			"kazunori-sato",
+			"albert-padin",
+			"yohan-totting",
+			"josan-dometita",
+			"cristopher-david",
+			"elymar-apao",
+			"reymart-canuel",
+			"toni-jan-keith-monserrat",
+			"benj-tupas",
+			"claudine-rodriguez",
+			"anne-michelle-santos",
+			"ambe-tierro",
+			"charibeth-cheng",
+			"duephil-kaufmann",
+			"dexter-santos",
+			"allan-tan",
+			"brian-tan-seng",
+			"karen-matias",
+			"kristine-mae-adlaon",
+			"jordan-deja",
+			"ellaine-de-guzman",
+			"goldy-yancha",
+			"joem-petilla",
+			"luna-cruz",
+			"julie-ann-alonzo",
+			"mara-ang",
+			"stephanie-sy",
+			"derrick-alain-mapagu",
+			"grace-sojor",
+			"valenice-balace",
+			"joyce-guiao",
+			"tal-de-guzman",
+			"micaela-reyes",
+			"raymund-vidar",
+			"merlin-suarez",
+			"warangkana-fajardo",
+			"mark-anthony-panizales",
+			"ben-adrian-sarmiento",
+			"wayne-manuel",
+			"gino-tria",
+			"jasmin-caronan",
+			"mac-valmores",
+			"mika-aldaba",
+			"vin-lim",
+			"vicky-sy",
+			"nadine-jamila",
+			"patricia-faustino",
+			"paul-gadi",
+			"adrian-vincent-tayag",
+			"howard-go",
+			"pamela-cajilig",
+			"neil-patrick-del-gallego",
+			"alex-alabiso"
+		];
+		for(var s in speakers) {
+			if(Data.speakers.hasOwnProperty(speakers[s])) {
+				var x = Data.speakers[speakers[s]];
+				$("section[name=speakers] .vertical-scroll .content").append('<div class="item">' + 
+					'<img src="assets/images/speakers/'+x.name+'.jpg">' + 
+					'<span>'+x.name+'</span>' + 
+					'<small>'+x.title+'</small>' + 
+				'</div>');
+			}
+		}
 	}
 }

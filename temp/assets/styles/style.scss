@@ -766,7 +766,7 @@ a.logo {
 					position: relative;
 					margin: 0px 24px;
 					background: white;
-					width: 200px;
+					max-width: 200px;
 					border-radius: 2px;
 					box-shadow: 0px 3px 4px rgba(0,0,0,.2);
 					white-space: normal;
@@ -784,11 +784,18 @@ a.logo {
 			.item {
 				text-align: center;
 				padding: 24px 48px;
+				white-space: normal;
+				vertical-align: top;
+				width: 250px;
 				img {
 					width: 150px;
 					border-radius: 100%;
 					box-shadow: 0px 3px 4px rgba(0,0,0,.2);
 					margin-bottom: 12px;
+				}
+				span {
+					font-weight: bold;
+					font-family: 'Product Sans';
 				}
 				span, small {
 					display: block;
@@ -796,11 +803,6 @@ a.logo {
 			}
 		}
 	}
-}
-.team [class^="col-"] {
-	text-align: center;
-	padding: 24px 0px;
-	height: 314px;
 }
 .vertical-scroll {
 	overflow: hidden;
@@ -820,9 +822,6 @@ a.logo {
 	}
 }
 [controller="team"] img {
-	border-radius: 100%;
-	max-width: 150px;
-	box-shadow: 0px 3px 4px rgba(0,0,0,.2);
 }
 [controller="team"] img.sm {
 	border-radius: 0px;
@@ -842,6 +841,32 @@ a.logo {
 [controller="team"] .col-4:hover img.sm {
 	top: 0px;
 	opacity: 1;
+}
+.team [class^="col-"] {
+	text-align: center;
+	padding: 24px 0px;
+	height: 314px;
+	.photo {
+		border-radius: 100%;
+		width: 150px;
+		height: 150px;
+		margin: 0px auto;
+		box-shadow: 0px 3px 4px rgba(0,0,0,.2);
+		overflow: hidden;
+		position: relative;
+		img {
+			width: 100%;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			border-radius: 100%;
+		}
+		&:hover {
+			img:last-child {
+				opacity: 0;
+			}
+		}
+	}
 }
 [controller="team"] b {
 	display: block;
