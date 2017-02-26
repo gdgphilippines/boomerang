@@ -1,6 +1,7 @@
 App["View"] = {
 	"construct": function(parameters) {
 		this.setTemplate(App.Constant.DEFAULT_TEMPLATE);
+		$(window).scrollTop(0);
 		// $(".template").html("");
 	},
 	"setTemplate": function(template) {
