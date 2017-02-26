@@ -4,7 +4,13 @@
  * Copyright (c) 2017 Juvar Abrera;
  * Licensed under the MIT license 
 */
- 
+
+ jQuery(function($) {
+	if (!Modernizr.touch) {
+		debiki.Utterscroll.enable();
+	}
+});
+
  var App = {
 	Classes: {},
 	"ready": function(page) {

@@ -348,18 +348,6 @@ h1,h2,h3,h4,h5,h6 {
 	.card {
 		margin: 8px 0px;
 	}
-	.action_button {
-		position: absolute;
-		width: 48px;
-		height: 48px;
-		right: 24px;
-		bottom: -24px;
-		border-radius: 100%;
-		box-shadow: 0px 2px 5px rgba(0,0,0,.3);
-		i:before {
-			color: white;
-		}
-	}
 	h1,h2,h3,h4,h5,h6 {
 		margin-top: 0px;
 	}
@@ -380,6 +368,18 @@ h1,h2,h3,h4,h5,h6 {
 	}
 	& > a.button {
 		margin: 0px;
+	}
+}
+.action_button {
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	right: 24px;
+	bottom: -24px;
+	border-radius: 100%;
+	box-shadow: 0px 2px 5px rgba(0,0,0,.3);
+	i:before {
+		color: white;
 	}
 }
 body {
@@ -610,9 +610,9 @@ a.logo {
 	background: #303c42;
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f8f8f8+0,e5e5e5+100 */
 	/*background: #e5e5e5; 
-	background: -moz-linear-gradient(top,  #f8f8f8 0%, #e5e5e5 100%); 
-	background: -webkit-linear-gradient(top,  #f8f8f8 0%,#e5e5e5 100%);
-	background: linear-gradient(to bottom,  #f8f8f8 0%,#e5e5e5 100%); 
+	background: -moz-linear-gradient(top,	#f8f8f8 0%, #e5e5e5 100%); 
+	background: -webkit-linear-gradient(top,	#f8f8f8 0%,#e5e5e5 100%);
+	background: linear-gradient(to bottom,	#f8f8f8 0%,#e5e5e5 100%); 
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#e5e5e5',GradientType=0 );*/
 }
 .footer .columns {
@@ -717,9 +717,13 @@ a.logo {
 			font-size: 200%;
 		}
 		&.colored {
+			color: white;
 			h1,h2,h3,h4,h5,h6 {
-				color: white;
+				color: inherit;
 				text-shadow: 0px 3px 4px rgba(0,0,0,.2);
+			}
+			p {
+				color: inherit;
 			}
 		}
 		.card {
@@ -755,12 +759,65 @@ a.logo {
 			color: inherit;
 			line-height: 150%;
 		}
+		&[name="speakers"] {
+			/*.content {
+				padding: 32px;
+				.item {
+					position: relative;
+					margin: 0px 24px;
+					background: white;
+					width: 200px;
+					border-radius: 2px;
+					box-shadow: 0px 3px 4px rgba(0,0,0,.2);
+					white-space: normal;
+					color: #666;
+					span {
+						font-weight: bold;
+						font-family: 'Product Sans';
+						display: block;
+					}
+					small {
+						display: block;
+					}
+				}
+			}*/
+			.item {
+				text-align: center;
+				padding: 24px 48px;
+				img {
+					width: 150px;
+					border-radius: 100%;
+					box-shadow: 0px 3px 4px rgba(0,0,0,.2);
+					margin-bottom: 12px;
+				}
+				span, small {
+					display: block;
+				}
+			}
+		}
 	}
 }
 .team [class^="col-"] {
 	text-align: center;
 	padding: 24px 0px;
 	height: 314px;
+}
+.vertical-scroll {
+	overflow: hidden;
+	cursor: move;
+	width: 100%;
+	.content {
+		float: left;
+		width: 100%;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		margin-bottom: -20px;
+		white-space: nowrap;
+		padding: 20px 10px;
+		.item {
+			display: inline-block;
+		}
+	}
 }
 [controller="team"] img {
 	border-radius: 100%;
@@ -844,7 +901,6 @@ a.logo {
 .progress {
 	position: fixed;
 	z-index: 100;
-	opacity: 0;
 	top: 0px;
 	left: 0px;
 	right: 0px;
@@ -951,79 +1007,107 @@ a.logo {
 	margin: 24px auto;
 	display: block;
 }
-  .load_template .circular {
-    animation: rotate 2s linear infinite;
-    transform-origin: center center;
-    width: 36px;
-    height: 36px;
-    margin: 8px; }
-  .load_template .path {
-    stroke-dasharray: 1,200;
-    stroke-dashoffset: 0;
-    animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
-    stroke-linecap: round; }
-
-
+.load_template {
+	.circular {
+		animation: rotate 2s linear infinite;
+		transform-origin: center center;
+		width: 36px;
+		height: 36px;
+		margin: 8px;
+	}
+	.path {
+		stroke-dasharray: 1,200;
+		stroke-dashoffset: 0;
+		animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+		stroke-linecap: round;
+	}
+} 
 @-webkit-keyframes rotate {
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg); } }
+	100% {
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
 @keyframes rotate {
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg); } }
+	100% {
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
 @-webkit-keyframes dash {
-  0% {
-    stroke-dasharray: 1,200;
-    stroke-dashoffset: 0; }
-  50% {
-    stroke-dasharray: 89,200;
-    stroke-dashoffset: -35px; }
-  100% {
-    stroke-dasharray: 89,200;
-    stroke-dashoffset: -124px; } }
+	0% {
+		stroke-dasharray: 1,200;
+		stroke-dashoffset: 0;
+	}
+	50% {
+		stroke-dasharray: 89,200;
+		stroke-dashoffset: -35px;
+	}
+	100% {
+		stroke-dasharray: 89,200;
+		stroke-dashoffset: -124px;
+	}
+}
 @keyframes dash {
-  0% {
-    stroke-dasharray: 1,200;
-    stroke-dashoffset: 0; }
-  50% {
-    stroke-dasharray: 89,200;
-    stroke-dashoffset: -35px; }
-  100% {
-    stroke-dasharray: 89,200;
-    stroke-dashoffset: -124px; } }
+	0% {
+		stroke-dasharray: 1,200;
+		stroke-dashoffset: 0;
+	}
+	50% {
+		stroke-dasharray: 89,200;
+		stroke-dashoffset: -35px;
+	}
+	100% {
+		stroke-dasharray: 89,200;
+		stroke-dashoffset: -124px;
+	}
+}
 @-webkit-keyframes color {
-  100% {
-    stroke: #d62d20; }
-  0% {
-    stroke: #d62d20; }
-  40% {
-    stroke: #0057e7; }
-  66% {
-    stroke: #008744; }
-  80% {
-    stroke: #ffa700; }
-  90% {
-    stroke: #ffa700; } }
+	100% {
+		stroke: #d62d20;
+	}
+	0% {
+		stroke: #d62d20;
+	}
+	40% {
+		stroke: #0057e7;
+	}
+	66% {
+		stroke: #008744;
+	}
+	80% {
+		stroke: #ffa700;
+	}
+	90% {
+		stroke: #ffa700;
+	}
+}
 @keyframes color {
-  100% {
-    stroke: #d62d20; }
-  0% {
-    stroke: #d62d20; }
-  40% {
-    stroke: #0057e7; }
-  66% {
-    stroke: #008744; }
-  80% {
-    stroke: #ffa700; }
-  90% {
-    stroke: #ffa700; } }
+	100% {
+		stroke: #d62d20;
+	}
+	0% {
+		stroke: #d62d20;
+	}
+	40% {
+		stroke: #0057e7;
+	}
+	66% {
+		stroke: #008744;
+	}
+	80% {
+		stroke: #ffa700;
+	}
+	90% {
+		stroke: #ffa700;
+	} 
+}
 @media screen and (max-width: 425px) {
 
 }
