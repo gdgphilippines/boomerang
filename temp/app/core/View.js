@@ -66,6 +66,7 @@ App["View"] = {
 			App.location("error", "page-not-found", [App.Utility.getControllerCode(App.CONTROLLER), App.ACTION])
 		});
 		xhttp.addEventListener("progress", function(e) {
+				console.log((e.lengthComputable));
 			if(e.lengthComputable) {
 				$(".progress .determinate").css("width", ((e.loaded/e.total)*100)+"%");
 				console.log((e.loaded/e.total));
