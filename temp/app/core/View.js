@@ -68,6 +68,7 @@ App["View"] = {
 		xhttp.addEventListener("progress", function(e) {
 				console.log((e.lengthComputable));
 				console.log(e.loaded + " " + e.total);
+				console.log(e);
 				console.log((e.loaded/e.total));
 			if(e.lengthComputable) {
 				$(".progress .determinate").css("width", ((e.loaded/e.total)*100)+"%");
