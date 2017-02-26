@@ -68,6 +68,7 @@ App["View"] = {
 		xhttp.addEventListener("progress", function(e) {
 			if(e.lengthComputable) {
 				$(".progress .determinate").css("width", ((e.loaded/e.total)*100)+"%");
+				console.log((e.loaded/e.total));
 				if((e.loaded/e.total) == 1) {
 					setTimeout(function() {
 						$(".progress").animate({"opacity": "0"})
