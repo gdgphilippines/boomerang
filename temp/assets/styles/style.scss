@@ -861,10 +861,10 @@ a.logo {
 			left: 0px;
 			border-radius: 100%;
 		}
-		&:hover {
-			img:last-child {
-				opacity: 0;
-			}
+	}
+	&:hover {
+		.photo img:last-child {
+			opacity: 0;
 		}
 	}
 }
