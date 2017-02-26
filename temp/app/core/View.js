@@ -1,7 +1,7 @@
 App["View"] = {
 	"construct": function(parameters) {
 		this.setTemplate(App.Constant.DEFAULT_TEMPLATE);
-		$(".template").html("");
+		// $(".template").html("");
 	},
 	"setTemplate": function(template) {
 		this["TEMPLATE"] = template;
