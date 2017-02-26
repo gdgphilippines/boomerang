@@ -1,0 +1,5 @@
+App["Controller"] = {
+	"construct": function() {
+		
+	}
+}
