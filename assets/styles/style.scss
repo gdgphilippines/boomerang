@@ -873,6 +873,45 @@ a.logo {
 	padding-top: 12px;
 	font-size: 22px;
 }
+table.schedule {
+	width: 100%;
+	border-collapse: collapse; 
+	tr[data-talk], tr[onclick] {
+		cursor: pointer;
+	}
+	tr:hover td {
+		background: #f9f9f9;
+	}
+	td {
+		padding: 36px 24px;
+		&:first-child {
+			text-transform: uppercase;
+			color: #445963;
+			width: 25%;
+			span {
+				font-size: 40px;
+				margin-right: 10px;
+				letter-spacing: -2px;
+			}
+		}
+		&:last-child {
+			a {
+				display: block;
+			}
+			span {
+				display: block;
+				&:first-child {
+					font-size: 22px;
+					color: #445963;
+					margin-bottom: 4px;
+				}
+				&:last-child {
+					color: #b0bec5;
+				}
+			}
+		}
+	}
+}
 @media screen and (max-width: 1280px) {
 
 }

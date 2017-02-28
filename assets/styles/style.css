@@ -710,6 +710,34 @@ a.logo {
   padding-top: 12px;
   font-size: 22px; }
 
+table.schedule {
+  width: 100%;
+  border-collapse: collapse; }
+  table.schedule tr[data-talk], table.schedule tr[onclick] {
+    cursor: pointer; }
+  table.schedule tr:hover td {
+    background: #f9f9f9; }
+  table.schedule td {
+    padding: 36px 24px; }
+    table.schedule td:first-child {
+      text-transform: uppercase;
+      color: #445963;
+      width: 25%; }
+      table.schedule td:first-child span {
+        font-size: 40px;
+        margin-right: 10px;
+        letter-spacing: -2px; }
+    table.schedule td:last-child a {
+      display: block; }
+    table.schedule td:last-child span {
+      display: block; }
+      table.schedule td:last-child span:first-child {
+        font-size: 22px;
+        color: #445963;
+        margin-bottom: 4px; }
+      table.schedule td:last-child span:last-child {
+        color: #b0bec5; }
+
 @media screen and (max-width: 768px) {
   .action-bar .cell {
     padding: 24px; }

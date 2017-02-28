@@ -2350,6 +2350,9 @@ a {
 [class^="col-"] {
 	float: left;
 }
+[class^="col-"] .wrapper {
+	overflow: hidden;
+}
 [class^="col-"].pad-bottom {
 	padding-bottom: 28px;
 }
