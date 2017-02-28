@@ -32,6 +32,17 @@
 		window.location = "#/"+controller+"/"+action+"/"+parameters.join("/");
 	}, 
 	"refresh": function() {
+		$("html").click(function(e) {
+			// console.log($(".action-bar i.mdi.mdi-menu").is(":visible"));
+			if($(window).outerWidth() <= 700)
+				$(".action-bar ul.nav").hide();
+			if($(e.target).is("i.mdi.mdi-menu"))
+				$(".action-bar ul.nav").show();
+		})
+		$(".template").css("padding-top", $(".action-bar").outerHeight())
+		$(".action-bar i.mdi.mdi-menu").click(function() {
+			$(this).find("+ ul.nav").show();
+		});
 		$("[data-bulaga]").each(function() {
 			var val = $(this).attr("data-bulaga").split(" ");
 			var options = {};
