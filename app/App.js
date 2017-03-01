@@ -72,16 +72,6 @@
 			dataType: 'jsonp',
 			data: { 'headers': { 'Accept': 'application/json;' }, 'timeout': 10000 },
 			success: function(events) {
-				// var count = 0, max = 1;
-				// $.each(events.items, function(index, event) {
-				// 	if(count < max) {
-				// 		count++;
-				// 		var datex = new Date(event.start.substring(0,19));
-				// 		var tmp = document.createElement("DIV");
-				// 		tmp.innerHTML = event.about;
-				// 		$("#upcoming").append('<div class="card"></div>');
-				// 	}
-				// })
 				if(events.items.length == 0)
 					$("#upcoming").html('<h3>Message</h3><p>No incoming events for now. Add, like, and follow our social media pages to get the latest updates for our upcoming events!</p>');
 				else {
