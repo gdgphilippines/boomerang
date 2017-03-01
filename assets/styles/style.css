@@ -373,12 +373,23 @@ table {
 
 .template {
   background: white;
-  padding-top: 117px; }
+  padding-top: 117px;
+  position: relative; }
   .template > .wrapper {
     max-width: 960px;
     margin: 0px auto;
     overflow: hidden;
     padding-bottom: 4px; }
+
+.blur {
+  display: none;
+  position: fixed;
+  top: 0px;
+  z-index: 100;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: rgba(255, 255, 255, 0.8); }
 
 .action-bar {
   position: fixed;
@@ -665,7 +676,7 @@ a.logo {
 
 .vertical-scroll {
   overflow: hidden;
-  cursor: move;
+  cursor: -webkit-grab;
   width: 100%; }
   .vertical-scroll .content {
     float: left;

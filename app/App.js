@@ -10,7 +10,16 @@
 		debiki.Utterscroll.enable();
 	}
 });
-
+$.fn.disableScroll = function() {
+	window.oldScrollPos = $(window).scrollTop();
+	$(window).on("scroll.scrolldisabler",function (event) {
+		$(window).scrollTop( window.oldScrollPos );
+		event.preventDefault();
+	});
+};
+$.fn.enableScroll = function() {
+	$(window).off('scroll.scrolldisabler');
+};
  var App = {
 	Classes: {},
 	"ready": function(page) {
@@ -32,6 +41,8 @@
 		window.location = "#/"+controller+"/"+action+"/"+parameters.join("/");
 	}, 
 	"refresh": function() {
+		$("body").enableScroll();
+		$("body > .blur").hide();
 		$("html").click(function(e) {
 			// console.log($(".action-bar i.mdi.mdi-menu").is(":visible"));
 			if($(window).outerWidth() <= 700)
