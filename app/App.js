@@ -1,4 +1,4 @@
-/* MoonJS - v1.0.0 - 2017-02-23
+/* OsloJS - v1.0.0 - 2017-02-23
  * https://github.com/juvarabrera/moonjs
  *
  * Copyright (c) 2017 Juvar Abrera;
@@ -95,7 +95,7 @@
 			}
 		});
 	},
-	getBlogPosts: function() {
+	getBlogPosts: function(c) {
 		$.ajax({
 			type: "get",
 			crossOrigin: true,
@@ -104,41 +104,7 @@
 			dataType: 'jsonp',
 			data: { 'headers': { 'Accept': 'application/json;' }, 'timeout': 10000 },
 			success: function(posts) {
-				$("#blog-list").find("[data-post-id]").remove();
-				$("#blog-list .load_container").remove();
-				var count = 0, max = 5;
-				$.each(posts.feed.entry, function(index, post) {
-					if(count < max) {
-						count++;
-						var title = post.title.$t;
-						var link = post.link[4].href;
-						var date = post.published.$t.substring(0,19);
-						var content = post.content.$t;
-						var tmp = document.createElement("DIV");
-						tmp.innerHTML = content;
-						content = tmp.textContent.split(/\s+/).slice(0,20).join(" ")+"...";				
-						$("#blog-list").append('<div class="col-4 t-col-6 m-col-12 pad-bottom" data-post-id="'+post.id.$t+'">' +
-							'<div class="wrapper">' +
-								'<div class="card">' +
-									'<div class="wrapper">' +
-										'<h3>'+title+'</h3>' +
-										'<small>'+dateFormat(date, "dddd, mmmm dS, yyyy, h:MM TT")+'</small>' +
-										'<p>'+content+'</p>' +
-									'</div>' +
-									'<a href="'+link+'" class="action_button red table middle center">' +
-										'<div class="cell">' +
-											'<i class="mdi mdi-eye"></i>' +
-										'</div>' +
-									'</a>' +
-								'</div>' +
-							'</div>' +
-						'</div>');
-					}
-				});
-				var rm = $("#blog_read_more").clone();
-				$("#blog_read_more").remove();
-				$("#blog-list").append(rm);
-				resizeCards();
+				if(c) c(posts);
 			}
 		});
 	},

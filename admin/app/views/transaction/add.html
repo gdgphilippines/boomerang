@@ -1,0 +1,117 @@
+<div id="view">
+	<section>
+		<div class="container">
+			<div class="columns">
+				<div class="col-12">
+					<div class="card">
+						<div class="wrapper">
+							<h1><a href="#/transaction" class="icon_button"><i class="mdi mdi-arrow-left"></i></a>New Transaction</h1>
+						</div>
+						<form id="frm">
+							<div class="table horizontal-data middle">
+								<div class="row">
+									<div class="cell">Direction</div>
+									<div class="cell">
+										<label><input type="radio" name="direction" value="in" checked><i></i>In</label>
+										<label><input type="radio" name="direction" value="out"><i></i>Out</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="cell">Item</div>
+									<div class="cell">
+										<label><select name="itemid"></select></label>
+									</div>
+								</div>
+								<script>
+									var i = new Item();
+									i.getAll(function(data) {
+										for(var x in data) {
+											$("select[name=itemid]").append($("<option></option>").attr("value", x).text(data[x].name));
+										}
+									})
+								</script>
+								<div class="row">
+									<div class="cell">Quantity</div>
+									<div class="cell">
+										<label><input type="number" name="quantity" required></label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="cell">Storage</div>
+									<div class="cell">
+										<div class="table">
+											<div class="row">
+												<div class="cell" style="padding-right: 8px;">
+													<label><input type="radio" name="storage_data" value="existing" checked><i></i>Existing</label>
+													<label><select name="storage_existing"></select></label>
+												</div>
+												<div class="cell " style="padding-left: 8px;">
+													<label><input type="radio" name="storage_data" value="new"><i></i>New Storage</label>
+													<label><input type="text" name="storage_new"></label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<script>
+									var s = new Storage();
+									s.getAll(function(data) {
+										for(var x in data) {
+										$("select[name=storage_existing]").append($("<option></option>").attr("value", x).text(data[x]));
+										}
+									})
+								</script>
+								<div class="row">
+									<div class="cell">Remarks</div>
+									<div class="cell">
+										<label><input type="text" name="remarks"></label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="cell"></div>
+									<div class="cell">
+										<input type="submit" value="Add Transaction">
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script>
+		$("#frm").off().submit(function(e) {
+			$(this).parents(".card").append(App.Constant.CARD_BLUR);
+			var val = $(this).serializeJSON();
+			var s = new Storage();
+			if(val.storage_data == "existing") {
+				s.set(val.storage_existing, step2);
+			} else {
+				s.add(val.storage_new);
+				step2();
+			}
+			function step2() {
+				var t = new Transaction();
+				t.add({
+					"direction": val.direction,
+					"itemid": val.itemid,
+					"quantity": val.quantity,
+					"remarks": val.remarks,
+					"storageid": s.id,
+					"userid": App.Firebase.user.uid
+				});
+				var item = new Item();
+				item.set(val.itemid, function() {
+					var newQ = parseInt(val.quantity);
+					if(item.stored.hasOwnProperty(s.id) || item.stored !== false)
+						newQ = (val.direction == "in") ? (+parseInt(item.stored[s.id]) + newQ) : (+parseInt(item.stored[s.id]) - newQ);
+					item.updateStorage(s.id, newQ, function() {
+						App.location("transaction", "", []);
+					})
+				})
+			}
+			e.preventDefault();
+		})
+	</script>
+</div>

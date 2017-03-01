@@ -157,6 +157,10 @@ textarea {
     color: #2196F3; }
   .icon_button[href]:hover span, .icon_button[id]:hover span, .icon_button[onclick]:hover span, .icon_button[class*="btn"]:hover span {
     display: block; }
+  .icon_button.large i {
+    font-size: 36px;
+    vertical-align: middle;
+    margin-right: 12px; }
 
 a.button {
   background: #ddd;
@@ -287,6 +291,15 @@ h1, h2, h3, h4, h5, h6 {
       display: none; }
   .card > a.button {
     margin: 0px; }
+
+section.blog .card {
+  line-height: 150%;
+  margin-bottom: 24px; }
+  section.blog .card a {
+    color: #2196F3; }
+  section.blog .card img {
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+    margin: 24px 0px; }
 
 .action_button {
   position: absolute;
@@ -932,5 +945,8 @@ table.schedule {
     stroke: #ffa700; }
   90% {
     stroke: #ffa700; } }
+@media screen and (max-width: 425px) {
+  section > .container > .wrapper {
+    padding: 0px; } }
 
 /*# sourceMappingURL=style.css.map */

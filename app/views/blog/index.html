@@ -1,0 +1,52 @@
+<div id="view">
+	<section class="blog">
+		<div class="container">
+			<div class="wrapper">
+				<div class="columns" id="blog-list">
+					<div class="wrapper">
+						<div class="loading_icon load_template"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="6" stroke-miterlimit="10"></circle></svg></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script>
+		App.getBlogPosts(function(posts) {
+			$("#blog-list").html("");
+			$.each(posts.feed.entry, function(index, post) {
+				var title = post.title.$t;
+				var link = post.link[4].href;
+				var date = post.published.$t.substring(0,19);
+				date = dateFormat(date, "dddd, mmmm dS, yyyy, h:MM TT");
+				var content = post.content.$t;
+				var tmp = document.createElement("DIV");
+				tmp.innerHTML = content;
+				content = tmp.textContent.split(/\s+/).slice(0,20).join(" ")+"...";
+				$("#blog-list").append('<div class="col-4 t-col-6 m-col-12"><div class="wrapper hidden"><div class="card">'+
+					'<div class="wrapper">'+
+						'<h1>'+title+'</h1>'+
+						'<small>'+date+'</small>'+
+						'<hr>'+
+						'<p>'+content+'</p>'+
+					'</div>'+
+					'<a href="#/blog/view/'+link.substring(30)+'" class="action_button table red center middle"><span class="cell"><i class="mdi mdi-eye"></i></span></a>'+
+				'</div></div></div>');			
+			});
+			resizeCards();
+		})
+		$(window).resize(function() {
+			setTimeout(function() {
+				resizeCards();
+			}, 100)
+		})
+		function resizeCards() {
+			var maxHeight = 0;
+			$("#blog-list .card").css("height", "auto");
+			$("#blog-list").find(".card").each(function() {
+				if(maxHeight < $(this).outerHeight())
+					maxHeight = $(this).outerHeight();
+			});
+			$("#blog-list").find(".card").css("height", maxHeight+"px");
+		}
+	</script>
+</div>

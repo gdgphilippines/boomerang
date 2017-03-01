@@ -1,0 +1,49 @@
+<div class="action-bar">
+	<div class="table middle">
+		<div class="row">
+			<div class="cell">
+				<div class="wrapper">
+					<a href="#/" class="logo"><i class="gdg-icon"></i> G<span class="hover">oogle&nbsp;</span>D<span class="hover">eveloper&nbsp;</span>G<span class="hover">roup</span> Philippines</a>
+				</div>
+			</div>
+			<div class="cell right">
+				<div class="nav table middle" data-show-if-user>
+					<a class="cell" id="userContainer"></a>
+					<a  class="cell"onclick="App.Function.logout();">Logout</a>
+				</div>
+				<ul class="nav" data-show-if-visitor>
+					<li><a onclick="App.Function.login();">Login with <img src="assets/images/google.png" height="22px" style="vertical-align: middle; margin-left: 4px;"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="view">
+	<section class="gray darken-2 nopad">
+		<div class="container">
+			<div class="columns">
+				<div class="col-12">
+					<div class="wrapper">
+						<a href="#/inventory" class="button"><i class="mdi mdi-cube"></i><span class="m-hide">Inventory</span></a>
+						<a href="#/transaction" class="button"><i class="mdi mdi-arrow-compress"></i><span class="m-hide">Transaction</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	{{view}}
+</div>
+<div class="footer2">
+	<div class="wrapper">
+		<div class="columns">
+			<div class="col-12">
+				<div class="wrapper">
+					<a href="/" class="logo">
+						<i class="gdg-icon"></i>
+						G<span class="hover">oogle&nbsp;</span>D<span class="hover">eveloper&nbsp;</span>G<span class="hover">roup</span> Philippines
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

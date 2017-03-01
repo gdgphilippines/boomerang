@@ -1,0 +1,55 @@
+<div id="view">
+	<section>
+		<div class="container">
+			<div class="columns">
+				<div class="col-12">
+					<div class="card">
+						<div class="wrapper">
+							<h1><a href="#/inventory" class="icon_button"><i class="mdi mdi-arrow-left"></i></a>Delete Item</h1>
+						</div>
+						<form id="frm">
+							<div class="table horizontal-data middle">
+								<div class="row">
+									<div class="cell">Item Name</div>
+									<div class="cell">
+										{{name}}
+									</div>
+								</div>
+								<div class="row">
+									<div class="cell">Description</div>
+									<div class="cell">
+										{{description}}
+									</div>
+								</div>
+								<div class="row">
+									<div class="cell">Unit</div>
+									<div class="cell">
+										{{unit}}
+									</div>
+								</div>
+								<div class="row">
+									<div class="cell"></div>
+									<div class="cell">
+										<input type="submit" value="Delete">
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script>
+		$("#frm").off().submit(function(e) {
+			$(this).parents(".card").append(App.Constant.CARD_BLUR);
+			var item = new Item();
+			item.set('{{id}}', function() {
+				item.delete(function() {
+					App.location("inventory", "index", []);
+				});
+			});
+			e.preventDefault();
+		})
+	</script>
+</div>
