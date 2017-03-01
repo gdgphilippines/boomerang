@@ -79,7 +79,6 @@
 					var datex = new Date(nextEvent.start.substring(0,19));
 					var tmp = document.createElement("DIV");
 					tmp.innerHTML = nextEvent.about;
-					console.log(nextEvent);
 					$("#upcoming").html('<h3>'+nextEvent.title+'</h3><small>'+dateFormat(datex, "dddd, mmmm dS, yyyy, h:MM TT")+'</small><p>'+tmp.textContent.split(/\s+/).slice(0,20).join(" ")+"..."+'</p> <p class="right"><a class="button" href="'+nextEvent.eventUrl+'" target="_blank">Go to website</a></p>');
 				}
 			}
