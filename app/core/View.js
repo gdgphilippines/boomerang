@@ -20,9 +20,6 @@ App["View"] = {
 		document.title = title;
 	},
 	"render": function() {
-		$("body").disableScroll();
-		$("body > .blur").show();
-		$(".progress").css({"opacity": "1"})
 		var template = this.TEMPLATE;
 		if(template == false) {
 			this.loadPage(false);

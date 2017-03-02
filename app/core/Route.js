@@ -8,6 +8,9 @@ App["Route"] = {
 		var parameters = directory.splice(2);
 		App.Controller.construct(parameters);
 		App.View.construct(parameters);
+		$("body").disableScroll();
+		$("body > .blur").show();
+		$(".progress").css({"opacity": "1"})
 		if(App.Controller.hasOwnProperty(App.CONTROLLER)) {
 			if(App.Controller[App.CONTROLLER].hasOwnProperty("construct"))
 				App.Controller[App.CONTROLLER].construct(parameters);
