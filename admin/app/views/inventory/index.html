@@ -40,7 +40,7 @@
 						var storage = db.get("storages/"+y);
 						if(first) {
 							first = false;
-							$("#tblData").append($("<div></div>").addClass("row").attr("data-id", id).append('<div class="cell">'+item.name+' <a href="#/inventory/edit/'+id+'" class="icon_button"><i class="mdi mdi-pencil small"></i><span>Edit</span></a><a href="#/inventory/delete/'+id+'" class="icon_button"><i class="mdi mdi-delete small"></i><span>Delete</span></a><br><small>'+item.description+'</small></div><div class="cell">'+item.stored[y]+'</div><div class="cell">'+item.unit+'</div><div class="cell">'+storage+'</div>'));
+							$("#tblData").append($("<div></div>").addClass("row").attr("data-id", id).append('<div class="cell">'+item.name+' <a href="#/inventory/edit/'+id+'" class="icon_button"><i class="mdi mdi-pencil small"></i><span>Edit</span></a><!--a href="#/inventory/delete/'+id+'" class="icon_button"><i class="mdi mdi-delete small"></i><span>Delete</span></a--><br><small>'+item.description+'</small></div><div class="cell">'+item.stored[y]+'</div><div class="cell">'+item.unit+'</div><div class="cell">'+storage+'</div>'));
 						} else {
 							$("#tblData").append($("<div></div>").addClass("row").attr("data-id", id).append('<div class="cell"></div><div class="cell">'+item.stored[y]+'</div><div class="cell">'+item.unit+'</div><div class="cell">'+storage+'</div>'));
 						}
@@ -51,7 +51,7 @@
 						$("#tblData").append($("<div></div>").addClass("row gray darken-3 white-text").append('<div class="cell"><b>TOTAL</b></div><div class="cell">'+total+'</div><div class="cell"></div><div class="cell"></div>'))
 					}
 				} else {
-					$("#tblData").append($("<div></div>").addClass("row").attr("data-id", id).append('<div class="cell">'+item.name+' <a href="#/inventory/edit/'+id+'" class="icon_button"><i class="mdi mdi-pencil small"></i><span>Edit</span></a><a href="#/inventory/delete/'+id+'" class="icon_button"><i class="mdi mdi-delete small"></i><span>Delete</span></a><br><small>'+item.description+'</small></div><div class="cell">-</div><div class="cell">'+item.unit+'</div><div class="cell"><span class="red tag">N/A</span></div>'));
+					$("#tblData").append($("<div></div>").addClass("row").attr("data-id", id).append('<div class="cell">'+item.name+' <a href="#/inventory/edit/'+id+'" class="icon_button"><i class="mdi mdi-pencil small"></i><span>Edit</span></a><!--a href="#/inventory/delete/'+id+'" class="icon_button"><i class="mdi mdi-delete small"></i><span>Delete</span></a--><br><small>'+item.description+'</small></div><div class="cell">-</div><div class="cell">'+item.unit+'</div><div class="cell"><span class="red tag">N/A</span></div>'));
 
 				}
 			}

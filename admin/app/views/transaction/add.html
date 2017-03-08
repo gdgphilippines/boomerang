@@ -139,7 +139,6 @@
 					}
 					if(ok) {
 						for(var i in val.itemid) {
-							console.log(val.itemid[i]);
 							transactions.push(new Transaction());
 							items.push(new Item(val.itemid[i]));
 							var item = db.get("items/"+val.itemid[i]);

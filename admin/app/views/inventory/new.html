@@ -48,7 +48,6 @@
 		$("#frm").off().submit(function(e) {
 			$(this).parents(".card").append(App.Constant.CARD_BLUR);
 			var val = $(this).serializeJSON();
-			console.log(val);
 			var item = [];
 			for(var i in val.name) {
 				item.push(new Item());

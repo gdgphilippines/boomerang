@@ -44,7 +44,6 @@
 			$("[data-show-if-visitor]").show();
 		}
 		$("html").click(function(e) {
-			// console.log($(".action-bar i.mdi.mdi-menu").is(":visible"));
 			if($(window).outerWidth() <= 700)
 				$(".action-bar ul.nav").hide();
 			if($(e.target).is("i.mdi.mdi-menu"))
