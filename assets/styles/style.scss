@@ -943,6 +943,23 @@ table.schedule {
 		}
 	}
 }
+.app-logos {
+	img {
+		opacity: .75;
+		vertical-align: middle;
+		margin: 12px;
+	}
+}
+[data-column] {
+	&[data-column="what-we-do"] {
+		i:before {
+			font-size: 56px;
+		}
+		h2 {
+			margin-top: 24px;
+		}
+	}
+}
 @media screen and (max-width: 1280px) {
 
 }

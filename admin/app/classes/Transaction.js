@@ -12,14 +12,11 @@ Transaction.prototype = {
 	"add": function(data) {
 		this.id = App.Firebase.ref("transactions/").push(data).getKey();
 		this.direction = data.direction;
-		this.item = new Item();
-		this.item.set(data.itemid);
+		this.item = data.item;
 		this.quantity = data.quantity;
 		this.remarks = data.remarks;
-		this.storage = new Storage();
-		this.storage.set(data.storageid);
-		this.user = new User();
-		this.user.set(data.userid);
+		this.storage = data.storage;
+		this.user = data.user
 	},
 	"getAll": function(c) {
 		App.Firebase.ref("transactions/").once("value", function(data) {

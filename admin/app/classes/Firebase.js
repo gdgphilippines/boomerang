@@ -31,8 +31,10 @@ function Firebase(config) {
 					photoURL: user.photoURL
 				});
 			});
+			App.location("inventory", "index", []);
 		} else {
 			this.user = false;
+			App.location("home", "index", []);
 			$("[data-show-if-user]").hide();
 			$("[data-show-if-visitor]").show();
 		}

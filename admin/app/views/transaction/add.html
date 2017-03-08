@@ -93,23 +93,30 @@
 			}
 			function step2() {
 				var t = new Transaction();
-				t.add({
-					"direction": val.direction,
-					"itemid": val.itemid,
-					"quantity": val.quantity,
-					"remarks": val.remarks,
-					"storageid": s.id,
-					"userid": App.Firebase.user.uid
-				});
 				var item = new Item();
 				item.set(val.itemid, function() {
+					var itemjson = item.getJson();
+					delete itemjson.stored;
+					t.add({
+						"direction": val.direction,
+						"item": itemjson,
+						"quantity": val.quantity,
+						"remarks": val.remarks,
+						"storage": s.name,
+						"user": {
+							"displayName": App.Firebase.user.displayName,
+							"email": App.Firebase.user.email,
+							"id": App.Firebase.user.uid,
+							"photoURL": App.Firebase.user.photoURL
+						}
+					});
 					var newQ = parseInt(val.quantity);
-					if(item.stored.hasOwnProperty(s.id) || item.stored !== false)
-						newQ = (val.direction == "in") ? (+parseInt(item.stored[s.id]) + newQ) : (+parseInt(item.stored[s.id]) - newQ);
-					item.updateStorage(s.id, newQ, function() {
+					if(item.stored.hasOwnProperty(s.name) || item.stored !== false)
+						newQ = (val.direction == "in") ? (+parseInt(item.stored[s.name]) + newQ) : (+parseInt(item.stored[s.name]) - newQ);
+					item.updateStorage(s.name, newQ, function() {
 						App.location("transaction", "", []);
 					})
-				})
+				});
 			}
 			e.preventDefault();
 		})

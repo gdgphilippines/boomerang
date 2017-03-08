@@ -1,6 +1,7 @@
 App.Controller["InventoryController"] = {
 	"construct": function(parameters) {
-
+		if(!App.Firebase.user)
+			window.location = "#/";
 	},
 	"index": function(parameters) {
 		return App.View.render();

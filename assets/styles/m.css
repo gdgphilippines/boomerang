@@ -2353,6 +2353,9 @@ a {
 [class^="col-"].pad-bottom {
 	padding-bottom: 28px;
 }
+[class^="col-"].pad-top {
+	padding-top: 28px;
+}
 .hidden {
 	overflow: hidden;
 }

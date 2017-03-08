@@ -44,5 +44,14 @@ Item.prototype = {
 		App.Firebase.ref("items/").once("value", function(data) {
 			if(c) c(data.val());
 		});
+	},
+	"getJson": function() {
+		var item = this;
+		return {
+			"description": item.description,
+			"name": item.name,
+			"stored": item.stored,
+			"unit": item.unit
+		}
 	}
 }

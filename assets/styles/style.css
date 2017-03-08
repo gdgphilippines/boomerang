@@ -762,6 +762,16 @@ table.schedule {
       table.schedule td:last-child span:last-child {
         color: #b0bec5; }
 
+.app-logos img {
+  opacity: .75;
+  vertical-align: middle;
+  margin: 12px; }
+
+[data-column][data-column="what-we-do"] i:before {
+  font-size: 56px; }
+[data-column][data-column="what-we-do"] h2 {
+  margin-top: 24px; }
+
 @media screen and (max-width: 768px) {
   .action-bar .cell {
     padding: 24px; }

@@ -35,23 +35,9 @@
 		var t = new Transaction();
 		t.getAll(function(data) {
 			$("#tblData").find("[data-id]").remove();
-			console.log(data);
 			for(var x in data) {
-				console.log(data[x]);
-				var item = new Item();
-				item.set(data[x].itemid, function() {
-					console.log(item);
-					var storage = new Storage();
-					storage.set(data[x].storageid, function() {
-						var user = new User();
-						user.set(data[x].userid, function() {
-							console.log(data[x].quantity)
-							$("#tblData").append('<div class="row" data-id="'+x+'"><div class="cell">'+((data[x].direction == "in") ? '<i class="mdi mdi-trending-up green-text"></i>':'<i class="mdi mdi-trending-down red-text"></i>')+'</div><div class="cell">'+item.name+' </div><div class="cell">'+data[x].quantity+' </div><div class="cell">'+storage.name+' </div><div class="cell"><img src="'+user.dp+'" class="dp" /></div><div class="cell">'+data[x].remarks+' </div></div>');
-						});
-					})
-				})
-
+				$("#tblData").append('<div class="row" data-id="'+x+'"><div class="cell">'+((data[x].direction == "in") ? '<i class="mdi mdi-trending-up green-text"></i>':'<i class="mdi mdi-trending-down red-text"></i>')+'</div><div class="cell">'+data[x].item.name+' </div><div class="cell">'+data[x].quantity+' </div><div class="cell">'+data[x].storage+' </div><div class="cell"><img src="'+data[x].user.photoURL+'" class="dp" alt="'+data[x].user.displayName+'" /></div><div class="cell">'+data[x].remarks+' </div></div>');
 			}
-		})
+		});
 	</script>
 </div>

@@ -5,5 +5,6 @@ App["Function"] = {
 	},
 	"logout": function() {
 		App.Firebase.auth.signOut();
+		window.location = "#/";
 	}
 }

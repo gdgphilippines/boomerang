@@ -21,7 +21,7 @@ App["View"] = {
 	setTitle: function(title) {
 		document.title = title;
 	},
-	"render": function() {
+	"render": function(c) {
 		$(".progress").css({"opacity": "1"})
 		var template = this.TEMPLATE;
 		if(template == false) {
@@ -31,7 +31,7 @@ App["View"] = {
 				"url": "app/views/"+template+".html",
 				"cache": true,
 				"success": function(html) {
-					App.View.loadPage(html);
+					App.View.loadPage(html, c);
 				},
 				"error": function(e) {
 					App.location("error", "template-not-found", [template, App.Utility.getControllerCode(App.CONTROLLER), App.ACTION])
@@ -58,7 +58,7 @@ App["View"] = {
 			// xhttp.send();
 		}
 	},
-	loadPage: function(html) {
+	loadPage: function(html, c) {
 		// var xhttp = new XMLHttpRequest();
 		// xhttp.addEventListener("load", function() {
 		// 	var html2 = this.responseText;
@@ -112,6 +112,7 @@ App["View"] = {
 				$(".template").attr("controller", App.Utility.getControllerCode(App.CONTROLLER))
 							  .attr("action", App.ACTION);
 				App.refresh();
+				if(c) c();
 				setTimeout(function() {
 					$(".progress").animate({"opacity": "0"})
 				}, 1000)

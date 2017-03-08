@@ -1,11 +1,11 @@
 App.Controller["HomeController"] = {
 	"construct": function(parameters) {
-
 	},
 	"index": function(parameters) {
+		console.log("A");
 		return App.View.render(function() {
-			if(App.Firebase.user) 
-				App.location("inventory", "index", []);
+			console.log("B");
+			$("#sectionMenu").hide();
 		});
 	}
 }
