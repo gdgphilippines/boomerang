@@ -1,21 +1,16 @@
-function Item() {
-	this.name = "";
-	this.id = 0;
-	this.description = "";
-	this.unit = "";
-	this.stored = false;
+function Item(id) {
+	if(id != undefined)
+		this.id = id;
+	else
+		this.id = 0;
+	this.val = {};
 }
 Item.prototype = {
 	"set": function(id, c) {
 		var item = this;
 		App.Firebase.ref("items/"+id).once("value", function(data) {
 			item.id = id;
-			item.name = data.val().name;
-			item.description = data.val().description;
-			item.unit = data.val().unit;
-			item.stored = false;
-			if(data.val().hasOwnProperty("stored"))
-				item.stored = data.val().stored;
+			item.val = data.val();
 			if(c) c();
 		});
 	},
@@ -24,9 +19,12 @@ Item.prototype = {
 		this.name = name;
 	},
 	update: function(data, c) {
+		var item = this;
 		App.Firebase.ref("items/"+this.id).update(data, function() {
+			for(var i in data)
+				item[i] = data[i];
 			if(c) c();
-		})
+		});
 	},
 	updateStorage: function(storageid, data, c) {
 		var temp = {};

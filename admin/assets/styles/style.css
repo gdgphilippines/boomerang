@@ -775,6 +775,11 @@ a.logo {
   padding-top: 12px;
   font-size: 22px; }
 
+.top-divider {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 24px;
+  margin-top: 24px; }
+
 table.schedule {
   width: 100%;
   border-collapse: collapse; }

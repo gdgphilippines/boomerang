@@ -16,7 +16,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="table vertical-data middle" id="tblData">
+						<div class="table vertical-data middle" id="tblData2">
 							<div class="row title">
 								<div class="cell fit"></div>
 								<div class="cell">Item Name</div>
@@ -32,11 +32,16 @@
 		</div>
 	</section>
 	<script>
-		var t = new Transaction();
-		t.getAll(function(data) {
-			$("#tblData").find("[data-id]").remove();
-			for(var x in data) {
-				$("#tblData").append('<div class="row" data-id="'+x+'"><div class="cell">'+((data[x].direction == "in") ? '<i class="mdi mdi-trending-up green-text"></i>':'<i class="mdi mdi-trending-down red-text"></i>')+'</div><div class="cell">'+data[x].item.name+' </div><div class="cell">'+data[x].quantity+' </div><div class="cell">'+data[x].storage+' </div><div class="cell"><img src="'+data[x].user.photoURL+'" class="dp" alt="'+data[x].user.displayName+'" /></div><div class="cell">'+data[x].remarks+' </div></div>');
+		var db = new Data();
+		db.pull(function(data) {
+			$("#tblData2").find("[data-id]").remove();
+			for(var id in data.transactions) {
+				var t = data.transactions[id];
+				var item = db.get("items/"+t.item);
+				var storage = db.get("storages/"+t.storage);
+				var user = db.get("users/"+t.user);
+				$("#tblData2").append('<div class="row" data-id="'+id+'"><div class="cell">'+((t.direction == "in") ? '<i class="mdi mdi-trending-up green-text"></i>':'<i class="mdi mdi-trending-down red-text"></i>')+'</div><div class="cell">'+item.name+' </div><div class="cell">'+t.quantity+' </div><div class="cell">'+storage+' </div><div class="cell"><img src="'+user.photoURL+'" class="dp" alt="'+user.displayName+'" /></div><div class="cell">'+t.remarks+' </div></div>');
+
 			}
 		});
 	</script>

@@ -15,6 +15,8 @@
 	Classes: {},
 	"ready": function(page) {
 		this["Firebase"] = new Firebase({apiKey: "AIzaSyBAZ55U2pItVVfZcpKdL38IHm3yuNBC7Zc", authDomain: "gdgph-inventory.firebaseapp.com", databaseURL: "https://gdgph-inventory.firebaseio.com", storageBucket: "gdgph-inventory.appspot.com", messagingSenderId: "27394791760"});
+		this["Data"] = new Data();
+		this.Data.pull();
 		this.Route.call(page);
 		$(window).scroll(function() {
 			if($(window).scrollTop() > 0) {
