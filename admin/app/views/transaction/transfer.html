@@ -5,18 +5,9 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="wrapper">
-							<h1><a href="#/transaction" class="icon_button"><i class="mdi mdi-arrow-left"></i></a>New Transaction</h1>
+							<h1><a href="#/transaction" class="icon_button"><i class="mdi mdi-arrow-left"></i></a>Transfer</h1>
 						</div>
 						<form id="frm">
-							<div class="table horizontal-data middle">
-								<div class="row">
-									<div class="cell">Direction</div>
-									<div class="cell">
-										<label><input type="radio" name="direction" value="in" checked><i></i>In</label>
-										<label><input type="radio" name="direction" value="out"><i></i>Out</label>
-									</div>
-								</div>
-							</div>
 							<div class="table vertical-data top" id="tblItems">
 								<div class="row title">
 									<div class="cell w-6">Item</div>
@@ -40,15 +31,18 @@
 								<div class="row">
 									<div class="cell">Storage</div>
 									<div class="cell">
-										<div class="table">
+										<div class="table middle">
 											<div class="row">
-												<div class="cell" style="padding-right: 8px;">
-													<label><input type="radio" name="storage_data" value="existing" checked><i></i>Existing</label>
-													<label><select name="storage_existing"></select></label>
+												<div class="cell w-5" style="padding-right: 8px;">
+													<b>From</b>
+													<label><select name="storage_from"></select></label>
 												</div>
-												<div class="cell " style="padding-left: 8px;">
-													<label><input type="radio" name="storage_data" value="new"><i></i>New Storage</label>
-													<label><input type="text" name="storage_new"></label>
+												<div class="cell w-2 center">
+													<i class="mdi mdi-arrow-right"></i>
+												</div>
+												<div class="cell w-5" style="padding-left: 8px;">
+													<b>To</b>
+													<label><select name="storage_to"></select></label>
 												</div>
 											</div>
 										</div>
@@ -58,7 +52,7 @@
 									var db = new Data();
 									db.pull(function(data) {
 										for(var x in data.storages) {
-											$("select[name=storage_existing]").append($("<option></option>").attr("value", x).text(data.storages[x]));
+											$("select[name*=storage]").append($("<option></option>").attr("value", x).text(data.storages[x]));
 										}
 										for(var x in data.items) {
 											$("#tblItems select").append($("<option></option>").attr("value", x).text(data.items[x].name + ((data.items[x].description != "") ? " ("+data.items[x].description+")" : "")));
@@ -67,7 +61,7 @@
 											var item = db.get("items/"+$(this).val());
 											var c = 0;
 											for(var i in item.stored) {
-												c+= item.stored[i];
+												c += item.stored[i];
 											}
 											$(this).parents(".row").find("small.quantity").text("Quantity: " + c);
 											$(this).parents(".row").find("input[name*=max]").val(c);
@@ -120,52 +114,39 @@
 			var form = $(this);
 			$(this).parents(".card").append(App.Constant.CARD_BLUR);
 			var val = $(this).serializeJSON();
-			var s = new Storage();
-			if(val.storage_data == "existing") {
-				s.set(val.storage_existing, step2);
-			} else {
-				s.add(val.storage_new);
-				step2();
-			}
-			function step2() {
 				var transactions = [];
 				var items = [];
 				var db = new Data();
 				db.pull(function(data) {
-					var ok = true;
-					for(var i in val.itemid) {
-						if(val.max[i] < val.quantity[i] && val.direction == "out")
-							ok = false;
-					}
-					if(ok) {
+					function transfer(storage, direction) {
+						console.log(storage + " " + direction);
 						for(var i in val.itemid) {
 							transactions.push(new Transaction());
 							items.push(new Item(val.itemid[i]));
 							var item = db.get("items/"+val.itemid[i]);
 							if(val.quantity[i] != "") {
 								transactions[i].add({
-									"direction": val.direction,
+									"direction": direction,
 									"item": val.itemid[i],
 									"quantity": val.quantity[i],
 									"remarks": val.remarks,
-									"storage": s.id,
+									"storage": storage,
 									"user": App.Firebase.user.uid
 								});
 								var newQ = parseInt(val.quantity[i]);
 								if(item.hasOwnProperty("stored")) {
-									if(item.stored.hasOwnProperty(s.id) || item.stored !== false)
-										newQ = (val.direction == "in") ? (+parseInt(item.stored[s.id]) + newQ) : (+parseInt(item.stored[s.id]) - newQ);
+									if(item.stored.hasOwnProperty(storage) && item.stored !== false)
+										newQ = (direction == "in") ? (+parseInt(item.stored[storage]) + newQ) : (+parseInt(item.stored[storage]) - newQ);
 								}
-								items[i].updateStorage(s.id, newQ);
-								App.location("transaction", "", []);
+								console.log(newQ);
+								items[i].updateStorage(storage, newQ);
 							}
 						}
-					} else {
-						alert("Invalid quantity. Please check again");
-						form.parents(".card").find(".blur").remove();
 					}
+					transfer(val.storage_from, "out");
+					transfer(val.storage_to, "in");
+					App.location("transaction", "", []);
 				})
-			}
 			e.preventDefault();
 		})
 	</script>

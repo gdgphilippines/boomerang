@@ -8,5 +8,8 @@ App.Controller["TransactionController"] = {
 	},
 	"add": function(parameters) {
 		return App.View.render();
+	},
+	"transfer": function(parameters) {
+		return App.View.render();
 	}
 }
