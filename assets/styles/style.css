@@ -771,6 +771,8 @@ table.schedule {
   font-size: 56px; }
 [data-column][data-column="what-we-do"] h2 {
   margin-top: 24px; }
+[data-column][data-column="what-we-do"] .col-3 {
+  padding: 28px 12px; }
 
 @media screen and (max-width: 768px) {
   .action-bar .cell {
