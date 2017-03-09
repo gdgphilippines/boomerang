@@ -156,7 +156,11 @@
 									if(item.stored.hasOwnProperty(s.id) || item.stored !== false)
 										newQ = (val.direction == "in") ? (+parseInt(item.stored[s.id]) + newQ) : (+parseInt(item.stored[s.id]) - newQ);
 								}
-								items[i].updateStorage(s.id, newQ);
+								if(newQ == 0) {
+									items[i].deleteStorage(s.id);
+								} else {
+									items[i].updateStorage(s.id, newQ);
+								}
 								App.location("transaction", "", []);
 							}
 						}

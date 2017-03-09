@@ -33,6 +33,9 @@ Item.prototype = {
 			if(c) c();
 		})
 	},
+	deleteStorage: function(storageid) {
+		App.Firebase.ref("items/"+this.id+"/stored/"+storageid).remove();
+	},
 	delete: function(c) {
 		App.Firebase.ref("items/"+this.id).remove(function() {
 			if(c) c();
