@@ -41,6 +41,9 @@ $.fn.enableScroll = function() {
 		window.location = "#/"+controller+"/"+action+"/"+parameters.join("/");
 	}, 
 	"refresh": function() {
+		setTimeout(function() {
+			$(".progress").animate({"opacity": "0"})
+		}, 1000)
 		$("body").enableScroll();
 		$("body > .blur").hide();
 		$("html").click(function(e) {

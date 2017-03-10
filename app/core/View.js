@@ -109,9 +109,6 @@ App["View"] = {
 				$(".template").attr("controller", App.Utility.getControllerCode(App.CONTROLLER))
 							  .attr("action", App.ACTION);
 				App.refresh();
-				setTimeout(function() {
-					$(".progress").animate({"opacity": "0"})
-				}, 1000)
 			},
 			"error": function(e) {
 				App.location("error", "page-not-found", [App.Utility.getControllerCode(App.CONTROLLER), App.ACTION])
