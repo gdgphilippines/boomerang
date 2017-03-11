@@ -13,7 +13,7 @@
 									<br>
 									<form id="frmCertificate">
 										<label><input type="text" name="line1" class="center" value="This certificate is hereby awarded to"></label><br>
-										<label><input type="text" name="line2" class="center" placeholder="Name"></label><br>
+										<label><textarea type="text" name="line2" class="center" placeholder="Name"></textarea><br>
 										<label><textarea name="line3">For giving an inspiring talk at
 {event}</textarea></label><br>
 										<label><textarea name="line4" placeholder="Address and Date"></textarea></label><br>
@@ -36,32 +36,39 @@
 				unit: 'in',
 				format: [11, 8.5]
 			});
-			doc.addImage(template, 'PNG', 0, 0, 11, 8.5);
-			doc.setTextColor(133,133,133);
-			doc.setFontSize(19);
-			var x = 4.157;
-			var y = 3.7;
-			var line1 = $(this).find("input[name=line1]").val();
-			doc.text(x, y,line1);
-			doc.setFontSize(33);
-			doc.setFontType("bold");
-			y += 0.610;
-			var line2 = $(this).find("input[name=line2]").val();
-			doc.text(x, y, line2);
-			doc.setFontSize(19);
-			doc.setFont("helvetica", "normal");
-			y += .170;
-			var line3 = $(this).find("textarea[name=line3]").val().split("\n");
-			for(var i in line3) {
-				y += .330;
-				doc.text(x, y, line3[i]);
-			}
-			doc.setFontSize(13);
-			y += .270;
-			var line4 = $(this).find("textarea[name=line4]").val().split("\n");
-			for(var i in line4) {
-				y += .230;
-				doc.text(x, y, line4[i]);
+			var line2 = $(this).find("textarea[name=line2]").val().split("\n");
+			var first = true;
+			for(var name in line2) {
+				if(first)
+					first = false;
+				else
+					doc.addPage();
+				doc.addImage(template, 'PNG', 0, 0, 11, 8.5);
+				doc.setTextColor(133,133,133);
+				doc.setFontSize(19);
+				var x = 4.157;
+				var y = 3.7;
+				var line1 = $(this).find("input[name=line1]").val();
+				doc.text(x, y,line1);
+				doc.setFontSize(33);
+				doc.setFontType("bold");
+				y += 0.610;
+				doc.text(x, y, line2[name]);
+				doc.setFontSize(19);
+				doc.setFont("helvetica", "normal");
+				y += .170;
+				var line3 = $(this).find("textarea[name=line3]").val().split("\n");
+				for(var i in line3) {
+					y += .330;
+					doc.text(x, y, line3[i]);
+				}
+				doc.setFontSize(13);
+				y += .270;
+				var line4 = $(this).find("textarea[name=line4]").val().split("\n");
+				for(var i in line4) {
+					y += .230;
+					doc.text(x, y, line4[i]);
+				}
 			}
 
 
