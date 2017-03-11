@@ -908,6 +908,95 @@ table.schedule {
   animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
   stroke-linecap: round; }
 
+.certificate_container {
+  padding: 4px; }
+  .certificate_container .certificate_template {
+    background-image: url(../images/certificate-resources/template.png);
+    background-size: contain;
+    margin: 0px auto;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+    width: 792px;
+    height: 612px;
+    position: relative;
+    overflow: hidden; }
+    .certificate_container .certificate_template .gdg-icon {
+      position: absolute;
+      top: 90px;
+      left: 120px;
+      width: 78px; }
+    .certificate_container .certificate_template .gdgph-vector {
+      position: absolute;
+      bottom: 48px;
+      width: 133px;
+      opacity: .55;
+      left: 50px; }
+    .certificate_container .certificate_template [class^=bg-shadow] {
+      position: absolute;
+      width: 461px;
+      height: 1200px;
+      background: black;
+      opacity: .03; }
+    .certificate_container .certificate_template .bg-shadow1 {
+      left: 48px;
+      top: -200px;
+      transform: rotate(30deg); }
+    .certificate_container .certificate_template .bg-shadow2 {
+      left: -198px;
+      top: -200px;
+      transform: rotate(-30deg); }
+    .certificate_container .certificate_template .title {
+      position: absolute;
+      left: 300px;
+      top: 85px;
+      font-size: 57px;
+      font-family: 'Product Sans'; }
+    .certificate_container .certificate_template .divider {
+      position: absolute;
+      left: 300px;
+      top: 243px;
+      overflow: hidden;
+      height: 2.63px;
+      width: 386px;
+      background: #0f9d58; }
+      .certificate_container .certificate_template .divider div {
+        width: 25%;
+        height: 100%;
+        float: left; }
+        .certificate_container .certificate_template .divider div:nth-child(1) {
+          background: #4285f4; }
+        .certificate_container .certificate_template .divider div:nth-child(2) {
+          background: #db4437; }
+        .certificate_container .certificate_template .divider div:nth-child(3) {
+          background: #ffc107; }
+    .certificate_container .certificate_template .description {
+      position: absolute;
+      left: 300px;
+      top: 262px;
+      font-size: 19px; }
+      .certificate_container .certificate_template .description h1 {
+        margin: 12px 0px;
+        font-size: 33px; }
+      .certificate_container .certificate_template .description small {
+        font-size: 13px; }
+    .certificate_container .certificate_template [class^="signatory"] {
+      position: absolute;
+      font-family: 'Product Sans';
+      font-size: 13px;
+      top: 543px; }
+      .certificate_container .certificate_template [class^="signatory"] img {
+        position: absolute;
+        opacity: .6; }
+    .certificate_container .certificate_template .signatory1 {
+      left: 300px; }
+      .certificate_container .certificate_template .signatory1 img {
+        top: -30px;
+        left: 30px; }
+    .certificate_container .certificate_template .signatory2 {
+      left: 537px; }
+      .certificate_container .certificate_template .signatory2 img {
+        top: -30px;
+        left: -20px; }
+
 @-webkit-keyframes rotate {
   100% {
     -webkit-transform: rotate(360deg);
