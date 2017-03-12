@@ -1,59 +1,28 @@
 <div id="view">
-	<script>
-	var images = [];
-	images.push("1.jpg");
-	images.push("2.jpg");
-	images.push("3.jpg");
-	images.push("4.jpg");
-	images.push("5.jpg");
-	images.push("6.jpg");
-	<!--//--><![CDATA[//><!--
-		var imagesx = new Array()
-		function preload() {
-			for (var y = 0; y < preload.arguments.length; y++) {
-				imagesx[y] = new Image()
-				imagesx[y].src = preload.arguments[y]
-			}
-		}
-		for(var x = 0; x < images.length; x++) {
-			preload("assets/images/slideshow/"+images[x])
-		}
-	//--><!]]>
-	var i = 0;
-	function slideshow() {
-		if(i >= images.length) {
-			i = 0;
-		}
-		$("#mainCover").css({
-			"background-image": "url(assets/images/slideshow/"+images[i]+")"
-		}, 500);
-		i++;
-		setTimeout(function() {
-			slideshow();
-		}, 5000);
-	}
-	slideshow();
-	</script>
 	<section class="cover" id="mainCover">
+		<video id="vid" video autobuffer autoplay loop>
+			<source id="mp4" src="assets/images/bg.mp4" type="video/mp4">
+		</video>
 	</section>
-	<section>
+	<section class="colored black-trans">
 		<div class="container">
 			<div class="columns">
-				<div class="col-6 t-col-12" data-bulaga>
+				<div class="col-6 t-col-12">
 					<div class="wrapper">
-						<h1>About GDG Philippines</h1>
+						<img src="assets/images/gdg-icon_large.png" height="128px" style="margin: 24px 0px; margin-top: 48px">
+						<h1>About us</h1>
 						<p>Google Developer Group (GDG) Philippines is a group of enthusiastic Filipino developers interested to collaborate and learn more about new technologies. <br><br>GDG Philippines is an independent group; our activities and the opinions expressed on any of our official social media pages should in no way be linked to Google, the corporation.</p>
 					</div>
 				</div>
-				<div class="col-6 t-col-12" data-bulaga>
-					<div class="wrapper center">
-						<img src="assets/images/gdg_androids.png" class="w-10 t-w-12" style="margin-top: 48px;">
-					</div>
-				</div>
 			</div>
+		</div>
+	</section>
+	<section>
+		<div class="container">
 			<div class="columns center" data-column="what-we-do">
 				<div class="col-12" data-bulaga>
 					<div class="wrapper">
+						<img src="assets/images/gdg_androids.png" class="w-5 t-w-8 m-w-10" style="margin-top: 48px;">			
 						<h1>What we do</h1>
 					</div>
 				</div>
@@ -91,7 +60,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="colored blue">
+	<section class="colored black-trans">
 		<div class="container">
 			<div class="columns">
 				<div class="col-12">

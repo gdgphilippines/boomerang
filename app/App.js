@@ -41,6 +41,7 @@ $.fn.enableScroll = function() {
 		window.location = "#/"+controller+"/"+action+"/"+parameters.join("/");
 	}, 
 	"refresh": function() {
+		// $("section.transparent").css("height", $(".cover").outerHeight());
 		setTimeout(function() {
 			$(".progress").animate({"opacity": "0"})
 		}, 1000)
@@ -75,7 +76,6 @@ $.fn.enableScroll = function() {
 			}
 			$(this).bulaga(options);
 		});
-		$("section.cover").css("height", $(window).outerHeight() - $(".action-bar").outerHeight());
 	},
 	getNextEvent: function() {
 		$.ajax({
