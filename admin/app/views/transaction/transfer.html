@@ -8,6 +8,17 @@
 							<h1><a href="#/transaction" class="icon_button"><i class="mdi mdi-arrow-left"></i></a>Transfer</h1>
 						</div>
 						<form id="frm">
+							<div class="table horizontal-data middle">
+								<div class="row">
+									<div class="cell">Date</div>
+									<div class="cell">
+										<label><input type="date" id="datePicker" name="date" value=""></label>
+									</div>
+								</div>
+								<script>
+									document.getElementById('datePicker').value = new Date().toDateInputValue();
+								</script>
+							</div>
 							<div class="table vertical-data top" id="tblItems">
 								<div class="row title">
 									<div class="cell w-6">Item</div>
@@ -127,6 +138,7 @@
 							if(val.quantity[i] != "") {
 								transactions[i].add({
 									"direction": direction,
+									"date": val.date,
 									"item": val.itemid[i],
 									"quantity": val.quantity[i],
 									"remarks": val.remarks,

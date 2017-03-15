@@ -6,6 +6,7 @@ function Transaction() {
 	this.remarks = "";
 	this.storage = false;
 	this.user = false;
+	this.date = false;
 }
 
 Transaction.prototype = {
@@ -13,6 +14,7 @@ Transaction.prototype = {
 		this.id = App.Firebase.ref("transactions/").push(data).getKey();
 		this.direction = data.direction;
 		this.item = data.item;
+		this.date = data.date;
 		this.quantity = data.quantity;
 		this.remarks = data.remarks;
 		this.storage = data.storage;

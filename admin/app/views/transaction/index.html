@@ -20,6 +20,7 @@
 						<div class="table vertical-data middle" id="tblData2">
 							<div class="row title">
 								<div class="cell fit"></div>
+								<div class="cell">Date</div>
 								<div class="cell">Item Name</div>
 								<div class="cell">Quantity</div>
 								<div class="cell">Storage</div>
@@ -36,12 +37,13 @@
 		var db = new Data();
 		db.pull(function(data) {
 			$("#tblData2").find("[data-id]").remove();
-			for(var id in data.transactions) {
-				var t = data.transactions[id];
+			var keys = Object.keys(data.transactions).sort().reverse();
+			for(var id in keys) {
+				var t = data.transactions[keys[id]];
 				var item = db.get("items/"+t.item);
 				var storage = db.get("storages/"+t.storage);
 				var user = db.get("users/"+t.user);
-				$("#tblData2").append('<div class="row" data-id="'+id+'"><div class="cell">'+((t.direction == "in") ? '<i class="mdi mdi-trending-up green-text"></i>':'<i class="mdi mdi-trending-down red-text"></i>')+'</div><div class="cell">'+item.name+' </div><div class="cell">'+t.quantity+' </div><div class="cell">'+storage+' </div><div class="cell"><img src="'+user.photoURL+'" class="dp" alt="'+user.displayName+'" /></div><div class="cell">'+t.remarks+' </div></div>');
+				$("#tblData2").append('<div class="row" data-id="'+id+'"><div class="cell">'+((t.direction == "in") ? '<i class="mdi mdi-trending-up green-text"></i>':'<i class="mdi mdi-trending-down red-text"></i>')+'</div><div class="cell">'+t.date+'</div><div class="cell">'+item.name+' </div><div class="cell">'+t.quantity+' </div><div class="cell">'+storage+' </div><div class="cell"><img src="'+user.photoURL+'" class="dp" alt="'+user.displayName+'" /></div><div class="cell">'+t.remarks+' </div></div>');
 
 			}
 		});

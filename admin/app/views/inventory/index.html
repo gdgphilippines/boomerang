@@ -10,7 +10,10 @@
 									<div class="cell">
 										<h1>Inventory</h1>
 									</div>
-									<div class="cell right">
+									<div class="cell">
+										<label><input type="text" id="txtSearch" placeholder="Search items..."></label>
+									</div>
+									<div class="cell fit right">
 										<a href="#/inventory/new" class="button"><i class="mdi mdi-plus"></i><span class="m-hide">Add New Item</span></a>
 									</div>
 								</div>
@@ -32,29 +35,45 @@
 	<script>
 		var db = new Data();
 		db.pull(function(data) {
-			for(var id in data.items) {
-				var item = data.items[id];
-				var first = true, c = 0, total = 0;
-				if(item.hasOwnProperty("stored")) {
-					for(var y in item.stored) {
-						var storage = db.get("storages/"+y);
-						if(first) {
-							first = false;
-							$("#tblData").append($("<div></div>").addClass("row").attr("data-id", id).append('<div class="cell">'+item.name+' <a href="#/inventory/edit/'+id+'" class="icon_button"><i class="mdi mdi-pencil small"></i><span>Edit</span></a><!--a href="#/inventory/delete/'+id+'" class="icon_button"><i class="mdi mdi-delete small"></i><span>Delete</span></a--><br><small>'+item.description+'</small></div><div class="cell">'+item.stored[y]+'</div><div class="cell">'+item.unit+'</div><div class="cell">'+storage+'</div>'));
-						} else {
-							$("#tblData").append($("<div></div>").addClass("row").attr("data-id", id).append('<div class="cell"></div><div class="cell">'+item.stored[y]+'</div><div class="cell">'+item.unit+'</div><div class="cell">'+storage+'</div>'));
+			function showData(x) {
+				$("#tblData").find("[data-id]").remove();
+				for(var id in x) {
+					var item = x[id];
+					var first = true, c = 0, total = 0;
+					if(item.hasOwnProperty("stored")) {
+						for(var y in item.stored) {
+							var storage = db.get("storages/"+y);
+							if(first) {
+								first = false;
+								$("#tblData").append($("<div></div>").addClass("row").attr("data-id", id).append('<div class="cell">'+item.name+' <a href="#/inventory/edit/'+id+'" class="icon_button"><i class="mdi mdi-pencil small"></i><span>Edit</span></a><!--a href="#/inventory/delete/'+id+'" class="icon_button"><i class="mdi mdi-delete small"></i><span>Delete</span></a--><br><small>'+item.description+'</small></div><div class="cell">'+item.stored[y]+'</div><div class="cell">'+item.unit+'</div><div class="cell">'+storage+'</div>'));
+							} else {
+								$("#tblData").append($("<div></div>").addClass("row").attr("data-id", id).append('<div class="cell"></div><div class="cell">'+item.stored[y]+'</div><div class="cell">'+item.unit+'</div><div class="cell">'+storage+'</div>'));
+							}
+							total += item.stored[y];
+							c++;
 						}
-						total += item.stored[y];
-						c++;
-					}
-					if(c > 1) {
-						$("#tblData").append($("<div></div>").addClass("row gray darken-3 white-text").append('<div class="cell"><b>TOTAL</b></div><div class="cell">'+total+'</div><div class="cell"></div><div class="cell"></div>'))
-					}
-				} else {
-					$("#tblData").append($("<div></div>").addClass("row").attr("data-id", id).append('<div class="cell">'+item.name+' <a href="#/inventory/edit/'+id+'" class="icon_button"><i class="mdi mdi-pencil small"></i><span>Edit</span></a><!--a href="#/inventory/delete/'+id+'" class="icon_button"><i class="mdi mdi-delete small"></i><span>Delete</span></a--><br><small>'+item.description+'</small></div><div class="cell">-</div><div class="cell">'+item.unit+'</div><div class="cell"><span class="red tag">N/A</span></div>'));
+						if(c > 1) {
+							$("#tblData").append($("<div></div>").addClass("row gray darken-3 white-text").append('<div class="cell"><b>TOTAL</b></div><div class="cell">'+total+'</div><div class="cell"></div><div class="cell"></div>'))
+						}
+					} else {
+						$("#tblData").append($("<div></div>").addClass("row").attr("data-id", id).append('<div class="cell">'+item.name+' <a href="#/inventory/edit/'+id+'" class="icon_button"><i class="mdi mdi-pencil small"></i><span>Edit</span></a><!--a href="#/inventory/delete/'+id+'" class="icon_button"><i class="mdi mdi-delete small"></i><span>Delete</span></a--><br><small>'+item.description+'</small></div><div class="cell">-</div><div class="cell">'+item.unit+'</div><div class="cell"><span class="red tag">N/A</span></div>'));
 
+					}
 				}
 			}
+			showData(data.items);
+			$("#txtSearch").off().keyup(function() {
+				var val = $(this).val();
+				if(val != "") {
+					var r = {};
+					for(var id in data.items) {
+						if(data.items[id].name.toLowerCase().indexOf(val.toLowerCase()) >= 0)
+							r[id] = data.items[id];
+					}
+					showData(r);
+				} else
+					showData(data.items);
+			})
 		});
 	</script>
 </div>

@@ -16,6 +16,15 @@
 										<label><input type="radio" name="direction" value="out"><i></i>Out</label>
 									</div>
 								</div>
+								<div class="row">
+									<div class="cell">Date</div>
+									<div class="cell">
+										<label><input type="date" id="datePicker" name="date" value=""></label>
+									</div>
+								</div>
+								<script>
+									document.getElementById('datePicker').value = new Date().toDateInputValue();
+								</script>
 							</div>
 							<div class="table vertical-data top" id="tblItems">
 								<div class="row title">
@@ -145,6 +154,7 @@
 							if(val.quantity[i] != "") {
 								transactions[i].add({
 									"direction": val.direction,
+									"date": val.date,
 									"item": val.itemid[i],
 									"quantity": val.quantity[i],
 									"remarks": val.remarks,

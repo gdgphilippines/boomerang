@@ -25,6 +25,11 @@
 				$(".action-bar").removeClass("shadow");
 			}
 		});
+		Date.prototype.toDateInputValue = (function() {
+			var local = new Date(this);
+			local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+			return local.toJSON().slice(0,10);
+		});
 	},
 	"location": function(controller, action, parameters) {
 		App.CONTROLLER = controller.charAt(0).toUpperCase() + controller.slice(1) + "Controller";
