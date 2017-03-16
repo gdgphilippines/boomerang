@@ -86,7 +86,7 @@
 											var q = $(this).val();
 											var max = $(this).parents(".row").find("input[name*=max]").val();
 											if($("#frm").find("input[name=direction]:checked").val() == "out") {
-												if(max < q) {
+												if(parseInt(max) < parseInt(q)) {
 													alert("Invalid input. Maximum quantity is " + max);
 													$(this).val("0");
 												}
@@ -143,7 +143,7 @@
 				db.pull(function(data) {
 					var ok = true;
 					for(var i in val.itemid) {
-						if(val.max[i] < val.quantity[i] && val.direction == "out")
+						if(parseInt(val.max[i]) < parseInt(val.quantity[i]) && val.direction == "out")
 							ok = false;
 					}
 					if(ok) {
