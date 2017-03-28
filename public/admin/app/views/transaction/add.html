@@ -1,0 +1,176 @@
+<div id="view">
+	<section>
+		<div class="container">
+			<div class="columns">
+				<div class="col-12">
+					<div class="card">
+						<div class="wrapper">
+							<h1><a href="#/transaction" class="icon_button"><i class="mdi mdi-arrow-left"></i></a>New Transaction</h1>
+						</div>
+						<form id="frm">
+							<div class="table horizontal-data middle">
+								<div class="row">
+									<div class="cell">Direction</div>
+									<div class="cell">
+										<label><input type="radio" name="direction" value="in" checked><i></i>In</label>
+										<label><input type="radio" name="direction" value="out"><i></i>Out</label>
+									</div>
+								</div>
+							</div>
+							<div class="table vertical-data top" id="tblItems">
+								<div class="row title">
+									<div class="cell w-6">Item</div>
+									<div class="cell">Quantity</div>
+									<div class="cell fit"></div>
+								</div>
+								<div class="row" data-template>
+									<div class="cell"><label><select name="itemid[]"></select></label></div>
+									<div class="cell">
+										<label><input type="number" name="quantity[]" required></label>
+										<label><input type="hidden" name="max[]"></label>
+										<small class="quantity"></small>
+									</div>
+									<div class="cell"></div>
+								</div>
+							</div>
+							<div class="wrapper right">
+								<a onclick="duplicateRow()" class="button">Add Item</a>
+							</div>
+							<div class="table horizontal-data middle">
+								<div class="row">
+									<div class="cell">Storage</div>
+									<div class="cell">
+										<div class="table">
+											<div class="row">
+												<div class="cell" style="padding-right: 8px;">
+													<label><input type="radio" name="storage_data" value="existing" checked><i></i>Existing</label>
+													<label><select name="storage_existing"></select></label>
+												</div>
+												<div class="cell " style="padding-left: 8px;">
+													<label><input type="radio" name="storage_data" value="new"><i></i>New Storage</label>
+													<label><input type="text" name="storage_new"></label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<script>
+									var db = new Data();
+									db.pull(function(data) {
+										for(var x in data.storages) {
+											$("select[name=storage_existing]").append($("<option></option>").attr("value", x).text(data.storages[x]));
+										}
+										for(var x in data.items) {
+											$("#tblItems select").append($("<option></option>").attr("value", x).text(data.items[x].name + ((data.items[x].description != "") ? " ("+data.items[x].description+")" : "")));
+										}
+										$("#tblItems").on("change", "select", function() {
+											var item = db.get("items/"+$(this).val());
+											var c = 0;
+											for(var i in item.stored) {
+												c+= item.stored[i];
+											}
+											$(this).parents(".row").find("small.quantity").text("Quantity: " + c);
+											$(this).parents(".row").find("input[name*=max]").val(c);
+										})
+
+										.on("change", "input[name*=quantity]", function() {
+											var q = $(this).val();
+											var max = $(this).parents(".row").find("input[name*=max]").val();
+											if($("#frm").find("input[name=direction]:checked").val() == "out") {
+												if(max < q) {
+													alert("Invalid input. Maximum quantity is " + max);
+													$(this).val("0");
+												}
+											}
+										})
+										$("#tblItems select").change();
+									});
+								</script>
+								<div class="row">
+									<div class="cell">Remarks</div>
+									<div class="cell">
+										<label><input type="text" name="remarks"></label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="cell"></div>
+									<div class="cell">
+										<input type="submit" value="Add Transaction">
+									</div>
+								</div>
+							</div>
+							<script>
+								function duplicateRow() {
+									var row = $("#tblItems .row[data-template]").clone();
+									$("#tblItems").append(row.removeAttr("data-template").find(".cell:last-child").html('<a onclick="deleteRow(event);" class="icon_button"><i class="mdi mdi-close"></i></a>').parents(".row").find(".cell:nth-child(2) input").val("").parents(".row"));
+									$("#tblItems select").change();
+								}
+								function deleteRow(event) {
+									$(event.target).parents(".row").remove();
+								}
+							</script>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script>
+		$("#frm").off().submit(function(e) {
+			var form = $(this);
+			$(this).parents(".card").append(App.Constant.CARD_BLUR);
+			var val = $(this).serializeJSON();
+			var s = new Storage();
+			if(val.storage_data == "existing") {
+				s.set(val.storage_existing, step2);
+			} else {
+				s.add(val.storage_new);
+				step2();
+			}
+			function step2() {
+				var transactions = [];
+				var items = [];
+				var db = new Data();
+				db.pull(function(data) {
+					var ok = true;
+					for(var i in val.itemid) {
+						if(val.max[i] < val.quantity[i] && val.direction == "out")
+							ok = false;
+					}
+					if(ok) {
+						for(var i in val.itemid) {
+							transactions.push(new Transaction());
+							items.push(new Item(val.itemid[i]));
+							var item = db.get("items/"+val.itemid[i]);
+							if(val.quantity[i] != "") {
+								transactions[i].add({
+									"direction": val.direction,
+									"item": val.itemid[i],
+									"quantity": val.quantity[i],
+									"remarks": val.remarks,
+									"storage": s.id,
+									"user": App.Firebase.user.uid
+								});
+								var newQ = parseInt(val.quantity[i]);
+								if(item.hasOwnProperty("stored")) {
+									if(item.stored.hasOwnProperty(s.id) || item.stored !== false)
+										newQ = (val.direction == "in") ? (+parseInt(item.stored[s.id]) + newQ) : (+parseInt(item.stored[s.id]) - newQ);
+								}
+								if(newQ == 0) {
+									items[i].deleteStorage(s.id);
+								} else {
+									items[i].updateStorage(s.id, newQ);
+								}
+								App.location("transaction", "", []);
+							}
+						}
+					} else {
+						alert("Invalid quantity. Please check again");
+						form.parents(".card").find(".blur").remove();
+					}
+				})
+			}
+			e.preventDefault();
+		})
+	</script>
+</div>

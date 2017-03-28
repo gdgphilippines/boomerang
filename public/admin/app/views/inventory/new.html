@@ -1,0 +1,66 @@
+<div id="view">
+	<section>
+		<div class="container">
+			<div class="columns">
+				<div class="col-12">
+					<div class="card">
+						<div class="wrapper">
+							<h1><a href="#/inventory" class="icon_button"><i class="mdi mdi-arrow-left"></i></a>New Item</h1>
+						</div>
+						<form id="frm">
+							<div class="table horizontal-data middle" data-template>
+								<div class="row">
+									<div class="cell">Item Name</div>
+									<div class="cell">
+										<label><input type="text" name="name[]" class="focus-here" required></label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="cell">Description</div>
+									<div class="cell">
+										<label><input type="text" name="description[]"></label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="cell">Unit</div>
+									<div class="cell">
+										<label><input type="text" name="unit[]" required></label>
+									</div>
+								</div>
+							</div>
+						</form>
+						<div class="wrapper right">
+							<a onclick="duplicateForm();" class="button"><i class="mdi mdi-plus"></i>Add New Item</a>
+							<a onclick="$('#frm').submit()" class="button"><i class="mdi mdi-content-save"></i>Save</a>
+						</div>
+						<script>
+							var duplicateForm = function() {
+								var t = $("#frm [data-template]").clone().addClass("top-divider").removeAttr("data-template").find("input").val("").parents(".table");
+								$("#frm").append(t)
+							}
+						</script>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script>
+		$("#frm").off().submit(function(e) {
+			$(this).parents(".card").append(App.Constant.CARD_BLUR);
+			var val = $(this).serializeJSON();
+			var item = [];
+			for(var i in val.name) {
+				item.push(new Item());
+				if(val.name[i] != "" && val.unit[i] != "") {
+					item[i].add({
+						"name": val.name[i],
+						"description": val.description[i],
+						"unit": val.unit[i]
+					})
+				}
+			}
+			App.location("inventory", "index", []);
+			e.preventDefault();
+		})
+	</script>
+</div>

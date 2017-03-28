@@ -1,0 +1,228 @@
+<div id="view">
+	<section class="cover" id="mainCover">
+		<video id="vid" video autobuffer autoplay loop>
+			<source id="mp4" src="assets/images/bg.mp4" type="video/mp4">
+		</video>
+	</section>
+	<section class="colored black-trans">
+		<div class="container">
+			<div class="columns">
+				<div class="col-6 t-col-12">
+					<div class="wrapper">
+						<img src="assets/images/gdg-icon_large.png" height="128px" style="margin: 24px 0px; margin-top: 48px">
+						<h1>About us</h1>
+						<p>Google Developer Group (GDG) Philippines is a group of enthusiastic Filipino developers interested to collaborate and learn more about new technologies. <br><br>GDG Philippines is an independent group; our activities and the opinions expressed on any of our official social media pages should in no way be linked to Google, the corporation.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section>
+		<div class="container">
+			<div class="columns center" data-column="what-we-do">
+				<div class="col-12" data-bulaga>
+					<div class="wrapper">
+						<img src="assets/images/gdg_androids.png" class="w-5 t-w-8 m-w-10" style="margin-top: 48px;">			
+						<h1>What we do</h1>
+					</div>
+				</div>
+				<div class="col-3 t-col-6 m-col-12" data-bulaga>
+					<i class="mdi mdi-message-text blue-text"></i>
+					<h2>Talks</h2>
+					<p>Get updated with the latest news and announcements</p>
+				</div>
+				<div class="col-3 t-col-6 m-col-12" data-bulaga>
+					<i class="mdi mdi-code-tags red-text"></i>
+					<h2>Codelabs</h2>
+					<p>Get hands-on activity and mentors to guide you</p>
+				</div>
+				<div class="col-3 t-col-6 m-col-12" data-bulaga>
+					<i class="mdi mdi-school yellow-text"></i>
+					<h2>Campus Roadshows</h2>
+					<p>Share knowledge in different colleges and universities</p>
+				</div>
+				<div class="col-3 t-col-6 m-col-12" data-bulaga>
+					<i class="mdi mdi-projector-screen green-text"></i>
+					<h2>Live Viewing Parties</h2>
+					<p>Watch a live Google's event happening on different countries</p>
+				</div>
+				<div class="col-12" data-bulaga>
+					<div class="wrapper app-logos">
+						<p>About different Google technologies</p>
+						<img src="assets/images/app-logos/android.png" height="80px">
+						<img src="assets/images/app-logos/cardboard.png" height="60px">
+						<img src="assets/images/app-logos/cloud.png" height="75px">
+						<img src="assets/images/app-logos/firebase.png" height="100px">
+						<img src="assets/images/app-logos/tensor-flow.png" height="90px">
+						<img src="assets/images/app-logos/polymer.png" height="80px">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="colored black-trans">
+		<div class="container">
+			<div class="columns">
+				<div class="col-12">
+					<div class="wrapper">
+						<h1>Next Event</h1>
+					</div>
+				</div>
+				<div class="col-5 t-col-12">
+					<div class="wrapper">
+						<div class="card">
+							<div class="wrapper" id="upcoming">
+								<div class="loading_icon load_template"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="6" stroke-miterlimit="10"></circle></svg></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-5 t-col-12">
+					<div class="wrapper white-text">
+						<p>Look out for our next awesome stuff!</p>
+						<p>
+							<a href="https://plus.google.com/105750470224587854845" class="icon" target="_blank" style="margin: 0px 4px;"><i class="mdi mdi-google-plus"></i></a>
+							<a href="https://www.facebook.com/gdgphilippines" class="icon" target="_blank" style="margin: 0px 4px;"><i class="mdi mdi-facebook"></i></a>
+							<a href="https://twitter.com/gdgphilippines" class="icon" target="_blank" style="margin: 0px 4px;"><i class="mdi mdi-twitter"></i></a>
+							<a href="https://www.youtube.com/channel/UCT9dkGk7ti1ok-JPUbXjTCg" class="icon" target="_blank" style="margin: 0px 4px;"><i class="mdi mdi-youtube-play"></i></a>
+							<a href="https://www.instagram.com/gdgphilippines/" class="icon" target="_blank" style="margin: 0px 4px;"><i class="mdi mdi-instagram"></i></a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section>
+		<div class="container">
+			<div class="columns">
+				<div class="col-12">
+					<div class="wrapper">
+						<h1>Read some stuff</h1>
+					</div>
+				</div>
+			</div>
+			<div class="columns" id="blog-list">
+				<div class="col-12 load_container">
+					<div class="wrapper">
+						<div class="loading_icon load_template"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="6" stroke-miterlimit="10"></circle></svg></div>
+					</div>
+				</div>
+				<div class="col-4 t-col-6 m-col-12 pad-bottom" id="blog_read_more">
+					<div class="wrapper">
+						<p>Want to read more? </p>
+						<a href="http://blog.gdgph.org/" class="button">Click me then</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script>
+		App.getBlogPosts(function(posts) {
+			$("#blog-list").find("[data-post-id]").remove();
+			$("#blog-list .load_container").remove();
+			var count = 0, max = 5;
+			$.each(posts.feed.entry, function(index, post) {
+				if(count < max) {
+					count++;
+					var title = post.title.$t;
+					var link = post.link[4].href;
+					var date = post.published.$t.substring(0,19);
+					var content = post.content.$t;
+					var tmp = document.createElement("DIV");
+					tmp.innerHTML = content;
+					content = tmp.textContent.split(/\s+/).slice(0,20).join(" ")+"...";				
+					$("#blog-list").append('<div class="col-4 t-col-6 m-col-12 pad-bottom" data-post-id="'+post.id.$t+'">' +
+						'<div class="wrapper">' +
+							'<div class="card">' +
+								'<div class="wrapper">' +
+									'<h3>'+title+'</h3>' +
+									'<small>'+dateFormat(date, "dddd, mmmm dS, yyyy, h:MM TT")+'</small>' +
+									'<p>'+content+'</p>' +
+								'</div>' +
+								'<a href="#/blog/view/'+link.substring(30)+'" class="action_button red table middle center">' +
+									'<div class="cell">' +
+										'<i class="mdi mdi-eye"></i>' +
+									'</div>' +
+								'</a>' +
+							'</div>' +
+						'</div>' +
+					'</div>');
+				}
+			});
+			var rm = $("#blog_read_more").clone();
+			$("#blog_read_more").remove();
+			$("#blog-list").append(rm);
+			resizeCards();
+		});
+		App.getNextEvent();
+		$(window).resize(function() {
+			setTimeout(function() {
+				resizeCards();
+			}, 100)
+		})
+		function resizeCards() {
+			var maxHeight = 0;
+			$("#blog-list .card").css("height", "auto");
+			$("#blog-list").find(".card").each(function() {
+				if(maxHeight < $(this).outerHeight())
+					maxHeight = $(this).outerHeight();
+			});
+			$("#blog-list").find(".card").css("height", maxHeight+"px");
+		}
+	</script>
+	<section class="red colored" name="speakers">
+		<div class="container">
+			<div class="columns">
+				<div class="col-12">
+					<div class="wrapper">
+						<h1>Our Awesome Speakers</h1>
+						<p>Have a look at all of our previous speakers in our events? Looks cool, right?</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="vertical-scroll">
+			<div class="content">
+			</div>
+		</div>
+		<script>
+			App.displaySpeakers();
+		</script>
+		<div class="container">
+			<div class="columns">
+				<div class="col-12">
+					<div class="wrapper">
+						<p>GDG Philippines also provide speakers to your event. Fill up our form to request for speakers!</p>
+						<a href="http://eventrequest.gdgph.org/" target="_blank" class="button">Request</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section>
+		<div class="container">
+			<div class="columns">
+				<div class="col-12">
+					<div class="wrapper">
+						<h1>Other GDGs</h1>
+					</div>
+				</div>
+				<div class="col-8 m-col-12">
+					<div class="wrapper">
+						<p>GDG Philippines is not the only chapter we have in the Philippines. There are 7 more!</p>
+						<a href="https://plus.google.com/111881770223033262444/posts" target="_blank"><img src="assets/images/gdg/bacolod.png" height="30px" style="margin: 24px;"></a>
+						<a href="https://plus.google.com/111137079504396580440/posts" target="_blank"><img src="assets/images/gdg/baguio.png" height="30px" style="margin: 24px;"></a>
+						<a href="https://plus.google.com/116488685812814512345/posts" target="_blank"><img src="assets/images/gdg/cebu.png" height="30px" style="margin: 24px;"></a>
+						<a href="https://plus.google.com/109777245615877849664/posts" target="_blank"><img src="assets/images/gdg/cdo.png" height="30px" style="margin: 24px;"></a>
+						<a href="https://plus.google.com/105456972621599447153/posts" target="_blank"><img src="assets/images/gdg/davao.png" height="30px" style="margin: 24px;"></a>
+						<a href="https://plus.google.com/111624169093759630469/posts" target="_blank"><img src="assets/images/gdg/halsema.png" height="30px" style="margin: 24px;"></a>
+						<a href="https://plus.google.com/102615103919428587748/posts" target="_blank"><img src="assets/images/gdg/zamboanga.png" height="30px" style="margin: 24px;"></a>
+					</div>
+				</div>
+				<div class="col-4 m-col-12">
+					<img src="assets/images/phmap.png" class="w-12">
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

@@ -1,0 +1,49 @@
+<div id="view">
+	<section>
+		<div class="container">
+			<div class="columns">
+				<div class="col-12">
+					<div class="card">
+						<div class="wrapper">
+							<div class="table">
+								<div class="row">
+									<div class="cell">
+										<h1>Transaction</h1>
+									</div>
+									<div class="cell right">
+										<a href="#/transaction/transfer" class="button"><i class="mdi mdi-transfer"></i>Transfer</a>
+										<a href="#/transaction/add" class="button"><i class="mdi mdi-arrow-compress"></i>Transact</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="table vertical-data middle" id="tblData2">
+							<div class="row title">
+								<div class="cell fit"></div>
+								<div class="cell">Item Name</div>
+								<div class="cell">Quantity</div>
+								<div class="cell">Storage</div>
+								<div class="cell">By</div>
+								<div class="cell">Remarks</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script>
+		var db = new Data();
+		db.pull(function(data) {
+			$("#tblData2").find("[data-id]").remove();
+			for(var id in data.transactions) {
+				var t = data.transactions[id];
+				var item = db.get("items/"+t.item);
+				var storage = db.get("storages/"+t.storage);
+				var user = db.get("users/"+t.user);
+				$("#tblData2").append('<div class="row" data-id="'+id+'"><div class="cell">'+((t.direction == "in") ? '<i class="mdi mdi-trending-up green-text"></i>':'<i class="mdi mdi-trending-down red-text"></i>')+'</div><div class="cell">'+item.name+' </div><div class="cell">'+t.quantity+' </div><div class="cell">'+storage+' </div><div class="cell"><img src="'+user.photoURL+'" class="dp" alt="'+user.displayName+'" /></div><div class="cell">'+t.remarks+' </div></div>');
+
+			}
+		});
+	</script>
+</div>
