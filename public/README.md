@@ -1,2 +1,0 @@
-# oslojs
-Javascript MVC framework
