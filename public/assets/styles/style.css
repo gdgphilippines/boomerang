@@ -8505,7 +8505,7 @@ a.logo {
   min-height: 400px;
   background: #f5f5f5; }
   .view section {
-    background: #f5f5f5;
+    background-color: #f5f5f5;
     color: #666;
     position: relative;
     padding: 24px 0px 80px 0px; }
@@ -8550,6 +8550,11 @@ a.logo {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%); }
+    .view section.bg-cover {
+      min-height: 400px;
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat; }
     .view section .container {
       position: relative;
       max-width: 1080px;
