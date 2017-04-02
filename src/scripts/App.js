@@ -37,9 +37,9 @@ $.fn.enableScroll = function() {
 				$(".action-bar").removeClass("shadow");
 			}
 		});
-		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('./service-worker.js');
-		}
+		// if ('serviceWorker' in navigator) {
+		// 	navigator.serviceWorker.register('./service-worker.js');
+		// }
 	},
 	"location": function(controller, action, parameters) {
 		App.CONTROLLER = controller.charAt(0).toUpperCase() + controller.slice(1) + "Controller";
@@ -95,6 +95,7 @@ $.fn.enableScroll = function() {
 			dataType: 'jsonp',
 			data: { 'headers': { 'Accept': 'application/json;' }, 'timeout': 10000 },
 			success: function(events) {
+				console.log(events);
 				if(events.data.length > 0) {
 					var ne = events.data[0];
 					var datex = new Date(ne.time);
@@ -102,7 +103,28 @@ $.fn.enableScroll = function() {
 						'<p><i class="mdi mdi-map-marker" style="margin-right: 12px"></i>'+ne.venue.city+', '+ne.venue.localized_country_name+'</p>'+
 						'<p><i class="mdi mdi-calendar" style="margin-right: 12px"></i>'+datex.toDateString()+', '+datex.toLocaleTimeString()+'</p>'+
 						'<p><i class="mdi mdi-account-multiple" style="margin-right: 12px"></i>'+ne.yes_rsvp_count+' attending members</p>'+
-						'<p class="right"><a class="button" href="'+ne.link+'" target="_blank"><i class="mdi mdi-ticket" style="margin-right: 12px"></i>Apply for a Ticket</a></p>');	
+						'<p class="right"><a class="button" href="'+ne.link+'" target="_blank"><i class="mdi mdi-ticket" style="margin-right: 12px"></i>Apply for a Ticket</a></p>');
+					if(events.data.length > 1) {
+						$("#other_events").show().append('<div class="columns"><div class="col-12"></div></div>');
+						var first = true;
+						for(var i = 1; i < events.data.length; i++) {
+							datex = new Date(events.data[i].time);
+							var nomargin = "";
+							if(first) {
+								nomargin = ' style="margin-top: 0px;"';
+								first = false;
+							}
+							$("#other_events").find(".col-12").append('<div class="card"'+nomargin+'>'+
+									'<div class="wrapper">'+
+										'<h3>'+events.data[i].name+'</h3>'+ ((events.data[i].hasOwnProperty("venue")) ? 
+										'<p><i class="mdi mdi-map-marker" style="margin-right: 12px"></i>'+events.data[i].venue.city+', '+events.data[i].venue.localized_country_name+'</p>' : '')+
+										'<p><i class="mdi mdi-calendar" style="margin-right: 12px"></i>'+datex.toDateString()+', '+datex.toLocaleTimeString()+'</p>'+
+										'<p><i class="mdi mdi-account-multiple" style="margin-right: 12px"></i>'+events.data[i].yes_rsvp_count+' attending members</p>'+
+										'<p class="right"><a class="button" href="'+events.data[i].link+'" target="_blank"><i class="mdi mdi-ticket" style="margin-right: 12px"></i>Apply for a Ticket</a></p>'+
+									'</div>'+
+								'</div>');
+						}
+					}
 				} else {
 					$("#upcoming").html('<h3>Message</h3><p>No incoming events for now. Add, like, and follow our social media pages to get the latest updates for our upcoming events!</p>');	
 				}
