@@ -10,7 +10,7 @@ var concat = require('gulp-concat');
 var config = {
 	"src": "./src",
 	"public": "./public",
-	"development": true
+	"development": false
 }
 
 gulp.task('default', function (cb) {
