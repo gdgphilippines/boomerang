@@ -8,7 +8,6 @@ module.exports = {
   	"mediakit/**/*.*",
   	"next17/**/*.*",
   	"tensorflowdevsummit/**/*.*",
-  	"views/**/*.*",
   	"index.html",
   	"favicon.ico"
   ]
