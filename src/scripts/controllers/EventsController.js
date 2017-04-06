@@ -11,5 +11,8 @@ App.Controller["EventsController"] = {
 	},
 	"tensorflow-dev-summit": function(parameters) {
 		return App.View.render();
+	},
+	"codeblaze": function(parameters) {
+		return App.View.render();
 	}
 }
