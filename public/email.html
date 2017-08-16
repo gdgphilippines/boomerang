@@ -1,0 +1,72 @@
+<h1>Add HTML template to Gmail</h1>
+<ol>
+	<li>Compose a new message</li>
+	<li>Remove all text inside your email including the signature</li>
+	<li>Add a sample text such as '<b>****</b>'</li>
+	<li>Highlight the sample text</li>
+	<li>Right click on the sample text</li>
+	<li>Select Inspect</li>
+	<li>Right click on the parent element of the sample text</li>
+	<li>Select <b>Edit as HTML</b></li>
+	<li>Paste the code below inside the element</li>
+	<li>Press <b>Ctrl+Enter</b> to exit and save your code</li>
+	<li>Edit your content through Gmail</li>
+</ol>
+<textarea rows="20" cols="50">
+<div gdgph>
+	<style>
+		[gdgph] {
+			background: #f3f3f3;
+			padding: 12px;
+			font-family: 'Roboto';
+			color: rgba(0,0,0,.75);
+			text-align: center;
+			font-size: 14px;
+		}
+		[gdgph] .logo {
+			margin: 24px 0px;
+		}
+		[gdgph] h1 {
+			font-weight: normal;
+		}
+		[gdgph] .bg	{
+			background: #2196f3;
+			width: 100%;
+			height: 24px;
+		}
+		[gdgph] .card {
+			background: white;
+			text-align: left;
+			box-shadow: 0px 2px 1px rgba(0,0,0,.1);
+			margin-bottom: 24px;
+		}
+		[gdgph] .card .wrapper {
+			padding: 24px;
+		}
+		[gdgph] footer {
+			color: rgba(0,0,0,.4);
+			text-align: left;
+		}
+		[gdgph] footer a {
+			color: rgba(0,0,0,.4);
+		}
+	</style>
+	<img src="https://www.gdgph.org/assets/images/email/gdgph-logo_black.png" class="logo" height="36px">
+	<div class="card">
+		<div class="bg"></div>
+		<div class="wrapper">
+			<h1>Slot Confirmed!</h1>
+			Hello,<br><br>
+			Congratulations as you’ve been selected to attend Google I/O 2017 Extended Naga. This serves as the confirmation to the event. There is no need to print this; just bring a valid ID for identification.<br><br>
+			Kindly note of these important details:
+			<ul>
+				<li>Please read our Code of Conduct before attending the event. Joining our event means you have read carefully and agree to the community’s Code of Conduct.</li>
+			</ul>
+		</div>
+	</div>
+	<footer>
+		&copy; 2017 Google Developer Group Philippines<br><br>
+		<a href="http://gdgph.org/">Website</a> | <a href="http://blog.gdgph.org/">Blog</a> | <a href="https://www.meetup.com/gdgphilippines/">Meetup Page</a> | <a href="https://plus.google.com/u/0/105750470224587854845">Google+ Page</a> | <a href="https://plus.google.com/u/0/communities/103753993813210263985">Google+ Community</a> | <a href="https://www.facebook.com/gdgphilippines">Facebook Page</a> | <a href="https://www.twitter.com/gdgphilippines">Twitter</a> | <a href="http://www.youtube.com/gdgphilippines">YouTube Channel</a>
+	</footer>
+</div>
+</textarea>
