@@ -37,9 +37,9 @@ $.fn.enableScroll = function() {
 				$(".action-bar").removeClass("shadow");
 			}
 		});
-		// if ('serviceWorker' in navigator) {
-		// 	navigator.serviceWorker.register('./service-worker.js');
-		// }
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('./service-worker.js');
+		}
 	},
 	"location": function(controller, action, parameters) {
 		App.CONTROLLER = controller.charAt(0).toUpperCase() + controller.slice(1) + "Controller";

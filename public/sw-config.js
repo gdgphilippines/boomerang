@@ -1,7 +1,7 @@
 module.exports = {
   maximumFileSizeToCacheInBytes: 10485760,
   staticFileGlobs: [
-  	"assets/images/**/*.*",
+  	"assets/**/*.*",
   	"index.html",
   	"favicon.ico"
   ]

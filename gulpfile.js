@@ -20,7 +20,7 @@ gulp.task('default', function (cb) {
 		t = t.pipe(cleanCSS());
 	t.pipe(gulp.dest(config.public+'/assets'));
 
-	t = [gulp.src(config.src+'/**/*.js')];
+	var t = [gulp.src(config.src+'/**/*.js')];
 	if(!config.development) {
 		t.push(uglify());
 	}
