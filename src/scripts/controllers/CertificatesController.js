@@ -4,5 +4,8 @@ App.Controller["CertificatesController"] = {
 	},
 	"generate": function(parameters) {
 		return App.View.render();
+	},
+	"generate2": function(parameters) {
+		return App.View.render();
 	}
 }
