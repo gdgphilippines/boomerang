@@ -1,0 +1,194 @@
+<div id="view">
+	<section class="cover bg-cover" style="background-image: url(assets/images/events/tensorflow-dev-summit-2018/cover.png)"></section>
+	<section style="margin-top: 650px">
+		<div class="container">
+			<div class="wrapper">
+				<div class="columns">
+					<div class="col-12">
+						<div class="wrapper">
+							<div class="table nobg bottom">
+								<div class="row">
+									<div class="cell"><h1>TensorFlow Dev Summit 2018 Extended Manila</h1></div>
+									<div class="cell right">
+										<a href="http://bit.ly/TensorflowManila2018" target="_blank" class="button">Register</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-6 t-col-12">
+						<div class="wrapper">
+							<div class="card" data-bulaga id="cardAbout">
+								<div class="wrapper">
+									<h3>About the Event</h3>
+									<p><a href="https://events.withgoogle.com/tensorflow-dev-summit/" target="_blank">TensorFlow Dev Summit</a> was held on March 30, 2018 in Mountain View, California. TensorFlow Dev Summit brings together a diverse mix of machine learning users from around the world for a full day of highly technical talks, demos, and conversation with the TensorFlow team and community.<br><br>GDG Philippines is organizing a TensorFlow Dev Summit 2018 Extended Manila.</p>
+									<table cellpadding="8px">
+										<tr valign="top">
+											<td width="1px"><i class="mdi mdi-map-marker"></i></td>
+											<td>
+												<a href="https://www.google.com.ph/maps/place/PLDT+TelTEC+Innolab/@14.5743001,121.0411411,17z/data=!4m5!3m4!1s0x0:0x3adf292a53c6e4d8!8m2!3d14.5749438!4d121.042475" target="_blank">PLDT Innolab <i class="mdi mdi-open-in-new" style="font-size: 12px"></i></a>
+												<br><small>721 Boni Ave., Mandaluyong, Metro Manila</small>
+											</td>
+										</tr>
+										<tr valign="top">
+											<td><i class="mdi mdi-calendar"></i></td>
+											<td>
+												April 14, 2018
+												<br><small>7:30AM - 5:00PM</small>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-6 t-col-12">
+						<div class="wrapper">
+							<div class="card" data-bulaga id="eventMap">
+							</div>
+						</div>
+					</div>
+					<script>
+						$(window).resize(function() {
+							$("#eventMap").height($("#cardAbout").outerHeight());
+						})
+						$("#eventMap").height($("#cardAbout").outerHeight());
+						var map;
+						function initMap() {
+							map = new google.maps.Map(document.getElementById("eventMap"), {
+								center: {lat: 14.5749439, lng: 121.0402866},
+								zoom: 15,
+								panControl:true,
+								zoomControl:true,
+								mapTypeControl:true,
+								scaleControl:true,
+								streetViewControl:true,
+								overviewMapControl:true,
+								rotateControl:true,
+								scrollwheel: false,
+								navigationControl: false,
+								draggable: true,
+								mapTypeId:google.maps.MapTypeId.ROADMAP
+							});
+							var marker = new google.maps.Marker({
+								position: {lat: 14.5749391, lng: 121.0424224},
+								animation: google.maps.Animation.BOUNCE
+							})
+							marker.setMap(map);
+						}
+					</script>
+					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfJwp5z6XbU6tYFHKY-J55Vc89jJCBJ2A&callback=initMap" async defer></script>
+					<div class="col-12">
+						<div class="wrapper">
+							<div class="card">
+								<div class="wrapper">
+									<h3>Agenda</h3>
+								</div>
+								<table class="schedule">
+									<tr>
+										<td><span>7.30</span>a</td>
+										<td>
+											<span>Check-in (Morning Participants)</span>
+											<span>1 hour</span>
+										</td>
+									</tr>
+									<tr>
+										<td><span>8.30</span>a</td>
+										<td>
+											<span>Opening Remarks</span>
+											<span>30 minutes | Ralph Regalado, Google Developer Expert - Machine Learning</span>
+										</td>
+									</tr>
+									<tr>
+										<td><span>9</span>a</td>
+										<td>
+											<span>TensorFlow Video Keynote</span>
+											<span>30 minutes</span>
+										</td>
+									</tr>
+									<tr>
+										<td><span>9.30</span>a</td>
+										<td>
+											<span>ML Production on Keras</span>
+											<span>30 minutes | Stephanie Sy, Thinking Machines</span>
+										</td>
+									</tr>
+									<tr>	
+										<td><span>10</span>a</td>
+										<td>
+											<span>Cloud AutoML: Making AI accessible to every business</span>
+											<span>30 minutes | Johnny Benitez, Google</span>
+										</td>
+									</tr>
+									<tr>
+										<td><span>10.30</span>a</td>
+										<td>
+											<span>TensorFlow for Web Developers</span>
+											<span>20 minutes | John Paul Ada, GAPLabs</span>
+										</td>
+									</tr>
+									<tr>
+										<td><span>10.50</span>a</td>
+										<td>
+											<span>Empowering the Deaf through Machine Learning</span>
+											<span>20 minutes | Roma Rico Flores, Ateneo De Naga University</span>
+										</td>
+									</tr>
+									<tr>
+										<td><span>11.10</span>a</td>
+										<td>
+											<span>Forecasting USD-PHP Exchange Rates using Long Short-Term Memory (LSTM) Recurrent Neural Network (RNN)</span>
+											<span>20 minutes | Ronrick Da-ano, NeuralMechanics.AI</span>
+										</td>
+									</tr>
+									<tr>
+										<td><span>11.30</span>a</td>
+										<td>
+											<span>Towards Building an Intelligent Anti-Malware System</span>
+											<span>20 minutes | Abien Fred Agarap, Ntuit.AI</span>
+										</td>
+									</tr>
+									<tr>
+										<td><span>11.50</span>a</td>
+										<td>
+											<span>Sponsor Talk</span>
+											<span>20 minutes</span>
+										</td>
+									</tr>
+									<tr>
+										<td><span>1</span>p</td>
+										<td>
+											<span>Check-in (Afternoon Participants)</span>
+											<span>30 minutes</span>
+										</td>
+									</tr>
+									<tr>
+										<td><span>1.30</span>p</td>
+										<td>
+											<span>Machine Learning Study Jams</span>
+											<span>3 hours 30 minutes | Ralph Vincent Regalado, Google Developer Expert - Machine Learning<br><br><b>Teaching Assistant:</b><br>Abien Fred Agarap, Ntuit.AI<br>Renz Iver Baliber, Senti<br>Arian Yambao, Senti<br>John Paul Ada, GAPLabs</span>
+										</td>
+									</tr>
+									<tr>
+										<td><span>5</span>p</td>
+										<td>
+											<span>Closing Remarks</span>
+											<span></span>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<!-- <div class="card" data-bulaga>
+								<div class="wrapper">
+									<h3>Be a sponsor</h3>
+									<p>Google Developer Group Philippines is a non-profit organization composed of volunteers. Support us and be part of Google Cloud Next 17 Extended Manila</p>
+									<a href="#/be/a-sponsor" class="button">Support us</a>
+								</div>
+							</div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

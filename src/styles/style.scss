@@ -578,13 +578,14 @@ table {
 a.logo {
 	font-family: 'Product Sans';
 	color: #666;
-		font-size: 24px;
+	font-size: 24px;
+	font-weight: 700;
 	i.gdg-icon {
 		vertical-align: middle;
 		width: 24px;
 		height: 24px;
 		display: inline-block;
-		background-image: url(../images/gdg-icon.png);
+		background-image: url(https://raw.githubusercontent.com/gdgphilippines/main-files/master/images/gdg-icon.png);
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-size: contain;
@@ -604,6 +605,9 @@ a.logo {
 	}
 	&:hover > .hover {
 		max-width: 300px;
+	}
+	& span:not(.hover) {
+		font-weight: 400;
 	}
 }
 .hr {
@@ -1184,7 +1188,7 @@ table.schedule {
 .certificate_container {
 	padding: 4px;
 	.certificate_template {
-		background-image: url(../images/certificate-resources/template.png);
+		background-image: url(https://raw.githubusercontent.com/gdgphilippines/main-files/master/images/certificate-resources/template.png);
 		background-size: contain;
 		margin: 0px auto;
 		box-shadow: 0px 3px 4px rgba(0,0,0,.2);

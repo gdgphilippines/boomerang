@@ -37,9 +37,9 @@ $.fn.enableScroll = function() {
 				$(".action-bar").removeClass("shadow");
 			}
 		});
-		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('./service-worker.js');
-		}
+		// if ('serviceWorker' in navigator) {
+		// 	navigator.serviceWorker.register('./service-worker.js');
+		// }
 	},
 	"location": function(controller, action, parameters) {
 		App.CONTROLLER = controller.charAt(0).toUpperCase() + controller.slice(1) + "Controller";
@@ -55,7 +55,7 @@ $.fn.enableScroll = function() {
 			$(".progress").animate({"opacity": "0"})
 		}, 1000)
 		$("body").enableScroll();
-		$("body > .blur").hide();
+		$("body > .blur").fadeOut(250);
 		$("html").click(function(e) {
 			// console.log($(".action-bar i.mdi.mdi-menu").is(":visible"));
 			if($(window).outerWidth() <= 700)
@@ -287,7 +287,7 @@ $.fn.enableScroll = function() {
 			if(Data.speakers.hasOwnProperty(speakers[s])) {
 				var x = Data.speakers[speakers[s]];
 				$("section[name=speakers] .vertical-scroll .content").append('<div class="item">' + 
-					'<img src="assets/images/speakers/'+x.name+'.jpg">' + 
+					'<img src="https://raw.githubusercontent.com/gdgphilippines/main-files/master/images/speakers/'+x.name+'.jpg">' + 
 					'<span>'+x.name+'</span>' + 
 					'<small>'+x.title+'</small>' + 
 				'</div>');

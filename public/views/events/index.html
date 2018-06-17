@@ -26,53 +26,103 @@
 									type: "get",
 									crossOrigin: true,
 									cache: true,
-									url: "https://hub.gdgx.io/api/v1/chapters/105750470224587854845/events/upcoming?callback=?",
+									url: "https://api.meetup.com/gdgphilippines/events?callback=?",
 									dataType: 'jsonp',
-									data: { 'headers': { 'Accept': 'application/json;' }, 'timeout': 10000 },
+									data: { 'headers': { 'Accept': 'application/json;' }, 'timeout': 10000, 'status': 'past'},
 									success: function(events) {
-										$(".tab-container > [data-tab=1]").html("");
-										var count = 0;
-										$.each(events.items, function(index, event) {
-											count++;
-											var datex = new Date(event.start.substring(0,19));
-											event.about = replaceAll(event.about, '<p style="text-align: justify;">', '<p>');
-											event.about = replaceAll(event.about, '<br />', '');
-											event.about = replaceAll(event.about, '<br>', '');
-
-											$(".tab-container > [data-tab=1]").append('<div class="card"><div class="wrapper"><h3>'+event.title+'</h3><small>'+event.location+'<br>'+dateFormat(datex, "dddd, mmmm dS, yyyy, h:MM TT")+'</small><br><br>'+event.about+'</div></div>');
-										})
-										if(count == 0)
-											$(".tab-container > [data-tab=1]").html('<div class="card"><div class="wrapper"><h3>Message</h3><p>No incoming events for now. Add, like, and follow our social media pages to get the latest updates for our upcoming events!</p></div></div>');
+										$(".tab-container > [data-tab=2]").html("");
+										console.log(events);
+										if(events.data.length > 0) {
+											for(var i = 0; i < events.data.length; i++) {
+												var e = events.data[i];
+												var datex = new Date(e.time);
+												var venue = "";
+												if(e.hasOwnProperty("venue")) {
+													venue = e.venue.city+', '+e.venue.localized_country_name;
+												}
+												$(".tab-container > [data-tab=2]").append('<div class="card"><div class="wrapper"><h3>'+e.name+'</h3><small>'+venue+'<br>'+datex.toDateString()+', '+datex.toLocaleTimeString()+'</small><br><br>'+e.description+'<a href="'+e.link+'" class="button" target="_blank"><i class="mdi mdi-eye"></i>View on Meetup</a></div></div>');
+											}
+										} else {
+											$(".tab-container > [data-tab=2]").html('<div class="card"><div class="wrapper"><h3>Message</h3><p>No incoming events for now. Add, like, and follow our social media pages to get the latest updates for our upcoming events!</p></div></div>');	
+										}
 									}
 								});
 								$.ajax({
 									type: "get",
-									cache: true,
 									crossOrigin: true,
-									url: "https://hub.gdgx.io/api/v1/chapters/105750470224587854845/events/past?callback=?",
+									cache: true,
+									url: "https://api.meetup.com/gdgphilippines/events?callback=?",
 									dataType: 'jsonp',
-									data: { 'headers': { 'Accept': 'application/json;' }, 'timeout': 10000, 'perpage': 1000 },
+									data: { 'headers': { 'Accept': 'application/json;' }, 'timeout': 10000},
 									success: function(events) {
-										function compare(a,b) {
-											return new Date(a.start) - new Date(b.start);
-										}
-										$(".tab-container > [data-tab=2]").html("");
-										events.items.sort(compare);
-										var max = 10, count = 0;
-										for(var i = events.items.length - 1; i >= 0; i--) {
-											count++;
-											if(max == count)
-												break;
-											var event = events.items[i];
-											var datex = new Date(event.start.substring(0,19));
-											event.about = replaceAll(event.about, '<p style="text-align: justify;">', '<p>');
-											event.about = replaceAll(event.about, '<br />', '');
-											event.about = replaceAll(event.about, '<br>', '');
-
-											$(".tab-container > [data-tab=2]").append('<div class="card"><div class="wrapper"><h3>'+event.title+'</h3><small>'+event.location+'<br>'+dateFormat(datex, "dddd, mmmm dS, yyyy, h:MM TT")+'</small><br><br><p>'+event.about+'</p></div></div>');
+										$(".tab-container > [data-tab=1]").html("");
+										console.log(events);
+										if(events.data.length > 0) {
+											for(var i = 0; i < events.data.length; i++) {
+												var e = events.data[i];
+												var datex = new Date(e.time);
+												var venue = "";
+												if(e.hasOwnProperty("venue")) {
+													venue = e.venue.city+', '+e.venue.localized_country_name;
+												}
+												$(".tab-container > [data-tab=1]").append('<div class="card"><div class="wrapper"><h3>'+e.name+'</h3><small>'+venue+'<br>'+datex.toDateString()+', '+datex.toLocaleTimeString()+'</small><br><br>'+e.description+'<a href="'+e.link+'" class="button" target="_blank"><i class="mdi mdi-eye"></i>View on Meetup</a></div></div>');
+											}
+										} else {
+											$(".tab-container > [data-tab=1]").html('<div class="card"><div class="wrapper"><h3>Message</h3><p>No incoming events for now. Add, like, and follow our social media pages to get the latest updates for our upcoming events!</p></div></div>');	
 										}
 									}
 								});
+								// $.ajax({
+								// 	type: "get",
+								// 	crossOrigin: true,
+								// 	cache: true,
+								// 	url: "https://hub.gdgx.io/api/v1/chapters/105750470224587854845/events/upcoming?callback=?",
+								// 	dataType: 'jsonp',
+								// 	data: { 'headers': { 'Accept': 'application/json;' }, 'timeout': 10000 },
+								// 	success: function(events) {
+								// 		$(".tab-container > [data-tab=1]").html("");
+								// 		var count = 0;
+								// 		$.each(events.items, function(index, event) {
+								// 			count++;
+								// 			var datex = new Date(event.start.substring(0,19));
+								// 			event.about = replaceAll(event.about, '<p style="text-align: justify;">', '<p>');
+								// 			event.about = replaceAll(event.about, '<br />', '');
+								// 			event.about = replaceAll(event.about, '<br>', '');
+
+								// 			$(".tab-container > [data-tab=1]").append('<div class="card"><div class="wrapper"><h3>'+event.title+'</h3><small>'+event.location+'<br>'+dateFormat(datex, "dddd, mmmm dS, yyyy, h:MM TT")+'</small><br><br>'+event.about+'</div></div>');
+								// 		})
+								// 		if(count == 0)
+								// 			$(".tab-container > [data-tab=1]").html('<div class="card"><div class="wrapper"><h3>Message</h3><p>No incoming events for now. Add, like, and follow our social media pages to get the latest updates for our upcoming events!</p></div></div>');
+								// 	}
+								// });
+								// $.ajax({
+								// 	type: "get",
+								// 	cache: true,
+								// 	crossOrigin: true,
+								// 	url: "https://hub.gdgx.io/api/v1/chapters/105750470224587854845/events/past?callback=?",
+								// 	dataType: 'jsonp',
+								// 	data: { 'headers': { 'Accept': 'application/json;' }, 'timeout': 10000, 'perpage': 1000 },
+								// 	success: function(events) {
+								// 		function compare(a,b) {
+								// 			return new Date(a.start) - new Date(b.start);
+								// 		}
+								// 		$(".tab-container > [data-tab=2]").html("");
+								// 		events.items.sort(compare);
+								// 		var max = 10, count = 0;
+								// 		for(var i = events.items.length - 1; i >= 0; i--) {
+								// 			count++;
+								// 			if(max == count)
+								// 				break;
+								// 			var event = events.items[i];
+								// 			var datex = new Date(event.start.substring(0,19));
+								// 			event.about = replaceAll(event.about, '<p style="text-align: justify;">', '<p>');
+								// 			event.about = replaceAll(event.about, '<br />', '');
+								// 			event.about = replaceAll(event.about, '<br>', '');
+
+								// 			$(".tab-container > [data-tab=2]").append('<div class="card"><div class="wrapper"><h3>'+event.title+'</h3><small>'+event.location+'<br>'+dateFormat(datex, "dddd, mmmm dS, yyyy, h:MM TT")+'</small><br><br><p>'+event.about+'</p></div></div>');
+								// 		}
+								// 	}
+								// });
 							</script>
 							<div data-tab="2">
 								<div class="card">
@@ -85,42 +135,42 @@
 								<div class="card">
 									<div class="wrapper">
 										<h3>Android Study Jams</h3><br>
-										<img src="assets/images/events/study-jams.jpg" width="100%">
+										<img src="https://raw.githubusercontent.com/gdgphilippines/main-files/master/images/events/study-jams.jpg" width="100%">
 										<p>Google Developers Study Jams is a series of an in-person study groups to support students taking online Udacity courses on Google developer technologies. These events are run by local Google Developer Groups or other developer meetups all over the world. This season, Feb 1st - May 1st, we are running Study Jams around the Udacity Android for Beginners course.<br><br>The mission of Study Jams is to provide a supplement to the online course experience with a live community learning environment will support students in completing the course and achieving certification. The goal is to provide deeper understanding in the course material within a fun and collaborative community environment.<br><br>Study Jams are an opportunity for students to receive free, in-person guidance and tutoring on the Udacity course in a fun classroom environment.</p>
 									</div>
 								</div>
 								<div class="card">
 									<div class="wrapper">
 										<h3>Women Techmakers</h3><br>
-										<img src="assets/images/events/wtm.jpg" width="100%">
+										<img src="https://raw.githubusercontent.com/gdgphilippines/main-files/master/images/events/wtm.jpg" width="100%">
 										<p>Google believes diversity and inclusion is important for thriving vibrant communities. Focusing on women-inclusion is the first step in a larger effort to diversify the global Google developer community. The GDG Philippines community has shown great interest in this initiative, starting with GDG DevFest Women 2013, Women Techmakers 2014, and Women Techmakers 2015.<br><br>Women Techmakers is Google's brand and global program for women in technology. Women Techmakers provides visibility, community, and resources for women in technology to drive innovation and participation in the field. Women Techmakers events are designed to promote an environment of inclusivity for women in technology, as well as celebrate women leading the industry. We want to advance, grow, and celebrate women developers, designers, and technology entrepreneurs.</p>
 									</div>
 								</div>
 								<div class="card">
 									<div class="wrapper">
 										<h3>Google I/O 2016 Series</h3><br>
-										<img src="assets/images/events/io.jpg" width="100%">
+										<img src="https://raw.githubusercontent.com/gdgphilippines/main-files/master/images/events/io.jpg" width="100%">
 										<p>The I/O Extended Series is hosted by GDG Philippines and interested Local Universities. It is a series of workshops and talks which share the latest technologies on web, mobile, design, cloud, big data and machine learning. Participants will also get to learn various technologies and updates from Google I/O 2016.<br><br>The events are hosted by local university partners who share the same passion in helping professional and student developers deep dive in the new technologies. The events will have roster of speakers ranging from Community Leaders, Developer Experts, to Googlers.</p>
 									</div>
 								</div>
 								<div class="card">
 									<div class="wrapper">
 										<h3>GDG DevFest Philippines</h3><br>
-										<img src="assets/images/events/devfest.jpg" width="100%">
+										<img src="https://raw.githubusercontent.com/gdgphilippines/main-files/master/images/events/devfest.jpg" width="100%">
 										<p>GDG DevFests are large, community-run events that can offer speaker sessions across multiple product areas, all-day hack-a-thons, code labs, and more.<br><br>Each GDG DevFest will be inspired by and uniquely tailored to the needs of the developer community that hosts it. While no two events will be exactly alike, each GDG DevFest will, at its core, be powered by a shared belief that when developers come together to exchange ideas, amazing things can happen.</p>
 									</div>
 								</div>
 								<div class="card">
 									<div class="wrapper">
 										<h3>Android Masters</h3><br>
-										<img src="assets/images/events/androidmasters.jpg" width="100%">
+										<img src="https://raw.githubusercontent.com/gdgphilippines/main-files/master/images/events/androidmasters.jpg" width="100%">
 										<p>Android Masters is a collegiate inter-school Android app development challenge open to all universities and colleges across the Philippines. The main objective of the program is to encourage students to develop their creative app ideas and publish it to Google Play Store. </p>
 									</div>
 								</div>
 								<div class="card">
 									<div class="wrapper">
 										<h3>HackFair Philippines</h3><br>
-										<img src="assets/images/events/hackfair.jpg" width="100%">
+										<img src="https://raw.githubusercontent.com/gdgphilippines/main-files/master/images/events/hackfair.jpg" width="100%">
 										<p>HackFair Philippines is an interactive two-day event where thirty App/Website/IoT that were created using Google Technologies are given the opportunity to be featured.<br><br>Ideas can range from health, education, productivity, music, arts and culture, social impact, etc. Selected projects are invited for the exhibit and the mini-conference. </p>
 									</div>
 								</div>

@@ -26,7 +26,7 @@ App["View"] = {
 		} else {
 			$.ajax({
 				"url": "views/"+template+".html",
-				"cache": true,
+				"cache": false,
 				"success": function(html) {
 					App.View.loadPage(html);
 				},
@@ -92,7 +92,7 @@ App["View"] = {
 		// xhttp.open("GET", "app/views/"+App.Utility.getControllerCode(App.CONTROLLER)+"/"+App.ACTION+".html", true);
 		// xhttp.send();
 		$.ajax({
-			"cache": true,
+			"cache": false,
 			"url": "views/"+App.Utility.getControllerCode(App.CONTROLLER)+"/"+App.ACTION+".html",
 			"success": function(html2) {
 				for(var i in App.View.data) {

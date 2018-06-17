@@ -9,10 +9,28 @@ App.Controller["EventsController"] = {
 		App.View.setTitle("Google Cloud Next 17 Extended Manila");
 		return App.View.render();
 	},
-	"tensorflow-dev-summit": function(parameters) {
+	"tensorflow-dev-summit-2017": function(parameters) {
+		App.View.setTitle("TensorFlow Dev Summit 2017 Extended Manila");
+		return App.View.render();
+	},
+	"tensorflow-dev-summit-2018": function(parameters) {
+		App.View.setTitle("TensorFlow Dev Summit 2018 Extended Manila");
 		return App.View.render();
 	},
 	"codeblaze": function(parameters) {
+		App.View.setTitle("CodeBlaze");
+		return App.View.render();
+	},
+	"buildactions": function(parameters) {
+		App.View.setTitle("Google Assistant: Build Actions For Your Community");
+		return App.View.render();
+	},
+	"tensorflowlite-mlonmobile": function(parameters) {
+		App.View.setTitle("TensorFlow Lite: Machine Learning on Mobile");
+		return App.View.render();
+	},
+	"intro-to-kotlin": function(parameters) {
+		App.View.setTitle("Introduction to Kotlin");
 		return App.View.render();
 	}
 }
