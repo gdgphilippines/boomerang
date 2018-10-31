@@ -9,6 +9,7 @@ App["Constant"] = {
 	"DEVELOPMENT": false,
 	"ROUTE_SHORTCUT": {
 		"campusroadshow": "/initiatives/campusroadshow",
+		"droids": "/initiatives/droids",
 		"codeblaze": "/events/codeblaze",
 		"googlephlights": "https://josanastrid.github.io/googleph-lights/",
 		"iotsummit2017": "https://docs.google.com/forms/d/e/1FAIpQLSdbKm7tKjAmwv6tbfMBhZVMLjxLnE1QJCDL5nZxQAyNggmlOA/viewform",
@@ -18,6 +19,7 @@ App["Constant"] = {
 		"tensorflowdevsummit": "/events/tensorflow-dev-summit-2018",
 		"buildactions": "/events/buildactions",
 		"tensorflowlite": "/events/tensorflowlite-mlonmobile",
-		"intro-to-kotlin": "/events/intro-to-kotlin"
+		"intro-to-kotlin": "/events/intro-to-kotlin",
+		"firebasesummit": "/events/firebase-summit-extended-manila-2018"
 	}
 }

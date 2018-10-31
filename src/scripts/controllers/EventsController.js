@@ -32,5 +32,9 @@ App.Controller["EventsController"] = {
 	"intro-to-kotlin": function(parameters) {
 		App.View.setTitle("Introduction to Kotlin");
 		return App.View.render();
+	},
+	"firebase-summit-extended-manila-2018": function(parameters) {
+		App.View.setTitle("Firebase Summit Extended Manila 2018");
+		return App.View.render();
 	}
 }
