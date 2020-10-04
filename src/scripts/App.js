@@ -236,6 +236,7 @@ $.fn.enableScroll = function() {
 			"cristopher-david",
 			"elymar-apao",
 			"reymart-canuel",
+			"jomar-tigcal",
 			"toni-jan-keith-monserrat",
 			"benj-tupas",
 			"claudine-rodriguez",

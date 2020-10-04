@@ -357,7 +357,7 @@ var Data = {
 				"tw": "https://twitter.com/jomartigcal",
 				"gp": "https://plus.google.com/+JomarTigcal",
 				"li": "https://ph.linkedin.com/in/jomartigcal",
-				"ws": "http://www.tigcal.com/"
+				"ws": "https://www.tigcal.com/"
 			}
 		},
 		"jonah-mananghaya": {
